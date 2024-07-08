@@ -1,0 +1,37 @@
+{
+  "questions": [
+    {
+      "question_id": 1,
+      "question_text": "평소에 운동을 즐겨하시나요?",
+      "question_variable": "answer_is_big"
+    }
+  ],
+  "answers": [
+    {
+      "dog_id": 1,
+      "answer_is_big": true,
+      "answer_is_fluff": false,
+      "answer_like_walking": true,
+      "answer_is_smart": true,
+      "answer_is_shyness": false,
+      "answer_is_nuisance": false,
+      "answer_is_biting": false,
+      "answer_is_independent": true
+    }
+  ],
+  "informations": [
+    {
+      "dog_id": 1,
+      "information_dog_name": "",
+      "information_dog_character": "",
+      "information_min_size": "",
+      "information_max_size": "",
+      "information_min_cost": "",
+      "information_max_cost": "",
+      "information_dog_text": "",
+      "information_dog_geneticillness": "",
+      "information_caution": "",
+      "information_image_url": ""
+    }
+  ]
+}
