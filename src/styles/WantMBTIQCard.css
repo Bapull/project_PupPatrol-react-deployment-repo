@@ -1,1 +1,10 @@
 /* WantMBTIQCard.jsx의 CSS 파일 */
+#card {
+    background-color: #F5EBE0;
+    box-shadow: 0px 4px 2px #DCB893;
+    border-radius: 19px;
+    width: 36%;
+    height: 60%;
+    margin: auto;
+    
+}
