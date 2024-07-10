@@ -1,5 +1,5 @@
 {
-  "question": [
+  "questions": [
     {
       "question_id": 1,
       "question_text": "근력이 강한 편이신가요?",
@@ -7,17 +7,17 @@
     },
     {
       "question_id": 2,
-      "question_text": "방이 지저분하면 스트레스를 많이 받는 편인가요",
+      "question_text": "방이 지저분하면 스트레스를 많이 받는 편인가요?",
       "question_variable": "answer_is_fluff"
     },
     {
       "question_id": 3,
-      "question_text": "평소 달리기나 산책을 좋아하시나요",
+      "question_text": "평소 달리기나 산책을 좋아하시나요?",
       "question_variable": "answer_like_walking"
     },
     {
       "question_id": 4,
-      "question_text": "훈련에 많은 시간을 쓰실 수 있나요",
+      "question_text": "훈련에 많은 시간을 쓰실 수 있나요?",
       "question_variable": "answer_is_smart"
     },
     {
@@ -41,7 +41,7 @@
       "question_variable": "answer_is_independent"
     }
   ],
-  "answer": [
+  "answers": [
     {
       "dog_id": 1,
       "answer_is_big": true,
@@ -55,66 +55,114 @@
     },
     {
       "dog_id": 2,
-      "answer_is_big": true,
-      "answer_is_fluff": false,
+      "answer_is_big": false,
+      "answer_is_fluff": true,
       "answer_like_walking": false,
       "answer_is_smart": true,
       "answer_is_shyness": true,
       "answer_is_biting": false,
       "answer_is_nuisance": false,
-      "answer_is_independent": true
+      "answer_is_independent": false
     },
     {
       "dog_id": 3,
+      "answer_is_big": false,
+      "answer_is_fluff": false,
+      "answer_like_walking": true,
+      "answer_is_smart": false,
+      "answer_is_shyness": true,
+      "answer_is_biting": true,
+      "answer_is_nuisance": false,
+      "answer_is_independent": true
+    },
+    {
+      "dog_id": 4,
       "answer_is_big": true,
       "answer_is_fluff": false,
-      "answer_like_walking": false,
+      "answer_like_walking": true,
       "answer_is_smart": true,
       "answer_is_shyness": false,
       "answer_is_biting": false,
-      "answer_is_nuisance": true,
+      "answer_is_nuisance": false,
+      "answer_is_independent": false
+    },
+    {
+      "dog_id": 5,
+      "answer_is_big": true,
+      "answer_is_fluff": true,
+      "answer_like_walking": true,
+      "answer_is_smart": true,
+      "answer_is_shyness": false,
+      "answer_is_biting": false,
+      "answer_is_nuisance": false,
       "answer_is_independent": false
     }
   ],
-  "information": [
+  "informations": [
     {
       "dog_id": 1,
-      "information_dog_name": "골든리트리버",
-      "information_dog_character": "순진",
-      "information_min_size": 10,
-      "information_max_size": 50,
-      "information_min_cost": 30,
-      "information_max_cost": 50,
-      "information_dog_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rutrum varius vestibulum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum molestie egestas felis vel consectetur. Fusce eu pharetra libero, dignissim maximus tellus. In aliquet est eget magna malesuada faucibus. Sed id volutpat nunc. Vestibulum viverra convallis urna quis ultricies. Nullam sollicitudin justo elit, at fringilla ligula tristique sed. Duis ut mauris libero. Vestibulum placerat luctus erat a efficitur. Proin tincidunt leo nibh, gravida aliquam turpis elementum nec. Praesent lectus urna, viverra accumsan arcu vel, pharetra ornare turpis. In malesuada massa eu tincidunt mattis. Phasellus suscipit elit rutrum, ultrices ligula a, pulvinar nisl. Donec erat mauris, aliquet non ex nec, tincidunt malesuada dui. Duis a lacinia dolor. Nunc nisl felis, vulputate nec libero ut, consequat egestas libero. Nunc scelerisque, mi sed vulputate pellentesque, felis neque accumsan lacus, non sagittis dui tortor id metus. Phasellus vel molestie libero. Fusce sed quam dui. Sed laoreet quis risus id condimentum. Nunc sit amet turpis nec nisl rhoncus vulputate. Nunc mi augue, dictum sed augue non, dictum ultricies erat. Quisque facilisis orci dui. Duis ac eleifend nisi. Curabitur facilisis et elit et auctor.",
-      "information_dog_geneticillness": "눈병",
+      "information_dog_name": "골든 리트리버",
+      "information_dog_character": "온화하고 영리함",
+      "information_min_size": 56,
+      "information_max_size": 61,
+      "information_min_cost": 25,
+      "information_max_cost": 80,
+      "information_dog_text": "골든 리트리버는 온화하며 특히 순종적이고 영리합니다. 사람에게 부드럽고 우호적입니다.",
+      "information_dog_geneticillness": "고관절 이형성증, 백내장, 암",
       "information_caution": "사람에게는 착하지만, 다른 개들에게는 사나울 수 있습니다.",
       "information_image_url": "images/Golden Retriever.png"
     },
     {
       "dog_id": 2,
       "information_dog_name": "말티푸",
-      "information_dog_character": "순진",
-      "information_min_size": 10,
-      "information_max_size": 50,
-      "information_min_cost": 30,
-      "information_max_cost": 50,
-      "information_dog_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rutrum varius vestibulum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum molestie egestas felis vel consectetur. Fusce eu pharetra libero, dignissim maximus tellus. In aliquet est eget magna malesuada faucibus. Sed id volutpat nunc. Vestibulum viverra convallis urna quis ultricies. Nullam sollicitudin justo elit, at fringilla ligula tristique sed. Duis ut mauris libero. Vestibulum placerat luctus erat a efficitur. Proin tincidunt leo nibh, gravida aliquam turpis elementum nec. Praesent lectus urna, viverra accumsan arcu vel, pharetra ornare turpis. In malesuada massa eu tincidunt mattis. Phasellus suscipit elit rutrum, ultrices ligula a, pulvinar nisl. Donec erat mauris, aliquet non ex nec, tincidunt malesuada dui. Duis a lacinia dolor. Nunc nisl felis, vulputate nec libero ut, consequat egestas libero. Nunc scelerisque, mi sed vulputate pellentesque, felis neque accumsan lacus, non sagittis dui tortor id metus. Phasellus vel molestie libero. Fusce sed quam dui. Sed laoreet quis risus id condimentum. Nunc sit amet turpis nec nisl rhoncus vulputate. Nunc mi augue, dictum sed augue non, dictum ultricies erat. Quisque facilisis orci dui. Duis ac eleifend nisi. Curabitur facilisis et elit et auctor.",
-      "information_dog_geneticillness": "눈병",
-      "information_caution": "사람에게는 착하지만, 다른 개들에게는 사나울 수 있습니다.",
+      "information_dog_character": "높은 지능과 활발한 성격",
+      "information_min_size": 20,
+      "information_max_size": 35,
+      "information_min_cost": 100,
+      "information_max_cost": 300,
+      "information_dog_text": "말티푸는 매우 똑똑하며, 애교 많고 활발한 성격을 가지고 있습니다. 낯선 사람이나 다른 개에 대한 경계심이 강합니다.",
+      "information_dog_geneticillness": "슬개골 탈구, 간질, 치과 질환",
+      "information_caution": "사람에게는 친근하지만, 예민하고 분리불안 위험이 큽니다.",
       "information_image_url": "images/Maltipoo.png"
     },
     {
       "dog_id": 3,
       "information_dog_name": "시바견",
-      "information_dog_character": "순진",
-      "information_min_size": 10,
-      "information_max_size": 50,
-      "information_min_cost": 30,
-      "information_max_cost": 50,
-      "information_dog_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rutrum varius vestibulum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum molestie egestas felis vel consectetur. Fusce eu pharetra libero, dignissim maximus tellus. In aliquet est eget magna malesuada faucibus. Sed id volutpat nunc. Vestibulum viverra convallis urna quis ultricies. Nullam sollicitudin justo elit, at fringilla ligula tristique sed. Duis ut mauris libero. Vestibulum placerat luctus erat a efficitur. Proin tincidunt leo nibh, gravida aliquam turpis elementum nec. Praesent lectus urna, viverra accumsan arcu vel, pharetra ornare turpis. In malesuada massa eu tincidunt mattis. Phasellus suscipit elit rutrum, ultrices ligula a, pulvinar nisl. Donec erat mauris, aliquet non ex nec, tincidunt malesuada dui. Duis a lacinia dolor. Nunc nisl felis, vulputate nec libero ut, consequat egestas libero. Nunc scelerisque, mi sed vulputate pellentesque, felis neque accumsan lacus, non sagittis dui tortor id metus. Phasellus vel molestie libero. Fusce sed quam dui. Sed laoreet quis risus id condimentum. Nunc sit amet turpis nec nisl rhoncus vulputate. Nunc mi augue, dictum sed augue non, dictum ultricies erat. Quisque facilisis orci dui. Duis ac eleifend nisi. Curabitur facilisis et elit et auctor.",
-      "information_dog_geneticillness": "눈병",
-      "information_caution": "사람에게는 착하지만, 다른 개들에게는 사나울 수 있습니다.",
+      "information_dog_character": "독립적이고 경계심이 강함",
+      "information_min_size": 35,
+      "information_max_size": 43,
+      "information_min_cost": 50,
+      "information_max_cost": 150,
+      "information_dog_text": "시바견은 독립적이고 경계심이 강한 성격을 가지고 있습니다. 사회화 훈련이 필수적입니다.",
+      "information_dog_geneticillness": "고관절 이형성증, 백내장, 피부염",
+      "information_caution": "사회화 훈련이 필요하며, 털 관리에 신경 써야 합니다.",
       "information_image_url": "images/Shiba Inu.png"
+    },
+    {
+      "dog_id": 4,
+      "information_dog_name": "보더콜리",
+      "information_dog_character": "쾌활하고 사교적, 강한 책임감과 소유욕, 높은 지능과 학습력",
+      "information_min_size": 45,
+      "information_max_size": 56,
+      "information_min_cost": 50,
+      "information_max_cost": 150,
+      "information_dog_text": "보더콜리는 매우 활동적이고 사교적입니다. 가족에게 애정이 깊으나 낯선 사람을 경계하며, 높은 지능과 학습력을 가지고 있습니다.",
+      "information_dog_geneticillness": "콜리아이 증후군, 유전성 난청, 고관절 이형성증",
+      "information_caution": "하루 최소 1~2시간 이상의 운동이 필요하며, 철저한 교육이 중요합니다.",
+      "information_image_url": "images/Border Collie.png"
+    },
+    {
+      "dog_id": 5,
+      "information_dog_name": "사모예드",
+      "information_dog_character": "사교적이고 발랄하며 사람을 좋아함",
+      "information_min_size": 53,
+      "information_max_size": 57,
+      "information_min_cost": 50,
+      "information_max_cost": 150,
+      "information_dog_text": "사모예드는 사교적이고 발랄하며, 사람을 좋아하고 외로움을 잘 타며, 공격성이 낮아 아이들과 잘 어울립니다.",
+      "information_dog_geneticillness": "유전성사구체병증, 녹내장, 당뇨, 고관절 이형성증",
+      "information_caution": "털 관리와 많은 운동이 필요하며, 마당이 있는 집에서 키우는 것이 적합합니다.",
+      "information_image_url": "images/Samoyed.png"
     }
   ]
 }
