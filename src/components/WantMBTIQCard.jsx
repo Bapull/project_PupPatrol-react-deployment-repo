@@ -4,9 +4,13 @@ import '../styles/WantMBTIQCard.css'
 const WantMBTIQCard = () => {
     const [tilt, setTilt] = useState(0);
     const [isCllicked, setIsClicked] = useState(false)
-    const onMouseMove = (e) => {
+    const [isMobile, setIsMobile] = useState(false)
+    const onPointerMove = (e) => {
+        if(isCllicked && isMobile ){
+            setTilt((prev)=>prev+(e.movementX))
+        }
         if(isCllicked){
-            setTilt((prev)=>prev+(e.movementX)*0.1)
+            setTilt((prev)=>prev+(e.movementX*0.05))
         }
     }
     const onMouseDown = () => {
@@ -16,20 +20,26 @@ const WantMBTIQCard = () => {
         setIsClicked(false)
         setTilt(0)
     }
-
+    const onTouchStart = () => {
+        setIsClicked(true)
+        setIsMobile(true)
+    };
   return (
     <div className="container" 
     style={{
-        width:"1500px",
-        height:"1500px",
-        backgroundColor:"#FFFFFF"
+        position: "relative",
+        width:"60%",
+        height:"0",
+        paddingBottom:"90%"
     }}
     onMouseDown={onMouseDown}
-    onMouseUp={onMouseUp}>
+    onTouchStart={onTouchStart}
+    onMouseUp={onMouseUp}
+    onTouchEnd={onMouseUp}
+    onPointerMove={onPointerMove}>
         <div id='card' 
-            onMouseMove={onMouseMove}
             style={{
-                transformOrigin: "center 95%",
+                transformOrigin: "center 90%",
                 transform: `rotate(${tilt}deg)`
             }}
         ></div>
