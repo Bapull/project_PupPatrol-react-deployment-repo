@@ -4,7 +4,7 @@ import React from 'react';
 function CategorySelect() {
   return (
     <div className="CategorySelect">
-      안녕!
+      <h1>안녕</h1>
     </div>
   );
 }
