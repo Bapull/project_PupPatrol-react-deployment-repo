@@ -7,12 +7,12 @@ function WantSelect() {
   return (
     <div className="wantSelect">
       <Link to="/wantMBTI">
-        <div className="mbti-box">
+        <div className="wantSelect_mbti-box">
           <h1>DBTI</h1>
         </div>
       </Link>
       <Link to="/dogSearch">
-        <div className="search-box">
+        <div className="wantSelect_search-box">
           <input type="text" placeholder="Search" />
         </div>
       </Link>
