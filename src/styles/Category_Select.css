@@ -1,1 +1,47 @@
-/* 'Category_Select.jsx'의 CSS 파일 */
+body {
+  margin: 0;
+}
+
+h5 {
+  color: white;
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100dvh;
+  background: black;
+}
+
+.content {
+  background: black;
+  padding: 1%;
+  font-size: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.horizontal {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #aaa;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+.slide {
+  padding: 15px;
+  min-height: 100px;
+  color: #fff;
+}
+
+.slide1 {
+  background-color: #fea900;
+}
+
+.slide2 {
+  background-color: #b3dc4a;
+}
+
+.slide3 {
+  background-color: #6ac0ff;
+}
