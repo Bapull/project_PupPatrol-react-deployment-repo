@@ -3,10 +3,57 @@
     background-color: #F5EBE0;
     box-shadow: 0px 4px 2px #DCB893;
     border-radius: 19px;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
     transition: transform 0.2s ease;
     position: absolute;
+    z-index: 100;
+    overflow: hidden;
+    border: 1px solid #DCB893;
+}
+#select {
+    background-color: rgba(128,128,128,0.5);
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
+}
+.question {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    color: black;
+
+}
+.right {
+    animation-name: rightFly;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+}
+.left {
+    animation-name: leftFly;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+}
+@keyframes rightFly {
+    0% {
+        left: 0px;
+        opacity: 1;
+    }
+    100% {
+        left: 500px;
+        opacity: 0;
+    }
+}
+@keyframes leftFly {
+    0% {
+        left: 0px;
+        opacity: 1;
+    }
+    100% {
+        left: -500px;
+        opacity: 0;
+    }
 }
