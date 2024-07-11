@@ -113,8 +113,6 @@ const WantMBTIQCard = ({question, setAnswer,questionVariable,setCurrentQuestionI
             transform: `rotate(${tilt}deg)`
         }}
         >
-            {tilt < -15 || tilt > 15 ? <div id='select'
-            >{tilt < -0 ? "아니요" : "예"}</div>: null}
             <span className='question'>
                 {question}
             </span>
