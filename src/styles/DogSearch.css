@@ -1,1 +1,66 @@
-/* DogSearch.jsx의 CSS 파일 */
+.dogSearch {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 수평 중앙 정렬 */
+  width: 100%;
+  height: 100vh;
+  background-color: #eeeae6;
+}
+
+.back-link {
+  font-size: x-small;
+  align-self: flex-start;
+}
+
+.back-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.dogSearch_search-box {
+  width: 75%;
+  margin-bottom: 20px;
+}
+
+.dogSearch_search-box input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.dogSearch_results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2열로 설정 */
+  gap: 20px;
+  width: 75%;
+  height: 70vh;
+}
+
+.dogSearch_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f5ebe0;
+  height: calc(70vh / 3 - 20px);
+}
+
+.dogSearch_item img {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  object-fit: cover;
+}
+
+.dogSearch_item p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  text-align: center;
+}
