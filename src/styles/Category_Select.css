@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 /* 'Category_Select.jsx'의 CSS 파일 */
 
+=======
+>>>>>>> 4808b8a0916c6f000b438fc7a3394436d3ce874b
 body {
   margin: 0;
 }
@@ -8,6 +11,7 @@ h5 {
   color: white;
 }
 
+<<<<<<< HEAD
 p {
   color: rgb(21, 142, 255);
   font-size: small;
@@ -15,6 +19,8 @@ p {
   margin-top: 13%;
 }
 
+=======
+>>>>>>> 4808b8a0916c6f000b438fc7a3394436d3ce874b
 .wrapper {
   display: flex;
   min-height: 100dvh;
@@ -37,6 +43,7 @@ p {
   margin: 10px 0 20px;
 }
 
+<<<<<<< HEAD
 .buttonBox {
   text-align: center;
   margin-top: 55dvh;
@@ -54,3 +61,22 @@ p {
   outline-color: white;
   background-color: black;
 }
+=======
+.slide {
+  padding: 15px;
+  min-height: 100px;
+  color: #fff;
+}
+
+.slide1 {
+  background-color: #fea900;
+}
+
+.slide2 {
+  background-color: #b3dc4a;
+}
+
+.slide3 {
+  background-color: #6ac0ff;
+}
+>>>>>>> 4808b8a0916c6f000b438fc7a3394436d3ce874b
