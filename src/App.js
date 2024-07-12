@@ -4,6 +4,7 @@ import WantSelect from './pages/WantSelect';
 import WantMBTI from './pages/WantMBTI';
 import DogSearch from './pages/DogSearch';
 import './App.css';
+import WantDogDescription from './pages/WantDogDescription';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/wantSelect" element={<WantSelect />} />
           <Route path="/wantMBTI" element={<WantMBTI />} />
           <Route path="/dogSearch" element={<DogSearch />} />
+          <Route path="/wantDogDescription" element={<WantDogDescription />} />
         </Routes>
       </div>
     </Router>
