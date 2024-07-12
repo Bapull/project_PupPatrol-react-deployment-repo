@@ -54,3 +54,16 @@
   border-radius: 19px;
   background-color: #f5ebe0;
 }
+
+/* 검색 박스의 input 포커스 스타일 */
+.wantSelect_search-box.transition {
+  transition: all 0.3s ease;
+}
+
+/* 검색 박스의 input 확장 스타일 */
+.wantSelect_search-box.expand {
+  width: 75%;
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}

@@ -1,3 +1,4 @@
+/* DogSearch 컴포넌트 스타일 */
 .dogSearch {
   display: flex;
   flex-direction: column;
@@ -7,23 +8,23 @@
   background-color: #eeeae6;
 }
 
-.back-link {
+/* 뒤로가기 박스 스타일 */
+.back-box {
   font-size: x-small;
   align-self: flex-start;
-}
-
-.back-box {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   cursor: pointer;
 }
 
+/* 검색 박스 스타일 */
 .dogSearch_search-box {
   width: 75%;
   margin-bottom: 20px;
 }
 
+/* 검색 박스의 input 스타일 */
 .dogSearch_search-box input {
   width: 100%;
   padding: 10px;
@@ -32,6 +33,20 @@
   border-radius: 5px;
 }
 
+/* 검색 박스의 input 포커스 스타일 */
+.dogSearch_search-box.transition {
+  transition: all 0.3s ease;
+}
+
+/* 검색 박스의 input 확장 스타일 */
+.dogSearch_search-box.expand {
+  width: 75%;
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+/* 검색 결과 스타일 */
 .dogSearch_results {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2열로 설정 */
@@ -40,6 +55,7 @@
   height: 70vh;
 }
 
+/* 검색 결과 아이템 스타일 */
 .dogSearch_item {
   display: flex;
   flex-direction: column;
@@ -52,6 +68,7 @@
   height: calc(70vh / 3 - 20px);
 }
 
+/* 검색 결과 아이템 이미지 스타일 */
 .dogSearch_item img {
   width: 100%;
   height: 100%;
@@ -59,6 +76,7 @@
   object-fit: cover;
 }
 
+/* 검색 결과 아이템 p 스타일 */
 .dogSearch_item p {
   margin: 10px 0 0;
   font-size: 1rem;
