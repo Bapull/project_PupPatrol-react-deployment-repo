@@ -21,7 +21,7 @@ function WantSelect() {
       <div className="wantSelect_mbti-box">
         <h1>DBTI</h1>
       </div>
-      <div className={`wantSelect_search-box ${expand ? 'expand' : ''} transition`} onClick={handleClick}>
+      <div className={`wantSelect_search-box ${expand ? 'expand' : ''}`} onClick={handleClick}>
         <input ref={inputRef} type="text" placeholder="Search" />
       </div>
     </div>

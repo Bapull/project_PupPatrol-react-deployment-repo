@@ -11,7 +11,7 @@ function DogSearch() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    fetch('http://192.168.0.13:3001/informations')
+    fetch('http://192.168.210.144:3001/informations')
       .then((response) => response.json())
       .then((data) => setDogs(data));
   }, []);
@@ -39,10 +39,10 @@ function DogSearch() {
   return (
     <div className="dogSearch">
       <div className="back-box" onClick={handleClick}>
-        <h1>Back</h1>
+        <img src="/images/Arrow.png" alt="back arrow" />
       </div>
       <h1>Dog Search</h1>
-      <div className={`dogSearch_search-box ${expand ? 'expand' : ''} transition`}>
+      <div className={`dogSearch_search-box ${expand ? 'expand' : ''}`}>
         <input
           ref={inputRef}
           type="text"
