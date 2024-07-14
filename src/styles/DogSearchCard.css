@@ -1,1 +1,31 @@
-/* DogSearchCard.jsx의 CSS 파일 */
+/* 검색 결과 아이템 스타일 */
+.dogSearchCard {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f5ebe0;
+  height: calc(75vh / 3 - 20px);
+  overflow: hidden;
+}
+
+/* 검색 결과 아이템 이미지 스타일 */
+.dogSearchCard_img {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  object-fit: cover; /* 이미지가 찌그러지지 않도록 */
+  border-bottom: 1px solid #ccc;
+}
+
+/* 검색 결과 아이템 이름 스타일 */
+.dogSearchCard_name {
+  margin: 5px 0; /* 위쪽 마진 10px */
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+  padding: 5px 0;
+}

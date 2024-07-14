@@ -1,7 +1,7 @@
-// 강아지 종 검색 및 선택 페이지
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/DogSearch.css';
+import DogSearchCard from '../components/DogSearchCard';
 
 function DogSearch() {
   const [dogs, setDogs] = useState([]);
@@ -11,7 +11,7 @@ function DogSearch() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    fetch('http://192.168.210.144:3001/informations')
+    fetch('http://192.168.0.13:3001/informations')
       .then((response) => response.json())
       .then((data) => setDogs(data));
   }, []);
@@ -53,14 +53,7 @@ function DogSearch() {
       </div>
       <div className="dogSearch_results">
         {filteredDogs.slice(0, 6).map((dog) => (
-          <div
-            key={dog.information_dog_name}
-            className="dogSearch_item"
-            onClick={() => handleDogClick(dog.information_dog_name)}
-          >
-            <img src={`${dog.information_image_url}`} alt={dog.information_dog_name} />
-            <p>{dog.information_dog_name}</p>
-          </div>
+          <DogSearchCard key={dog.information_dog_name} dog={dog} handleDogClick={handleDogClick} />
         ))}
       </div>
     </div>
