@@ -13,12 +13,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.24.1",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
-    "web-vitals": "^4.2.1"
-=======
-    "swiper": "^11.1.4",
     "web-vitals": "^2.1.4"
->>>>>>> 4808b8a0916c6f000b438fc7a3394436d3ce874b
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
