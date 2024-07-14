@@ -8,7 +8,14 @@ function WantSelect() {
   const navigate = useNavigate();
   const inputRef = useRef(null);
 
-  const handleClick = () => {
+  const handleClickMBTI = () => {
+    setExpand(true);
+    setTimeout(() => {
+      navigate('/wantMBTI');
+    }, 300);
+  };
+
+  const handleClickSearch = () => {
     setExpand(true);
     inputRef.current.focus();
     setTimeout(() => {
@@ -18,10 +25,10 @@ function WantSelect() {
 
   return (
     <div className="wantSelect">
-      <div className="wantSelect_mbti-box">
+      <div className="wantSelect_mbti-box" onClick={handleClickMBTI}>
         <h1>DBTI</h1>
       </div>
-      <div className={`wantSelect_search-box ${expand ? 'expand' : ''}`} onClick={handleClick}>
+      <div className={`wantSelect_search-box ${expand ? 'expand' : ''}`} onClick={handleClickSearch}>
         <input ref={inputRef} type="text" placeholder="Search" />
       </div>
     </div>
