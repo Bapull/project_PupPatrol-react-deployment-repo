@@ -6,14 +6,18 @@ import DogSearchCard from '../components/DogSearchCard';
 function DogSearch() {
   const [dogs, setDogs] = useState([]);
   const [search, setSearch] = useState('');
+  const [filteredDogs, setFilteredDogs] = useState([]);
   const [expand, setExpand] = useState(true);
-  const navigate = useNavigate();
   const inputRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('http://192.168.0.13:3001/informations')
       .then((response) => response.json())
-      .then((data) => setDogs(data));
+      .then((data) => {
+        setDogs(data);
+        setFilteredDogs(data);
+      });
   }, []);
 
   useEffect(() => {
@@ -23,7 +27,10 @@ function DogSearch() {
     }, 300);
   }, []);
 
-  const filteredDogs = dogs.filter((dog) => dog.information_dog_name.toLowerCase().includes(search.toLowerCase()));
+  useEffect(() => {
+    const filtered = dogs.filter((dog) => dog.information_dog_name.toLowerCase().includes(search.toLowerCase()));
+    setFilteredDogs(filtered);
+  }, [search, dogs]);
 
   const handleClick = () => {
     setExpand(true);
