@@ -64,7 +64,7 @@ const WantMBTIQCard = ({question, setAnswer,questionVariable,setCurrentQuestionI
             // 떨어지는 애니메이션 길이가 1초니까 1초후에 다음 질문
             setTimeout(() => {
                 setCurrentQuestionId((prev)=>prev+1)    
-            }, 950);
+            }, 450);
         }else{
             setTilt(0)
         }

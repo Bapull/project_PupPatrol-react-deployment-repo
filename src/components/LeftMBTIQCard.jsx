@@ -13,12 +13,12 @@ const LeftMBTIQCard = ({leftover, falling, secondQuestion}) => {
     useEffect(()=>{
         if(falling){
             const animation = setInterval(()=>{
-                setMovement((prev)=>prev+0.1)
+                setMovement((prev)=>prev+0.2)
                 
             },10)
             setTimeout(() => {
                 clearInterval(animation)
-            }, 1000);
+            }, 500 );
         }
     },[falling])
     

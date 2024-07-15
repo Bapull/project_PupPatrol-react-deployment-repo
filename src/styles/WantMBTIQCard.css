@@ -22,13 +22,13 @@
 }
 .right {
     animation-name: rightFly;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-iteration-count: 1;
     animation-timing-function: ease;
 }
 .left {
     animation-name: leftFly;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-iteration-count: 1;
     animation-timing-function: ease;
 }
