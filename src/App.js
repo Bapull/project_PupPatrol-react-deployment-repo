@@ -1,23 +1,18 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-
+import WantMBTI from './pages/WantMBTI';
+import { Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import WantMBTIResult from './pages/WantMBTIResult';
 function App() {
   const [info,setInfo] = useState([]);
-  useEffect(()=>{
-    fetch("http://localhost:3001/information",{
-      method:"GET"
-    }).then(res=>res.json()).then((res)=>setInfo(res))
-  })
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        {info.map((item)=>{
-          return(
-            <img src={item.information_image_url} width={"500px"}></img>
-          )
-        })}
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/wantMBTI" element={<WantMBTI></WantMBTI>}/>
+        <Route path="/wantMBTIresult" element={<WantMBTIResult></WantMBTIResult>}></Route>        
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import '../styles/LeftMBTIQCard.css'
 import { flushSync } from 'react-dom';
 
-const LeftMBTIQCard = ({leftover, falling, secondQuestion}) => {
+const LeftMBTIQCard = ({leftover, falling}) => {
     const [cards, setCards] = useState([])
     const [movement, setMovement] = useState(0)
     useEffect(()=>{
@@ -36,7 +36,7 @@ const LeftMBTIQCard = ({leftover, falling, secondQuestion}) => {
                         left: `${25+item}%`,
                         zIndex: `${100-item}`,
                         opacity:`${(5-item)*0.2+movement*0.025}`,
-                        transform:`translate(0px,${movement*0.7}px) scale(${1+movement*0.0023}, ${1+movement*0.0023})`
+                        transform:`translate(0px,${movement*0.8}px) scale(${1+movement*0.0035}, ${1+movement*0.0035})`
                     }
                     }
                     ></div>

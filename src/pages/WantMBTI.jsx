@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import WantMBTIQCard from '../components/WantMBTIQCard'
 import '../styles/WantMBTI.css'
+import { useNavigate } from 'react-router-dom'
 const WantMBTI = () => {
     const [questions, setQuestions] = useState([])
     const [answer, setAnswer] = useState({})
+    const navigate = useNavigate();
     useEffect(()=>{
         setQuestions([
             {
@@ -50,6 +52,15 @@ const WantMBTI = () => {
           ])
     },[])
     const [currentQuestionId,setCurrentQuestionId] = useState(1)
+    useEffect(()=>{
+      if(currentQuestionId!==1 && currentQuestionId > questions.length){
+        const variables = questions.map((item)=> item.question_text)
+        navigate('/wantMBTIResult',{
+          state:[answer, variables]
+        })
+      }
+    },[currentQuestionId])
+
   return (
     <div
     style={{
@@ -58,18 +69,6 @@ const WantMBTI = () => {
     }}>
         <div id='X'>X</div>
         <div id='O'>O</div>
-    {
-        questions.length < currentQuestionId ? <div>
-            <div>answer_is_big {answer.answer_is_big ? "네" : "아니요"}</div>
-            <div>answer_is_fluff {answer.answer_is_fluff ? "네" : "아니요"}</div>
-            <div>answer_like_walking {answer.answer_like_walking ? "네" : "아니요"}</div>
-            <div>answer_is_smart {answer.answer_is_smart ? "네" : "아니요"}</div>
-            <div>answer_is_shyness {answer.answer_is_shyness ? "네" : "아니요"}</div>
-            <div>answer_is_biting {answer.answer_is_biting ? "네" : "아니요"}</div>
-            <div>answer_is_nuisance {answer.answer_is_nuisance ? "네" : "아니요"}</div>
-            <div>answer_is_independent {answer.answer_is_independent ? "네" : "아니요"}</div>
-        </div> : null
-    }
     {
         questions.map((item,index)=>{
             if(index === currentQuestionId-1){
@@ -80,7 +79,6 @@ const WantMBTI = () => {
                     questionVariable={item.question_variable} 
                     setCurrentQuestionId={setCurrentQuestionId}
                     leftover={questions.length - index -1 }
-                    length={questions.length}
                     />
                 )
             }

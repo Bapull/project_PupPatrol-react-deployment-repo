@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import '../styles/WantMBTIQCard.css'
 import LeftMBTIQCard from './LeftMBTIQCard';
-const WantMBTIQCard = ({question, setAnswer,questionVariable,setCurrentQuestionId, leftover, length}) => {
+const WantMBTIQCard = ({question, setAnswer,questionVariable,setCurrentQuestionId, leftover}) => {
     
     
     /*두 점 사이의 거리를 구하는 함수*/
@@ -105,7 +105,7 @@ const WantMBTIQCard = ({question, setAnswer,questionVariable,setCurrentQuestionI
     onTouchStart={onTouchStart}
     onTouchEnd={onTouchEnd}
     >
-        {leftover > 0 ? <LeftMBTIQCard leftover={leftover} falling={falling} length={length}/>: null}
+        {leftover > 0 ? <LeftMBTIQCard leftover={leftover} falling={falling}/>: null}
         <div id='card'
         className= {falling? tilt < 0 ? "left" :"right" : null}
         style={{
