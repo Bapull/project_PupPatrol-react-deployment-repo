@@ -1,12 +1,14 @@
 // '키우고싶어요' '키우고있어요' 선택 페이지
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import style from '../styles/Category_Select.css';
 
 function CategorySelect() {
   const [position, setPosition] = useState(0);
   const [start, setStart] = useState(0);
+  const [leftRight, setLeftRight] = useState(0);
 
   const oneTouch = () => {
+    setLeftRight(0)
     document.querySelector('.content').style.transform = 'translate(0vw)';
     document.querySelector('.button1').style.transform = 'scale(1.5)';
     document.querySelector('.button2').style.transform = 'scale(1)';
@@ -14,12 +16,12 @@ function CategorySelect() {
     document.querySelector('.button2').style.backgroundColor = 'rgb(50, 50, 50)';
   }
   const twoTouch = () => {
+    setLeftRight(1)
     document.querySelector('.content').style.transform = 'translate(-100vw)';
     document.querySelector('.button2').style.transform = 'scale(1.5)';
     document.querySelector('.button1').style.transform = 'scale(1)';
     document.querySelector('.button1').style.backgroundColor = 'rgb(50, 50, 50)';
     document.querySelector('.button2').style.backgroundColor = 'white';
-    
   }
 
   const onTouchStart = (e) => {
@@ -59,7 +61,17 @@ function CategorySelect() {
           </div>
       </div>
       <div className="buttonBox">
-        <button className="button3">YES</button>
+        <button className="button3" 
+          onClick={ 
+            leftRight === 0 ?
+            <>
+
+            </> :
+            <>
+                
+            </>
+          }
+        >YES</button>
       </div>
     </div>
   );
