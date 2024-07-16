@@ -30,19 +30,19 @@ function DogSearch() {
   }, []);
 
   useEffect(() => {
-    const filtered = dogs.filter((dog) => dog.information_dog_name.toLowerCase().includes(search.toLowerCase()));
+    const filtered = dogs.filter((dog) => dog.information_dog_name.includes(search));
     setFilteredDogs(filtered);
     setCurrentPage(1); // 검색어가 변경될 때 페이지를 초기화
   }, [search, dogs]);
 
-  const handleClick = () => {
+  const handleClickBack = () => {
     setExpand(true);
     setTimeout(() => {
       navigate('/wantSelect');
     }, 300);
   };
 
-  const handleDogClick = (dog) => {
+  const handleClickDog = (dog) => {
     navigate('/wantDogDescription', { state: { dog } });
   };
 
@@ -64,7 +64,7 @@ function DogSearch() {
 
   return (
     <div className="dogSearch">
-      <div className="back-box" onClick={handleClick}>
+      <div className="back-box" onClick={handleClickBack}>
         <img src="/images/Arrow.png" alt="back arrow" />
       </div>
       <h1>Dog Search</h1>
@@ -79,7 +79,7 @@ function DogSearch() {
       </div>
       <div className="dogSearch_results">
         {currentDogs.map((dog, index) => (
-          <DogSearchCard key={index} dog={dog} handleDogClick={handleDogClick} />
+          <DogSearchCard key={index} dog={dog} handleClickDog={handleClickDog} />
         ))}
       </div>
       <div className="dogSearch_pagination">
