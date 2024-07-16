@@ -2,10 +2,31 @@
 
 body {
   margin: 0;
+  background-color: black;
+}
+
+.CategorySelect {
+  overflow: hidden;
 }
 
 h5 {
   color: white;
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.choice {
+  width: 200vw;
+  float: left;
+  margin-top: 5vh;
+}
+
+.choiceHave {
+  float: right;
+  margin-right: 1%;
+  display: flex;
+  margin-bottom: 0;
 }
 
 p {
@@ -16,17 +37,19 @@ p {
 }
 
 .wrapper {
-  display: flex;
-  min-height: 100dvh;
   background: black;
+  height: 55vh;
 }
 
 .content {
+  overflow: hidden;
   background: black;
   padding: 1%;
   font-size: 2.5rem;
   margin-left: auto;
   margin-right: auto;
+  width: 200vw;
+  transition: transform 0.5s
 }
 
 .horizontal {
@@ -37,12 +60,34 @@ p {
   margin: 10px 0 20px;
 }
 
-.buttonBox {
+.buttonGroup {
   text-align: center;
-  margin-top: 55dvh;
 }
 
 .button1 {
+  background-color: white;
+  padding: 3px;
+  transform: scale(1.5);
+  border-radius: 50%;
+  margin: 5px;
+  transition: all ease 0.5s;
+}
+
+.button2 {
+  background-color: rgb(50, 50, 50);
+  padding: 3px;
+  border-radius: 50%;
+  margin: 5px;
+  transition: all ease 0.5s;
+}
+
+.buttonBox {
+  text-align: center;
+  margin-top: 10dvh;
+}
+
+.button3 {
+  text-align: center;
   width: 100px;
   height: 50px;
   border-radius: 30px;
@@ -53,22 +98,4 @@ p {
   outline-width: 5px;
   outline-color: white;
   background-color: black;
-}
-
-.slide {
-  padding: 15px;
-  min-height: 100px;
-  color: #fff;
-}
-
-.slide1 {
-  background-color: #fea900;
-}
-
-.slide2 {
-  background-color: #b3dc4a;
-}
-
-.slide3 {
-  background-color: #6ac0ff;
 }
