@@ -1,8 +1,13 @@
 // '키우고싶어요' '키우고있어요' 선택 페이지
 import { useState } from "react";
 import style from '../styles/Category_Select.css';
+import { Routes, Route, useNavigate } from "react-router-dom"
+import WantSelect from "./WantSelect"
+import DogSearch from "./DogSearch"
 
 function CategorySelect() {
+  const navigate = useNavigate();
+
   const [position, setPosition] = useState(0);
   const [start, setStart] = useState(0);
   const [leftRight, setLeftRight] = useState(0);
@@ -36,6 +41,10 @@ function CategorySelect() {
     }
   }
 
+  const onClickYes = () => {
+    leftRight === 0 ? navigate("/wantSelect") : navigate("/dogSearch")
+  }
+
   return (
     <div className="CategorySelect">
       <div class="buttonGroup">
@@ -62,17 +71,13 @@ function CategorySelect() {
       </div>
       <div className="buttonBox">
         <button className="button3" 
-          onClick={ 
-            leftRight === 0 ?
-            <>
-
-            </> :
-            <>
-                
-            </>
-          }
+          onClick={onClickYes}
         >YES</button>
       </div>
+      <Routes>
+        <Route path='/wantSelect' element={ <WantSelect/> }/>
+        <Route path='/dogSearch' element={ <DogSearch/> }/>
+      </Routes>
     </div>
   );
 }
