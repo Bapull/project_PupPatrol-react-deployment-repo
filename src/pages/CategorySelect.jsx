@@ -1,12 +1,11 @@
 // '키우고싶어요' '키우고있어요' 선택 페이지
-import { useState } from "react";
-import style from '../styles/Category_Select.css';
-import { Routes, Route, useNavigate } from "react-router-dom"
-import WantSelect from "./WantSelect"
-import DogSearch from "./DogSearch"
+import { useState } from 'react';
+import '../styles/Category_Select.css';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import WantSelect from './WantSelect';
+import DogSearch from './DogSearch';
 
 function CategorySelect() {
-
   const navigate = useNavigate();
 
   /*  
@@ -19,7 +18,7 @@ function CategorySelect() {
 
   const [position, setPosition] = useState(0);
   const [start, setStart] = useState(0);
-  const [leftRight, setLeftRight] = useState("left");
+  const [leftRight, setLeftRight] = useState('left');
 
   /*
 
@@ -29,21 +28,21 @@ function CategorySelect() {
   */
 
   const oneTouch = () => {
-    setLeftRight("left")
+    setLeftRight('left');
     document.querySelector('.content').style.transform = 'translate(0vw)';
     document.querySelector('.button1').style.transform = 'scale(1.5)';
     document.querySelector('.button2').style.transform = 'scale(1)';
     document.querySelector('.button1').style.backgroundColor = 'white';
     document.querySelector('.button2').style.backgroundColor = 'rgb(50, 50, 50)';
-  }
+  };
   const twoTouch = () => {
-    setLeftRight("right")
+    setLeftRight('right');
     document.querySelector('.content').style.transform = 'translate(-100vw)';
     document.querySelector('.button2').style.transform = 'scale(1.5)';
     document.querySelector('.button1').style.transform = 'scale(1)';
     document.querySelector('.button1').style.backgroundColor = 'rgb(50, 50, 50)';
     document.querySelector('.button2').style.backgroundColor = 'white';
-  }
+  };
 
   /*
 
@@ -53,23 +52,23 @@ function CategorySelect() {
   */
 
   const onTouchStart = (e) => {
-    setStart(e.touches[0].clientX)
-  }
+    setStart(e.touches[0].clientX);
+  };
   const onTouchMove = (e) => {
-    setPosition(e.touches[0].clientX)
-    if ( start - position > 10) {
+    setPosition(e.touches[0].clientX);
+    if (start - position > 10) {
       // 슬라이드를 넣고 싶었지만 overflow: hidden이 먹히지 않아.. 버튼을 눌렀을 때와 동일한 함수를 넣어줬습니다..
-      twoTouch()
-    } else if ( start - position < -10) {
+      twoTouch();
+    } else if (start - position < -10) {
       // 슬라이드를 넣고 싶었지만 overflow: hidden이 먹히지 않아.. 버튼을 눌렀을 때와 동일한 함수를 넣어줬습니다..
-      oneTouch()
+      oneTouch();
     }
-  }
+  };
 
   // YES 버튼을 눌렀을 때 페이지 이동을 위해 삼항 조건문을 이용
   const onClickYes = () => {
-    leftRight === "left" ? navigate("/wantSelect") : navigate("/dogSearch")
-  }
+    leftRight === 'left' ? navigate('/wantSelect') : navigate('/dogSearch');
+  };
 
   /*
 
@@ -87,37 +86,37 @@ function CategorySelect() {
 
   */
   return (
-    <div className = "CategorySelect">
-      <div className = "buttonGroup">
-        <button className = "button1" onTouchEnd = {oneTouch} onClick = {oneTouch}></button>
-        <button className = "button2" onTouchEnd = {twoTouch} onClick = {twoTouch}></button>
+    <div className="CategorySelect">
+      <div className="buttonGroup">
+        <button className="button1" onTouchEnd={oneTouch} onClick={oneTouch}></button>
+        <button className="button2" onTouchEnd={twoTouch} onClick={twoTouch}></button>
       </div>
-      <div className = "wrapper" onTouchStart = {onTouchStart} onTouchMove = {onTouchMove}>
-        <div className = "content">
-          <div className = "choice">
-            <div className = "textBox">
+      <div className="wrapper" onTouchStart={onTouchStart} onTouchMove={onTouchMove}>
+        <div className="content">
+          <div className="choice">
+            <div className="textBox">
               <h5>
-                당신은 현재 강아지를 
-                <span className = "choiceHave">당신은 현재 강이지를</span>
+                당신은 현재 강아지를
+                <span className="choiceHave">당신은 현재 강이지를</span>
               </h5>
             </div>
-              <div>
-                <h5>
-                  키우고 있습니까?
-                  <span className = "choiceHave">키우고 있지 않습니까?</span>
-                </h5>
-              </div>
+            <div>
+              <h5>
+                키우고 있습니까?
+                <span className="choiceHave">키우고 있지 않습니까?</span>
+              </h5>
             </div>
           </div>
+        </div>
       </div>
-      <div className = "buttonBox">
-        <button className = "button3" 
-          onClick = {onClickYes}
-        >YES</button>
+      <div className="buttonBox">
+        <button className="button3" onClick={onClickYes}>
+          YES
+        </button>
       </div>
       <Routes>
-        <Route path = '/wantSelect' element = { <WantSelect/> }/>
-        <Route path = '/dogSearch' element = { <DogSearch/> }/>
+        <Route path="/wantSelect" element={<WantSelect />} />
+        <Route path="/dogSearch" element={<DogSearch />} />
       </Routes>
     </div>
   );

@@ -3,12 +3,11 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import WantSelect from './pages/WantSelect';
 import WantMBTI from './pages/WantMBTI';
 import DogSearch from './pages/DogSearch';
-import CategorySelect from "./pages/CategorySelect";
+import CategorySelect from './pages/CategorySelect';
 import WantDogDescription from './pages/WantDogDescription';
-import './App.css';
-import WantMBTI from './pages/WantMBTI';
-import { Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import WantMBTIResult from './pages/WantMBTIResult';
+import './App.css';
+
 function App() {
   return (
     <Router>
@@ -22,6 +21,7 @@ function App() {
           <Route path="/wantMBTI" element={<WantMBTI />} />
           <Route path="/dogSearch" element={<DogSearch />} />
           <Route path="/wantDogDescription" element={<WantDogDescription />} />
+          <Route path="/wantMBTIResult" element={<WantMBTIResult />} />
         </Routes>
       </div>
     </Router>
