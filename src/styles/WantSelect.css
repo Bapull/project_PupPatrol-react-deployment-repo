@@ -1,1 +1,81 @@
-/* WantSelect.jsx의 CSS 파일 */
+/* WantSelect의 전체적인 스타일 */
+.wantSelect {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 수평 중앙 정렬 */
+  justify-content: center; /* 수직 중앙 정렬 */
+  width: 100%;
+  height: 100vh;
+  background-color: #eeeae6;
+}
+
+/* 공통 스타일 */
+.wantSelect_mbti-box,
+.wantSelect_search-box {
+  width: 25vh;
+  border-radius: 19px;
+  background: #f5ebe0;
+  box-shadow: 0 0 5px rgba(220, 184, 147, 0.1);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* MBTI 박스 스타일 */
+.wantSelect_mbti-box {
+  padding: 10px;
+  margin-bottom: 20px;
+  height: 35vh;
+  position: relative;
+}
+
+/* 배경 이미지 스타일 */
+.wantSelect_mbti-box::before {
+  content: '';
+  background-image: url('/public/images/Question.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top right; /* 배경 이미지 우측 상단 배치 */
+  opacity: 0.7; /* 배경 이미지 불투명도 설정 */
+  position: absolute;
+  bottom: 7vh;
+  left: 0.1vh;
+  width: 50vh; /* 배경 이미지 크기 조정 */
+  height: 90%;
+  z-index: 0;
+}
+
+/* MBTI 박스의 h1 스타일 */
+.wantSelect_mbti-box h1 {
+  margin: 0;
+  padding: 10px;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #333;
+  z-index: 1;
+  position: relative;
+  align-self: flex-start;
+  justify-self: flex-end;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 검색 박스 스타일 */
+.wantSelect_search-box {
+  height: 3vh;
+  padding: 10px;
+  border: none;
+  border-radius: 19px;
+  background-color: #f5ebe0;
+}
+
+.wantSelect_search-box h1 {
+  margin: 0;
+  align-self: flex-start;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #9e9898;
+}
