@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import WantSelect from './pages/WantSelect';
 import WantMBTI from './pages/WantMBTI';
 import DogSearch from './pages/DogSearch';
-import './App.css';
+import CategorySelect from "./pages/CategorySelect";
 import WantDogDescription from './pages/WantDogDescription';
+import './App.css';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <BrowserView></BrowserView>
         <MobileView></MobileView>
         <Routes>
-          <Route path="/" element={<Navigate to="/wantSelect" />} />
+          <Route path="/" element={<Navigate to="/categorySelect" />} />
+          <Route path="/categorySelect" element={<CategorySelect />} />
           <Route path="/wantSelect" element={<WantSelect />} />
           <Route path="/wantMBTI" element={<WantMBTI />} />
           <Route path="/dogSearch" element={<DogSearch />} />
