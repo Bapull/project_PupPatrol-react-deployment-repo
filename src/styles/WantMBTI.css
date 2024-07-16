@@ -1,1 +1,40 @@
 /* WantMBTI.jsx의 CSS 파일 */
+/* O */
+#X{
+    position: absolute;
+    width: 10%;
+    height: 20%;
+    left: 10%;
+    top: 30%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 61px;
+    /* identical to box height */
+
+    color: #777777;
+}
+#O{
+    /* X */
+
+position: absolute;
+width: 10%;
+height: 20%;
+left: 80%;
+top: 30%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 900;
+font-size: 50px;
+line-height: 61px;
+/* identical to box height */
+
+color: #777777;
+
+
+}
+
+

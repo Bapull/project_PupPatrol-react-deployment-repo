@@ -6,7 +6,9 @@ import DogSearch from './pages/DogSearch';
 import CategorySelect from "./pages/CategorySelect";
 import WantDogDescription from './pages/WantDogDescription';
 import './App.css';
-
+import WantMBTI from './pages/WantMBTI';
+import { Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import WantMBTIResult from './pages/WantMBTIResult';
 function App() {
   return (
     <Router>
