@@ -67,7 +67,10 @@
 .dogSearch_results {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2열로 설정 */
+  grid-template-rows: repeat(3, 1fr); /* 3행으로 설정 */
   gap: 10px;
   width: 75%;
   height: 70vh;
+  align-content: start; /* 그리드 항목이 위쪽에 정렬되도록 */
+  justify-content: center; /* 그리드 항목이 중앙에 정렬되도록 */
 }

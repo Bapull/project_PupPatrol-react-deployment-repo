@@ -7,12 +7,14 @@ function DogSearch() {
   const [dogs, setDogs] = useState([]);
   const [search, setSearch] = useState('');
   const [filteredDogs, setFilteredDogs] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [expand, setExpand] = useState(true);
   const inputRef = useRef(null);
   const navigate = useNavigate();
+  const itemsPerPage = 6;
 
   useEffect(() => {
-    fetch('http://192.168.0.13:3001/informations')
+    fetch('http://172.21.2.126:3001/informations')
       .then((response) => response.json())
       .then((data) => {
         setDogs(data);
@@ -30,6 +32,7 @@ function DogSearch() {
   useEffect(() => {
     const filtered = dogs.filter((dog) => dog.information_dog_name.toLowerCase().includes(search.toLowerCase()));
     setFilteredDogs(filtered);
+    setCurrentPage(1); // 검색어가 변경될 때 페이지를 초기화
   }, [search, dogs]);
 
   const handleClick = () => {
@@ -42,6 +45,22 @@ function DogSearch() {
   const handleDogClick = (dog) => {
     navigate('/wantDogDescription', { state: { dog } });
   };
+
+  const handleNextPage = () => {
+    if (currentPage < Math.ceil(filteredDogs.length / itemsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentDogs = filteredDogs.slice(startIndex, startIndex + itemsPerPage);
+  const totalPages = Math.ceil(filteredDogs.length / itemsPerPage);
 
   return (
     <div className="dogSearch">
@@ -59,9 +78,13 @@ function DogSearch() {
         />
       </div>
       <div className="dogSearch_results">
-        {filteredDogs.slice(0, 6).map((dog) => (
-          <DogSearchCard key={dog.information_dog_name} dog={dog} handleDogClick={handleDogClick} />
+        {currentDogs.map((dog, index) => (
+          <DogSearchCard key={index} dog={dog} handleDogClick={handleDogClick} />
         ))}
+      </div>
+      <div className="dogSearch_pagination">
+        {currentPage > 1 && <button onClick={handlePrevPage}>Prev</button>}
+        {currentPage < totalPages && <button onClick={handleNextPage}>Next</button>}
       </div>
     </div>
   );
