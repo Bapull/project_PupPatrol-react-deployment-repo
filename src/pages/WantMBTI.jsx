@@ -54,7 +54,7 @@ const WantMBTI = () => {
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
   useEffect(() => {
     if (currentQuestionId !== 1 && currentQuestionId > questions.length) {
-      const variables = questions.map((item) => item.question_text);
+      const variables = questions.map((item) => item.question_variable);
       navigate('/wantMBTIResult', {
         state: [answer, variables],
       });

@@ -14,6 +14,7 @@ const WantMBTIQCard = ({question, setAnswer,questionVariable,setCurrentQuestionI
     }
     const [tilt, setTilt] = useState(0); // 기울기
     const [isClicked, setIsClicked] = useState(false) //클릭중인지 아닌지 확인
+    const [isMobile, setIsMobile] = useState(true) // 터치인지 마우스인지
     const [startPoint, setStartPoint] = useState({
         x:0,
         y:0
@@ -37,6 +38,11 @@ const WantMBTIQCard = ({question, setAnswer,questionVariable,setCurrentQuestionI
         setIsClicked(true)
         setStartPoint({x:e.touches[0].clientX,y:e.touches[0].clientY})
     } // 터치를 시작했을때 내 위치를 저장
+    const onMouseDown = (e) => {
+        setIsMobile(false)
+        setIsClicked(true)
+        setStartPoint({x:e.clientX,y:e.clientY})
+    }
     const onTouchEnd = (e) => {
         setIsClicked(false)
         // 터치가 끝났을 때 각도가 15도 초과라면 답을 선택했다고 판단
@@ -72,10 +78,17 @@ const WantMBTIQCard = ({question, setAnswer,questionVariable,setCurrentQuestionI
     }
     const onTouchMove = (e) => {
         if(isClicked){
-            setTouchPoint({
-                x:e.touches[0].clientX,
-                y:startPoint.y // x 값만 중요하지 y값은 별로 안 중요함
-            })
+            if(isMobile){
+                setTouchPoint({
+                    x:e.touches[0].clientX,
+                    y:startPoint.y // x 값만 중요하지 y값은 별로 안 중요함
+                })
+            }else{
+                setTouchPoint({
+                    x:e.clientX,
+                    y:startPoint.y // x 값만 중요하지 y값은 별로 안 중요함
+                })
+            }
 
             //  회전점이랑 사용자가 터치를 시작한 부분의 거리
             let first = calculateDistance(transformOrigin.x,transformOrigin.y,startPoint.x,startPoint.y)
@@ -104,6 +117,9 @@ const WantMBTIQCard = ({question, setAnswer,questionVariable,setCurrentQuestionI
     onTouchMove={onTouchMove}
     onTouchStart={onTouchStart}
     onTouchEnd={onTouchEnd}
+    onMouseDown={onMouseDown}
+    onMouseMove={onTouchMove}
+    onMouseUp={onTouchEnd}
     >
         {leftover > 0 ? <LeftMBTIQCard leftover={leftover} falling={falling}/>: null}
         <div id='card'

@@ -9,6 +9,7 @@ const WantMBTIResult = () => {
     }
   return (
     <div>{variable.map((item)=>{
+        console.log(answer[item]);
         if(answer[item]){
             return <div>{item} 네</div>
         }else{

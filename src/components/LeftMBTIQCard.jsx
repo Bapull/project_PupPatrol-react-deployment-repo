@@ -8,7 +8,6 @@ const LeftMBTIQCard = ({ leftover, falling }) => {
   useEffect(() => {
     setCards(Array.from({ length: leftover > 5 ? 5 : leftover }, (v, i) => i + 1));
   }, [leftover]);
-  console.log(cards);
   useEffect(() => {
     if (falling) {
       const animation = setInterval(() => {
