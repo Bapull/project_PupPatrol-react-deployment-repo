@@ -1,5 +1,4 @@
 /* 'Category_Select.jsx'의 CSS 파일 */
-
 body {
   margin: 0;
   background-color: black;
@@ -36,11 +35,6 @@ p {
   margin-top: 13%;
 }
 
-.wrapper {
-  background: black;
-  height: 55vh;
-}
-
 .content {
   overflow: hidden;
   background: black;
@@ -49,6 +43,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   width: 200vw;
+  height: 55vh;
   transition: transform 0.5s
 }
 
@@ -64,7 +59,7 @@ p {
   text-align: center;
 }
 
-.button1 {
+.buttonOn {
   background-color: white;
   padding: 3px;
   transform: scale(1.5);
@@ -73,7 +68,7 @@ p {
   transition: all ease 0.5s;
 }
 
-.button2 {
+.buttonOff {
   background-color: rgb(50, 50, 50);
   padding: 3px;
   border-radius: 50%;
@@ -86,7 +81,7 @@ p {
   margin-top: 10dvh;
 }
 
-.button3 {
+.buttonYes {
   text-align: center;
   width: 100px;
   height: 50px;
