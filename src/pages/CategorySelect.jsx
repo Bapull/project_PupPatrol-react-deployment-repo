@@ -95,13 +95,13 @@ function CategorySelect() {
           <div className = "textBox">
             <h5>
               당신은 현재 강아지를 
-              <span className = "choiceHave">당신은 현재 강이지를</span>
+              <span className = "choiceHave">당신은 현재 강아지를</span>
             </h5>
           </div>
             <div>
               <h5>
-                키우고 있습니까?
-                <span className = "choiceHave">키우고 있지 않습니까?</span>
+                키우고 있지 않습니까?
+                <span className = "choiceHave">키우고 있습니까?</span>
               </h5>
             </div>
           </div>
