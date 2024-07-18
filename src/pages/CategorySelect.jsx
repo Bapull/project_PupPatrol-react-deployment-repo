@@ -1,14 +1,11 @@
 // '키우고싶어요' '키우고있어요' 선택 페이지
-
-// '키우고싶어요' '키우고있어요' 선택 페이지
-import { useState } from "react";
+import { useState } from 'react';
 import '../styles/Category_Select.css';
-import { Routes, Route, useNavigate } from "react-router-dom"
-import WantSelect from "./WantSelect"
-import DogSearch from "./DogSearch"
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import WantSelect from './WantSelect';
+import DogSearch from './DogSearch';
 
 function CategorySelect() {
-
   const navigate = useNavigate();
 
   /*  
@@ -22,6 +19,7 @@ function CategorySelect() {
   const [position, setPosition] = useState(0);
   const [start, setStart] = useState(0);
   const [leftRight, setLeftRight] = useState("left");
+
 
   /*
 
@@ -38,6 +36,7 @@ function CategorySelect() {
     setLeftRight("right")
     document.querySelector('.content').style.transform = 'translate(-100vw)';
   }
+
 
   /*
 
@@ -123,4 +122,3 @@ function CategorySelect() {
 }
 
 export default CategorySelect;
-
