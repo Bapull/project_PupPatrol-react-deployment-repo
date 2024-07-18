@@ -1,4 +1,3 @@
-// 멍비티아이 진입, 강아지 종 검색 페이지
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/WantSelect.css';
@@ -6,10 +5,12 @@ import '../styles/WantSelect.css';
 function WantSelect() {
   const navigate = useNavigate();
 
+  // wantMBTI 페이지로 이동
   const handleClickMBTI = () => {
     navigate('/wantMBTI');
   };
 
+  // dogSearch 페이지로 이동
   const handleClickSearch = () => {
     navigate('/dogSearch');
   };
