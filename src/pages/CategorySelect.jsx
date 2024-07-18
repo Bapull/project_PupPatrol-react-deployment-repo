@@ -106,6 +106,7 @@ function CategorySelect() {
               </div>
             </div>
           </div>
+
       <div className = "buttonBox">
         <button className = "buttonYes" 
           onClick = {onClickYes}
