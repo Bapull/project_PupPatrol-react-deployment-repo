@@ -8,7 +8,6 @@ function DogSearch() {
   const [search, setSearch] = useState('');
   const [filteredDogs, setFilteredDogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [expand, setExpand] = useState(true);
   const inputRef = useRef(null);
   const navigate = useNavigate();
   const itemsPerPage = 6;
@@ -23,10 +22,7 @@ function DogSearch() {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      setExpand(false);
-      inputRef.current.focus();
-    }, 300);
+    inputRef.current.focus();
   }, []);
 
   useEffect(() => {
@@ -36,10 +32,7 @@ function DogSearch() {
   }, [search, dogs]);
 
   const handleClickBack = () => {
-    setExpand(true);
-    setTimeout(() => {
-      navigate('/wantSelect');
-    }, 300);
+    navigate('/wantSelect');
   };
 
   const handleClickDog = (dog) => {
@@ -68,7 +61,7 @@ function DogSearch() {
         <img src="/images/Arrow.png" alt="back arrow" />
       </div>
       <h1>Dog Search</h1>
-      <div className={`dogSearch_search-box ${expand ? 'expand' : ''}`}>
+      <div className="dogSearch_search-box">
         <input
           ref={inputRef}
           type="text"

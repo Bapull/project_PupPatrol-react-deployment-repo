@@ -7,15 +7,11 @@ function WantSelect() {
   const navigate = useNavigate();
 
   const handleClickMBTI = () => {
-    setTimeout(() => {
-      navigate('/wantMBTI');
-    }, 300);
+    navigate('/wantMBTI');
   };
 
   const handleClickSearch = () => {
-    setTimeout(() => {
-      navigate('/dogSearch');
-    }, 300);
+    navigate('/dogSearch');
   };
 
   return (
