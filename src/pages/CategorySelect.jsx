@@ -90,24 +90,22 @@ function CategorySelect() {
         onTouchEnd = {twoTouch} 
         onClick = {twoTouch}></button>
       </div>
-      <div className = "wrapper" onTouchStart = {onTouchStart} onTouchMove = {onTouchMove}>
-        <div className = "content">
+        <div className = "content" onTouchStart = {onTouchStart} onTouchMove = {onTouchMove}>
           <div className = "choice">
             <div className = "textBox">
               <h5>
                 당신은 현재 강아지를 
-                <span className = "choiceHave">당신은 현재 강이지를</span>
+                <span className = "choiceHave">당신은 현재 강아지를</span>
               </h5>
             </div>
               <div>
                 <h5>
-                  키우고 있습니까?
-                  <span className = "choiceHave">키우고 있지 않습니까?</span>
+                  키우고 있지 않습니까?
+                  <span className = "choiceHave">키우고 있습니까?</span>
                 </h5>
               </div>
             </div>
           </div>
-      </div>
       <div className = "buttonBox">
         <button className = "buttonYes" 
           onClick = {onClickYes}
