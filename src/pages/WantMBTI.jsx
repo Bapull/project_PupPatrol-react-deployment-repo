@@ -63,6 +63,7 @@ const WantMBTI = () => {
 
   return (
     <div
+      className="wantMBTI"
       style={{
         width: '100%',
         overflow: 'hidden',
