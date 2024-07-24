@@ -1,27 +1,37 @@
-/* wantMBTIResult.css */
 .wantMBTIResult {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 수평 중앙 정렬 */
-  justify-content: center; /* 수직 중앙 정렬 */
-  width: 100%;
-  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   background-color: #eeeae6;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.dogResult_result {
+* {
+  box-sizing: border-box;
+}
+
+.dogResult_title {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   margin-top: 20px;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .slider {
   width: 100%;
   overflow: hidden;
   touch-action: pan-y;
+  position: relative;
+  display: flex;
+  justify-content: center; /* 가로 중심 정렬 */
 }
 
 .slider-wrapper {
@@ -30,32 +40,62 @@
 }
 
 .dogCard {
-  flex: 0 0 80%; /* 카드가 슬라이더의 80%를 차지하게 함 */
+  flex: 0 0 80%;
   box-sizing: border-box;
   padding: 20px;
-  text-align: center;
+  text-align: left;
   background-color: #f5ebe0;
-  border-radius: 10px;
+  border-radius: 25px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 0 10%;
+  margin: 0 5%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  opacity: 0.5;
+  transition: transform 0.5s, opacity 0.5s;
+  align-items: flex-start; /* 카드 내용 좌측 정렬 */
+}
+
+.dogCard.active {
+  transform: scale(1.05);
+  opacity: 1;
+  z-index: 1; /* 중앙 카드가 앞에 보이도록 */
+}
+
+.dogCard.prev,
+.dogCard.next {
+  transform: scale(0.9);
+  opacity: 0.7;
+  z-index: 0; /* 중앙 카드 뒤에 보이도록 */
 }
 
 .dogImage {
-  width: 100%;
+  width: 80%;
   height: auto;
   border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 1px;
 }
 
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #f2ba81;
-  color: #f5ebe0;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.dogCard h2 {
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #d69f67;
+  font-weight: bold;
+  align-self: flex-start; /* 좌측 정렬 */
 }
 
-button:hover {
-  background-color: #0056b3;
+.dogCard .dogCharacter,
+.dogCard .dogText {
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+  color: #333;
+  align-self: flex-start; /* 좌측 정렬 */
+  text-align: left; /* 텍스트 좌측 정렬 */
+  margin-top: 1%; /* h2 태그 아래에 간격 */
 }

@@ -23,8 +23,8 @@ const WantMBTIResult = () => {
     const fetchDogInformation = async () => {
       try {
         const [informationResponse, answersResponse] = await Promise.all([
-          fetch('http://192.168.40.100:3001/informations'),
-          fetch('http://192.168.40.100:3001/answers'),
+          fetch('http://localhost:3001/informations'),
+          fetch('http://localhost:3001/answers'),
         ]);
         const informationData = await informationResponse.json();
         const answersData = await answersResponse.json();
@@ -76,6 +76,11 @@ const WantMBTIResult = () => {
     }
   };
 
+  // 카드 클릭 시 상세 설명 페이지로 이동하는 함수
+  const handleCardClick = (dog) => {
+    navigate('/wantDogDescription', { state: { dog } });
+  };
+
   // 이전 페이지로 이동하는 함수
   const onClickBack = () => {
     navigate('/wantMBTI');
@@ -101,13 +106,28 @@ const WantMBTIResult = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="slider-wrapper" style={{ transform: `translateX(-${currentIndex * 80}%)` }}>
-            {matchedDogs.map((dog) => (
-              <div key={dog.dog_id} className="dogCard">
+          <div
+            className="slider-wrapper"
+            style={{ transform: `translateX(calc(-${currentIndex * 100}% + 50vw - 50%))` }}
+          >
+            {matchedDogs.map((dog, index) => (
+              <div
+                key={dog.dog_id}
+                className={`dogCard ${
+                  index === currentIndex
+                    ? 'active'
+                    : index === currentIndex - 1 || (currentIndex === 0 && index === matchedDogs.length - 1)
+                    ? 'prev'
+                    : index === currentIndex + 1 || (currentIndex === matchedDogs.length - 1 && index === 0)
+                    ? 'next'
+                    : ''
+                }`}
+                onClick={() => handleCardClick(dog)}
+              >
                 <img src={dog.information_image_url} alt={dog.information_dog_name} className="dogImage" />
                 <h2>{dog.information_dog_name}</h2>
-                <p>{dog.information_dog_character}</p>
-                <p>{dog.information_dog_text}</p>
+                <p className="dogCharacter">{dog.information_dog_character}</p>
+                <p className="dogText">{dog.information_dog_text}</p>
               </div>
             ))}
           </div>
@@ -117,7 +137,7 @@ const WantMBTIResult = () => {
         <p>No matching dogs found</p>
       )}
       <div>
-        <button onClickBack={onClickBack}>돌아가기</button>
+        <button onClick={onClickBack}>돌아가기</button>
       </div>
     </div>
   );
