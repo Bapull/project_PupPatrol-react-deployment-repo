@@ -1,12 +1,14 @@
-// 멍비티아이 페이지
+// WantMBTI.jsx
 import React, { useEffect, useState } from 'react';
 import WantMBTIQCard from '../components/WantMBTIQCard';
 import '../styles/WantMBTI.css';
 import { useNavigate } from 'react-router-dom';
+
 const WantMBTI = () => {
   const [questions, setQuestions] = useState([]);
   const [answer, setAnswer] = useState({});
   const navigate = useNavigate();
+
   useEffect(() => {
     setQuestions([
       {
@@ -51,7 +53,10 @@ const WantMBTI = () => {
       },
     ]);
   }, []);
+
+  // 의존성 배열에 필요한 변수를 추가,
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
+
   useEffect(() => {
     if (currentQuestionId !== 1 && currentQuestionId > questions.length) {
       const variables = questions.map((item) => item.question_variable);
@@ -59,7 +64,8 @@ const WantMBTI = () => {
         state: [answer, variables],
       });
     }
-  }, [currentQuestionId]);
+    // 지정된 값이 변경될 때마다 실행되므로 currentQuestionId가 변경될 때마다 포함하여 실행됨
+  }, [currentQuestionId, answer, navigate, questions]);
 
   return (
     <div
