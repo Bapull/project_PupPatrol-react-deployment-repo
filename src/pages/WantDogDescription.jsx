@@ -1,47 +1,47 @@
 // 강아지 상세 설명 페이지
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../styles/WantDogDescription.css";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function WantDogDescription() {
-  const [dogs, setDogs] = useState([]);
+  const location = useLocation();
+  const { dogDescription } = location.state;
+  const navigate = useNavigate();
+  console.log(dogDescription);
 
-  useEffect(() => {
-    fetchDogs();
-  }, []);
-
-  const fetchDogs = async () => {
-    const response = await fetch("http://localhost:3001/informations");
-    const data = await response.json();
-    setDogs(data);
+  // 뒤로가기 버튼 클릭 시, 뒤로 이동
+  const handleClickBack = () => {
+    navigate(-1);
   };
 
   return (
-    <div>
+    <div className="all">
       <div className="container">
+        <div className="backButtonBox" onClick={handleClickBack}>
+          <img
+            src="/images/Arrow_White.png"
+            alt="backButton"
+            className="backButton"
+          />
+        </div>
         <img
-          src="images/Maltese.png"
-          alt="Background"
+          src={dogDescription.information_image_url}
+          alt="Dog_Image"
           className="background-image"
         />
         <div className="text-overlay">
-          <h1>
-            Dog
-            <br />
-            Name
-          </h1>
+          <h1>{dogDescription.information_dog_name}</h1>
         </div>
       </div>
       <div className="description">
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchangeddddd
-        </p>
+        <h3>성격</h3> <br />
+        <h5>{dogDescription.information_dog_character}</h5>
+        <h3>스타일</h3> <br />
+        <h5>{dogDescription.information_dog_text}</h5>
+        <h4>이 병에 대해선 조심해야해요!</h4> <br />
+        <h5>{dogDescription.information_dog_geneticillness}</h5>
+        <h4>주의점!</h4> <br />
+        <h5>{dogDescription.information_caution}</h5>
       </div>
     </div>
   );
