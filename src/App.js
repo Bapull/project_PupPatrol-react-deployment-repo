@@ -11,19 +11,17 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="App">
-        <BrowserView></BrowserView>
-        <MobileView></MobileView>
-        <Routes>
-          <Route path="/" element={<Navigate to="/categorySelect" />} />
-          <Route path="/categorySelect" element={<CategorySelect />} />
-          <Route path="/wantSelect" element={<WantSelect />} />
-          <Route path="/wantMBTI" element={<WantMBTI />} />
-          <Route path="/dogSearch" element={<DogSearch />} />
-          <Route path="/wantDogDescription" element={<WantDogDescription />} />
-          <Route path="/wantMBTIResult" element={<WantMBTIResult />} />
-        </Routes>
-      </div>
+      <BrowserView></BrowserView>
+      <MobileView></MobileView>
+      <Routes>
+        <Route path="/" element={<Navigate to="/categorySelect" />} />
+        <Route path="/categorySelect/*" element={<CategorySelect />} />
+        <Route path="/wantSelect" element={<WantSelect />} />
+        <Route path="/wantMBTI" element={<WantMBTI />} />
+        <Route path="/dogSearch" element={<DogSearch />} />
+        <Route path="/wantDogDescription" element={<WantDogDescription />} />
+        <Route path="/wantMBTIResult" element={<WantMBTIResult />} />
+      </Routes>
     </Router>
   );
 }
