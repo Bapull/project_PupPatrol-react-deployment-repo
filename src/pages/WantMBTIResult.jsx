@@ -83,13 +83,17 @@ const WantMBTIResult = () => {
     navigate('/wantDogDescription', { state: { dog } });
   };
 
-  // 이전 페이지로 이동하는 함수
-  const onClickBack = () => {
+  // 뒤로가기 클릭 시, wantMBTI 페이지로 이동
+  const handleClickBack = () => {
     navigate('/wantMBTI');
   };
 
   return (
     <div className="wantMBTIResult">
+      {/* 뒤로가기 */}
+      <div className="back-box" onClick={handleClickBack}>
+        <img src="/images/Arrow.png" alt="back arrow" />
+      </div>
       <h1 className="dogResult_title">
         What’s
         <br />
@@ -143,9 +147,6 @@ const WantMBTIResult = () => {
         /* 매칭되는 강아지가 없을 때 표시 */
         <p>No matching dogs found</p>
       )}
-      <div>
-        <button onClick={onClickBack}>돌아가기</button>
-      </div>
     </div>
   );
 };
