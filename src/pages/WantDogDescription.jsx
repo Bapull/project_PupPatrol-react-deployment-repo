@@ -7,7 +7,6 @@ function WantDogDescription() {
   const location = useLocation();
   const { dogDescription } = location.state;
   const navigate = useNavigate();
-  console.log(dogDescription);
 
   // 뒤로가기 버튼 클릭 시, 뒤로 이동
   const handleClickBack = () => {
