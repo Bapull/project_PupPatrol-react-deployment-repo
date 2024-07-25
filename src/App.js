@@ -1,12 +1,17 @@
-import { BrowserView, MobileView } from 'react-device-detect';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import WantSelect from './pages/WantSelect';
-import WantMBTI from './pages/WantMBTI';
-import DogSearch from './pages/DogSearch';
-import CategorySelect from './pages/CategorySelect';
-import WantDogDescription from './pages/WantDogDescription';
-import WantMBTIResult from './pages/WantMBTIResult';
-import './App.css';
+import { BrowserView, MobileView } from "react-device-detect";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import WantSelect from "./pages/WantSelect";
+import WantMBTI from "./pages/WantMBTI";
+import DogSearch from "./pages/DogSearch";
+import CategorySelect from "./pages/CategorySelect";
+import WantDogDescription from "./pages/WantDogDescription";
+import WantMBTIResult from "./pages/WantMBTIResult";
+import "./App.css";
 
 function App() {
   return (
