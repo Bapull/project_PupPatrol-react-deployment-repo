@@ -39,6 +39,7 @@ const WantMBTIResult = () => {
   }, []);
 
   // 사용자가 선택한 답변과 일치하는 강아지 정보를 가져오는 함수
+  // 배열의 모든 요소가 조건을 만족한다면 조건에 맞는 요소들로 배열을 생성
   const matchedDogs = dogInformation.filter((dog) =>
     answers.some(
       (match) => match.dog_id === dog.dog_id && variable.every((varName) => match[varName] === answer[varName])
@@ -66,6 +67,7 @@ const WantMBTIResult = () => {
   };
 
   // 터치가 끝났을 때 슬라이드 이동 방향 결정
+  // -50~50사이일 시 슬라이드 이동하지 않음
   const handleTouchEnd = () => {
     if (touchStart - touchEnd > 50) {
       handleNext();
@@ -95,7 +97,7 @@ const WantMBTIResult = () => {
         <br />
         Pet
       </h1>
-      {/* 페이지가 로딩 중일 때 로딩 메시지 표시 */}
+      {/* dogInformation과 answers는 0일 수 없으므로 빈 배열일 때 로딩 메시지 표시 */}
       {dogInformation.length === 0 || answers.length === 0 ? (
         <p>Loading...</p>
       ) : matchedDogs.length > 0 ? (
@@ -108,6 +110,8 @@ const WantMBTIResult = () => {
         >
           <div
             className="slider-wrapper"
+            // 현재 인덱스에 따라 슬라이더 이동, 'translateX'로 슬라이더를 이동시키고,
+            // 슬라이드의 중앙을 화면에 맞추기 위해 계산
             style={{ transform: `translateX(calc(-${currentIndex * 100}% + 50vw - 50%))` }}
           >
             {matchedDogs.map((dog, index) => (
@@ -115,11 +119,14 @@ const WantMBTIResult = () => {
                 key={dog.dog_id}
                 className={`dogCard ${
                   index === currentIndex
-                    ? 'active'
+                    ? // 현재 보여지는 강아지 카드
+                      'active'
                     : index === currentIndex - 1 || (currentIndex === 0 && index === matchedDogs.length - 1)
-                    ? 'prev'
+                    ? // 이전 강아지 카드
+                      'prev'
                     : index === currentIndex + 1 || (currentIndex === matchedDogs.length - 1 && index === 0)
-                    ? 'next'
+                    ? // 다음 강아지 카드
+                      'next'
                     : ''
                 }`}
                 onClick={() => handleCardClick(dog)}
