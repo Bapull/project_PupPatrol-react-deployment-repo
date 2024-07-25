@@ -1,264 +1,270 @@
 {
-  "questions": [
+  "questions": {
+    "data": [
     {
-      "question_id": 1,
-      "question_text": "근력이 강한 편이신가요?",
-      "question_variable": "answer_is_big"
+      "id": 1,
+      "questionText": "근력이 강한 편이신가요?",
+      "questionVariable": "answerIsBig"
     },
     {
-      "question_id": 2,
-      "question_text": "방이 지저분하면 스트레스를 많이 받는 편인가요?",
-      "question_variable": "answer_is_fluff"
+      "id": 2,
+      "questionText": "방이 지저분하면 스트레스를 많이 받는 편인가요?",
+      "questionVariable": "answerIsFluff"
     },
     {
-      "question_id": 3,
-      "question_text": "평소 달리기나 산책을 좋아하시나요?",
-      "question_variable": "answer_like_walking"
+      "id": 3,
+      "questionText": "평소 달리기나 산책을 좋아하시나요?",
+      "questionVariable": "answerIsWalking"
     },
     {
-      "question_id": 4,
-      "question_text": "훈련에 많은 시간을 쓰실 수 있나요?",
-      "question_variable": "answer_is_smart"
+      "id": 4,
+      "questionText": "훈련에 많은 시간을 쓰실 수 있나요?",
+      "questionVariable": "answerIsSmart"
     },
     {
-      "question_id": 5,
-      "question_text": "집에 다양한 사람들이 찾아오나요?",
-      "question_variable": "answer_is_shyness"
+      "id": 5,
+      "questionText": "집에 다양한 사람들이 찾아오나요?",
+      "questionVariable": "answerIsShyness"
     },
     {
-      "question_id": 6,
-      "question_text": "가구는 비싼 걸 써야한다고 생각하나요?",
-      "question_variable": "answer_is_biting"
+      "id": 6,
+      "questionText": "가구는 비싼 걸 써야한다고 생각하나요?",
+      "questionVariable": "answerIsBiting"
     },
     {
-      "question_id": 7,
-      "question_text": "지인이 아프면 걱정돼서 아무것도 못 하나요?",
-      "question_variable": "answer_is_nuisance"
+      "id": 7,
+      "questionText": "지인이 아프면 걱정돼서 아무것도 못 하나요?",
+      "questionVariable": "answerIsNuisance"
     },
     {
-      "question_id": 8,
-      "question_text": "집에 자주 못 들어 올 수도 있나요?",
-      "question_variable": "answer_is_independent"
-    }
-  ],
-  "answers": [
-    {
-      "dog_id": 1,
-      "answer_is_big": true,
-      "answer_is_fluff": false,
-      "answer_like_walking": true,
-      "answer_is_smart": true,
-      "answer_is_shyness": false,
-      "answer_is_biting": false,
-      "answer_is_nuisance": false,
-      "answer_is_independent": false
-    },
-    {
-      "dog_id": 2,
-      "answer_is_big": false,
-      "answer_is_fluff": true,
-      "answer_like_walking": false,
-      "answer_is_smart": true,
-      "answer_is_shyness": true,
-      "answer_is_biting": false,
-      "answer_is_nuisance": false,
-      "answer_is_independent": false
-    },
-    {
-      "dog_id": 3,
-      "answer_is_big": false,
-      "answer_is_fluff": false,
-      "answer_like_walking": true,
-      "answer_is_smart": false,
-      "answer_is_shyness": true,
-      "answer_is_biting": true,
-      "answer_is_nuisance": false,
-      "answer_is_independent": true
-    },
-    {
-      "dog_id": 4,
-      "answer_is_big": true,
-      "answer_is_fluff": false,
-      "answer_like_walking": true,
-      "answer_is_smart": true,
-      "answer_is_shyness": false,
-      "answer_is_biting": false,
-      "answer_is_nuisance": false,
-      "answer_is_independent": false
-    },
-    {
-      "dog_id": 5,
-      "answer_is_big": true,
-      "answer_is_fluff": true,
-      "answer_like_walking": true,
-      "answer_is_smart": true,
-      "answer_is_shyness": false,
-      "answer_is_biting": false,
-      "answer_is_nuisance": false,
-      "answer_is_independent": false
-    },
-    {
-      "dog_id": 6,
-      "answer_is_big": false,
-      "answer_is_fluff": true,
-      "answer_like_walking": true,
-      "answer_is_smart": true,
-      "answer_is_shyness": false,
-      "answer_is_biting": false,
-      "answer_is_nuisance": false,
-      "answer_is_independent": false
-    },
-    {
-      "dog_id": 7,
-      "answer_is_big": true,
-      "answer_is_fluff": true,
-      "answer_like_walking": true,
-      "answer_is_smart": true,
-      "answer_is_shyness": false,
-      "answer_is_biting": false,
-      "answer_is_nuisance": false,
-      "answer_is_independent": false
-    },
-    {
-      "dog_id": 8,
-      "answer_is_big": true,
-      "answer_is_fluff": true,
-      "answer_like_walking": true,
-      "answer_is_smart": true,
-      "answer_is_shyness": false,
-      "answer_is_biting": false,
-      "answer_is_nuisance": true,
-      "answer_is_independent": false
-    },
-    {
-      "dog_id": 9,
-      "answer_is_big": false,
-      "answer_is_fluff": true,
-      "answer_like_walking": false,
-      "answer_is_smart": true,
-      "answer_is_shyness": false,
-      "answer_is_biting": false,
-      "answer_is_nuisance": true,
-      "answer_is_independent": false
-    }
-  ],
-  "informations": [
-    {
-      "dog_id": 1,
-      "information_dog_name": "골든 리트리버",
-      "information_dog_character": "온화하고 영리함",
-      "information_min_size": 56,
-      "information_max_size": 61,
-      "information_min_cost": 25,
-      "information_max_cost": 80,
-      "information_dog_text": "골든 리트리버는 온화하며 특히 순종적이고 영리합니다. 사람에게 부드럽고 우호적입니다.",
-      "information_dog_geneticillness": "고관절 이형성증, 백내장, 암",
-      "information_caution": "사람에게는 착하지만, 다른 개들에게는 사나울 수 있습니다.",
-      "information_image_url": "images/Golden Retriever.png"
-    },
-    {
-      "dog_id": 2,
-      "information_dog_name": "말티푸",
-      "information_dog_character": "높은 지능과 활발한 성격",
-      "information_min_size": 20,
-      "information_max_size": 35,
-      "information_min_cost": 100,
-      "information_max_cost": 300,
-      "information_dog_text": "말티푸는 매우 똑똑하며, 애교 많고 활발한 성격을 가지고 있습니다. 낯선 사람이나 다른 개에 대한 경계심이 강합니다.",
-      "information_dog_geneticillness": "슬개골 탈구, 간질, 치과 질환",
-      "information_caution": "사람에게는 친근하지만, 예민하고 분리불안 위험이 큽니다.",
-      "information_image_url": "images/Maltipoo.png"
-    },
-    {
-      "dog_id": 3,
-      "information_dog_name": "시바견",
-      "information_dog_character": "독립적이고 경계심이 강함",
-      "information_min_size": 35,
-      "information_max_size": 43,
-      "information_min_cost": 50,
-      "information_max_cost": 150,
-      "information_dog_text": "시바견은 독립적이고 경계심이 강한 성격을 가지고 있습니다. 사회화 훈련이 필수적입니다.",
-      "information_dog_geneticillness": "고관절 이형성증, 백내장, 피부염",
-      "information_caution": "사회화 훈련이 필요하며, 털 관리에 신경 써야 합니다.",
-      "information_image_url": "images/Shiba Inu.png"
-    },
-    {
-      "dog_id": 4,
-      "information_dog_name": "보더콜리",
-      "information_dog_character": "쾌활하고 사교적, 강한 책임감과 소유욕, 높은 지능과 학습력",
-      "information_min_size": 45,
-      "information_max_size": 56,
-      "information_min_cost": 50,
-      "information_max_cost": 150,
-      "information_dog_text": "보더콜리는 매우 활동적이고 사교적입니다. 가족에게 애정이 깊으나 낯선 사람을 경계하며, 높은 지능과 학습력을 가지고 있습니다.",
-      "information_dog_geneticillness": "콜리아이 증후군, 유전성 난청, 고관절 이형성증",
-      "information_caution": "하루 최소 1~2시간 이상의 운동이 필요하며, 철저한 교육이 중요합니다.",
-      "information_image_url": "images/Border Collie.png"
-    },
-    {
-      "dog_id": 5,
-      "information_dog_name": "사모예드",
-      "information_dog_character": "사교적이고 발랄하며 사람을 좋아함",
-      "information_min_size": 53,
-      "information_max_size": 57,
-      "information_min_cost": 50,
-      "information_max_cost": 150,
-      "information_dog_text": "사모예드는 사교적이고 발랄하며, 사람을 좋아하고 외로움을 잘 타며, 공격성이 낮아 아이들과 잘 어울립니다.",
-      "information_dog_geneticillness": "유전성사구체병증, 녹내장, 당뇨, 고관절 이형성증",
-      "information_caution": "털 관리와 많은 운동이 필요하며, 마당이 있는 집에서 키우는 것이 적합합니다.",
-      "information_image_url": "images/Samoyed.png"
-    },
-    {
-      "dog_id": 6,
-      "information_dog_name": "미니 비숑",
-      "information_dog_character": "다정하고 애교 많음",
-      "information_min_size": 20,
-      "information_max_size": 30,
-      "information_min_cost": 50,
-      "information_max_cost": 150,
-      "information_dog_text": "미니 비숑은 다정하고 애교 많으며, 사람과의 교감을 좋아합니다. 활동적이며 장난기 많습니다.",
-      "information_dog_geneticillness": "고관절 이형성증, 유전성 백내장, 피부병, 잇몸 질환",
-      "information_caution": "털 관리가 중요하며, 사회화 훈련이 필요합니다.",
-      "information_image_url": "images/Mini Bichon.png"
-    },
-    {
-      "dog_id": 7,
-      "information_dog_name": "버니즈 마운틴 독",
-      "information_dog_character": "다정하고 가족애가 깊음",
-      "information_min_size": 58,
-      "information_max_size": 70,
-      "information_min_cost": 100,
-      "information_max_cost": 200,
-      "information_dog_text": "버니즈 마운틴 독은 다정하고 가족애가 깊으며, 어린아이와 잘 지냅니다. 활동적이며 매일 1-2시간의 산책과 30분의 격한 놀이가 필요합니다.",
-      "information_dog_geneticillness": "암, 관절염, 고관절 이형성증, 십자인대 파열, 고창증",
-      "information_caution": "더위에 약해 여름철에는 시원한 환경이 필요하며, 털 빠짐이 심해 정기적인 털 관리가 필수입니다. 성장이 끝나기 전에는 격한 운동을 피해야 합니다.",
-      "information_image_url": "images/Bernese Mountain.png"
-    },
-    {
-      "dog_id": 8,
-      "information_dog_name": "러프 콜리",
-      "information_dog_character": "순하고 다정하며 영리함",
-      "information_min_size": 55,
-      "information_max_size": 66,
-      "information_min_cost": 100,
-      "information_max_cost": 150,
-      "information_dog_text": "러프 콜리는 순하고 다정하며, 사람을 좋아하고 가족애가 깊습니다. 영리하여 훈련 습득이 빠르고, 활동적이어서 매일 1-1.5시간의 산책이 필요합니다.",
-      "information_dog_geneticillness": "콜리 노즈, 콜리 안구 기형, 고관절 이형성증, 약물 민감성",
-      "information_caution": "털 빠짐이 심해 정기적인 빗질이 필요하며, 많은 활동량이 요구됩니다. 분리 불안이 생길 수 있으므로 너무 오랜 시간 혼자 두지 않는 것이 좋습니다.",
-      "information_image_url": "images/Rough Collie.png"
-    },
-    {
-      "dog_id": 9,
-      "information_dog_name": "말티즈",
-      "information_dog_character": "활발하고 놀기 좋아함",
-      "information_min_size": 20,
-      "information_max_size": 26,
-      "information_min_cost": 50,
-      "information_max_cost": 150,
-      "information_dog_text": "말티즈는 활발하고 놀기를 좋아하며, 사람을 중심으로 사고하여 훈련이 용이합니다. 장난기 많고 애교가 많아 어린아이들과 잘 지냅니다.",
-      "information_dog_geneticillness": "슬개골 탈구, 진행성 망막 위축증, 심장 질환, 하얀 강아지 떨림 증후군, 기관허탈, 간문맥단락",
-      "information_caution": "눈물 자국이 심하므로 정기적인 눈물 닦기와 털 관리를 해야 하며, 발톱과 귀 관리를 꾸준히 해야 합니다.",
-      "information_image_url": "images/Maltese.png"
+      "id": 8,
+      "questionText": "집에 자주 못 들어 올 수도 있나요?",
+      "questionVariable": "answerIsIndependent"
     }
   ]
+  },
+  "answers": {
+    "data": [
+    {
+      "id": 1,
+      "answerIsBig": 1,
+      "answerIsFluff": 1,
+      "answerIsWalking": 0,
+      "answerIsSmart": 1,
+      "answerIsShyness": 1,
+      "answerIsBiting": 1,
+      "answerIsNuisance": 1,
+      "answerIsIndependent": 1
+    },
+    {
+      "id": 2,
+      "answerIsBig": 0,
+      "answerIsFluff": 1,
+      "answerIsWalking": 1,
+      "answerIsSmart": 0,
+      "answerIsShyness": 0,
+      "answerIsBiting": 1,
+      "answerIsNuisance": 1,
+      "answerIsIndependent": 0
+    },
+    {
+      "id": 3,
+      "answerIsBig": 0,
+      "answerIsFluff": 0,
+      "answerIsWalking": 1,
+      "answerIsSmart": 1,
+      "answerIsShyness": 1,
+      "answerIsBiting": 0,
+      "answerIsNuisance": 1,
+      "answerIsIndependent": 1
+    },
+    {
+      "id": 4,
+      "answerIsBig": 1,
+      "answerIsFluff": 0,
+      "answerIsWalking": 1,
+      "answerIsSmart": 0,
+      "answerIsShyness": 0,
+      "answerIsBiting": 0,
+      "answerIsNuisance": 1,
+      "answerIsIndependent": 1
+    },
+    {
+      "id": 5,
+      "answerIsBig": 1,
+      "answerIsFluff": 1,
+      "answerIsWalking": 0,
+      "answerIsSmart": 1,
+      "answerIsShyness": 1,
+      "answerIsBiting": 1,
+      "answerIsNuisance": 0,
+      "answerIsIndependent": 1
+    },
+    {
+      "id": 6,
+      "answerIsBig": 0,
+      "answerIsFluff": 0,
+      "answerIsWalking": 1,
+      "answerIsSmart": 1,
+      "answerIsShyness": 0,
+      "answerIsBiting": 1,
+      "answerIsNuisance": 0,
+      "answerIsIndependent": 1
+    },
+    {
+      "id": 7,
+      "answerIsBig": 0,
+      "answerIsFluff": 0,
+      "answerIsWalking": 0,
+      "answerIsSmart": 1,
+      "answerIsShyness": 0,
+      "answerIsBiting": 0,
+      "answerIsNuisance": 1,
+      "answerIsIndependent": 1
+    },
+    {
+      "id": 8,
+      "answerIsBig": 0,
+      "answerIsFluff": 0,
+      "answerIsWalking": 0,
+      "answerIsSmart": 0,
+      "answerIsShyness": 1,
+      "answerIsBiting": 1,
+      "answerIsNuisance": 1,
+      "answerIsIndependent": 1
+    },
+    {
+      "id": 9,
+      "answerIsBig": 1,
+      "answerIsFluff": 1,
+      "answerIsWalking": 0,
+      "answerIsSmart": 1,
+      "answerIsShyness": 1,
+      "answerIsBiting": 1,
+      "answerIsNuisance": 1,
+      "answerIsIndependent": 1
+    }
+  ]
+  },
+  "informations": {
+    "data": [
+    {
+      "id": 1,
+      "informationDogName": "골든 리트리버",
+      "informationDogCharacter": "온화하고 영리함",
+      "informationMinSize": 56,
+      "informationMaxSize": 61,
+      "informationMinCost": 25,
+      "informationMaxCost": 80,
+      "informationDogText": "골든 리트리버는 온화하며 특히 순종적이고 영리합니다. 사람에게 부드럽고 우호적입니다.",
+      "informationDogGeneticillness": "고관절 이형성증, 백내장, 암",
+      "informationCaution": "사람에게는 착하지만, 다른 개들에게는 사나울 수 있습니다.",
+      "informationImageUrl": "images/Golden Retriever.png"
+    },
+    {
+      "id": 2,
+      "informationDogName": "말티푸",
+      "informationDogCharacter": "높은 지능과 활발한 성격",
+      "informationMinSize": 20,
+      "informationMaxSize": 35,
+      "informationMinCost": 100,
+      "informationMaxCost": 300,
+      "informationDogText": "말티푸는 매우 똑똑하며, 애교 많고 활발한 성격을 가지고 있습니다. 낯선 사람이나 다른 개에 대한 경계심이 강합니다.",
+      "informationDogGeneticillness": "슬개골 탈구, 간질, 치과 질환",
+      "informationCaution": "사람에게는 친근하지만, 예민하고 분리불안 위험이 큽니다.",
+      "informationImageUrl": "images/Maltipoo.png"
+    },
+    {
+      "id": 3,
+      "informationDogName": "시바견",
+      "informationDogCharacter": "독립적이고 경계심이 강함",
+      "informationMinSize": 35,
+      "informationMaxSize": 43,
+      "informationMinCost": 50,
+      "informationMaxCost": 150,
+      "informationDogText": "시바견은 독립적이고 경계심이 강한 성격을 가지고 있습니다. 사회화 훈련이 필수적입니다.",
+      "informationDogGeneticillness": "고관절 이형성증, 백내장, 피부염",
+      "informationCaution": "사회화 훈련이 필요하며, 털 관리에 신경 써야 합니다.",
+      "informationImageUrl": "images/Shiba Inu.png"
+    },
+    {
+      "id": 4,
+      "informationDogName": "보더콜리",
+      "informationDogCharacter": "쾌활하고 사교적, 강한 책임감과 소유욕, 높은 지능과 학습력",
+      "informationMinSize": 45,
+      "informationMaxSize": 56,
+      "informationMinCost": 50,
+      "informationMaxCost": 150,
+      "informationDogText": "보더콜리는 매우 활동적이고 사교적입니다. 가족에게 애정이 깊으나 낯선 사람을 경계하며, 높은 지능과 학습력을 가지고 있습니다.",
+      "informationDogGeneticillness": "콜리아이 증후군, 유전성 난청, 고관절 이형성증",
+      "informationCaution": "하루 최소 1~2시간 이상의 운동이 필요하며, 철저한 교육이 중요합니다.",
+      "informationImageUrl": "images/Border Collie.png"
+    },
+    {
+      "id": 5,
+      "informationDogName": "사모예드",
+      "informationDogCharacter": "사교적이고 발랄하며 사람을 좋아함",
+      "informationMinSize": 53,
+      "informationMaxSize": 57,
+      "informationMinCost": 50,
+      "informationMaxCost": 150,
+      "informationDogText": "사모예드는 사교적이고 발랄하며, 사람을 좋아하고 외로움을 잘 타며, 공격성이 낮아 아이들과 잘 어울립니다.",
+      "informationDogGeneticillness": "유전성사구체병증, 녹내장, 당뇨, 고관절 이형성증",
+      "informationCaution": "털 관리와 많은 운동이 필요하며, 마당이 있는 집에서 키우는 것이 적합합니다.",
+      "informationImageUrl": "images/Samoyed.png"
+    },
+    {
+      "id": 6,
+      "informationDogName": "미니 비숑",
+      "informationDogCharacter": "다정하고 애교 많음",
+      "informationMinSize": 20,
+      "informationMaxSize": 30,
+      "informationMinCost": 50,
+      "informationMaxCost": 150,
+      "informationDogText": "미니 비숑은 다정하고 애교 많으며, 사람과의 교감을 좋아합니다. 활동적이며 장난기 많습니다.",
+      "informationDogGeneticillness": "고관절 이형성증, 유전성 백내장, 피부병, 잇몸 질환",
+      "informationCaution": "털 관리가 중요하며, 사회화 훈련이 필요합니다.",
+      "informationImageUrl": "images/Mini Bichon.png"
+    },
+    {
+      "id": 7,
+      "informationDogName": "버니즈 마운틴 독",
+      "informationDogCharacter": "다정하고 가족애가 깊음",
+      "informationMinSize": 58,
+      "informationMaxSize": 70,
+      "informationMinCost": 100,
+      "informationMaxCost": 200,
+      "informationDogText": "버니즈 마운틴 독은 다정하고 가족애가 깊으며, 어린아이와 잘 지냅니다. 활동적이며 매일 1-2시간의 산책과 30분의 격한 놀이가 필요합니다.",
+      "informationDogGeneticillness": "암, 관절염, 고관절 이형성증, 십자인대 파열, 고창증",
+      "informationCaution": "더위에 약해 여름철에는 시원한 환경이 필요하며, 털 빠짐이 심해 정기적인 털 관리가 필수입니다. 성장이 끝나기 전에는 격한 운동을 피해야 합니다.",
+      "informationImageUrl": "images/Bernese Mountain.png"
+    },
+    {
+      "id": 8,
+      "informationDogName": "러프 콜리",
+      "informationDogCharacter": "순하고 다정하며 영리함",
+      "informationMinSize": 55,
+      "informationMaxSize": 66,
+      "informationMinCost": 100,
+      "informationMaxCost": 150,
+      "informationDogText": "러프 콜리는 순하고 다정하며, 사람을 좋아하고 가족애가 깊습니다. 영리하여 훈련 습득이 빠르고, 활동적이어서 매일 1-1.5시간의 산책이 필요합니다.",
+      "informationDogGeneticillness": "콜리 노즈, 콜리 안구 기형, 고관절 이형성증, 약물 민감성",
+      "informationCaution": "털 빠짐이 심해 정기적인 빗질이 필요하며, 많은 활동량이 요구됩니다. 분리 불안이 생길 수 있으므로 너무 오랜 시간 혼자 두지 않는 것이 좋습니다.",
+      "informationImageUrl": "images/Rough Collie.png"
+    },
+    {
+      "id": 9,
+      "informationDogName": "말티즈",
+      "informationDogCharacter": "활발하고 놀기 좋아함",
+      "informationMinSize": 20,
+      "informationMaxSize": 26,
+      "informationMinCost": 50,
+      "informationMaxCost": 150,
+      "informationDogText": "말티즈는 활발하고 놀기를 좋아하며, 사람을 중심으로 사고하여 훈련이 용이합니다. 장난기 많고 애교가 많아 어린아이들과 잘 지냅니다.",
+      "informationDogGeneticillness": "슬개골 탈구, 진행성 망막 위축증, 심장 질환, 하얀 강아지 떨림 증후군, 기관허탈, 간문맥단락",
+      "informationCaution": "눈물 자국이 심하므로 정기적인 눈물 닦기와 털 관리를 해야 하며, 발톱과 귀 관리를 꾸준히 해야 합니다.",
+      "informationImageUrl": "images/Maltese.png"
+    }
+  ]
+  }
 }
