@@ -8,6 +8,24 @@
   position: relative;
 }
 
+/* 뒤로가기 박스 스타일 */
+.back-box {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.back-box img {
+  width: 100%;
+  height: auto;
+}
+
 /* O */
 #X {
   position: absolute;
