@@ -15,7 +15,7 @@ function WantDogDescription() {
   };
 
   return (
-    <div className="all">
+    <div className="wantDogDescription">
       <div className="container">
         <div className="backButtonBox" onClick={handleClickBack}>
           <img
