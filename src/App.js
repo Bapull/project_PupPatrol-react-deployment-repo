@@ -12,6 +12,9 @@ import CategorySelect from "./pages/CategorySelect";
 import WantDogDescription from "./pages/WantDogDescription";
 import WantMBTIResult from "./pages/WantMBTIResult";
 import "./App.css";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Personal from "./pages/Personal";
 
 function App() {
   return (
@@ -19,7 +22,10 @@ function App() {
       <BrowserView></BrowserView>
       <MobileView></MobileView>
       <Routes>
-        <Route path="/" element={<Navigate to="/categorySelect" />} />
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />}/>
+        <Route path="/register" element={<Register />}/>
+        <Route path="/Personal" element={<Personal />}/>
         <Route path="/categorySelect/*" element={<CategorySelect />} />
         <Route path="/wantSelect" element={<WantSelect />} />
         <Route path="/wantMBTI" element={<WantMBTI />} />
