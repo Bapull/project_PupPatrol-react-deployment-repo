@@ -17,11 +17,11 @@ function DogSearch() {
 
   // 컴포넌트가 렌더링된 후, 서버로부터 강아지 정보를 받아옴
   useEffect(() => {
-    fetch('http://172.21.2.126:3001/informations')
+    fetch('http://localhost:3001/informations')
       .then((response) => response.json())
       .then((data) => {
-        setDogs(data);
-        setFilteredDogs(data);
+        setDogs(data.data);
+        setFilteredDogs(data.data);
       });
   }, []);
 
@@ -32,7 +32,7 @@ function DogSearch() {
 
   // 검색어가 변경될 때, 검색된 강아지 정보를 업데이트
   useEffect(() => {
-    const filtered = dogs.filter((dog) => dog.information_dog_name.includes(search));
+    const filtered = dogs.filter((dog) => dog.informationDogName.includes(search));
     setFilteredDogs(filtered);
     setCurrentPage(1); // 검색어가 변경될 때 페이지를 초기화
   }, [search, dogs]);
@@ -44,7 +44,7 @@ function DogSearch() {
 
   // 강아지 카드 클릭 시, wantDogDescription 페이지로 이동
   const handleClickDog = (dog) => {
-    navigate('/wantDogDescription', { state: { dog } });
+    navigate('/wantDogDescription', { state: { dogDescription: dog } });
   };
 
   // 다음 페이지로 이동

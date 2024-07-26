@@ -28,8 +28,8 @@ const WantMBTIResult = () => {
         ]);
         const informationData = await informationResponse.json();
         const answersData = await answersResponse.json();
-        setDogInformation(informationData);
-        setAnswers(answersData);
+        setDogInformation(informationData.data);
+        setAnswers(answersData.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -42,7 +42,7 @@ const WantMBTIResult = () => {
   // 배열의 모든 요소가 조건을 만족한다면 조건에 맞는 요소들로 배열을 생성
   const matchedDogs = dogInformation.filter((dog) =>
     answers.some(
-      (match) => match.dog_id === dog.dog_id && variable.every((varName) => match[varName] === answer[varName])
+      (match) => match.id === dog.id && variable.every((varName) => match[varName] === Number(answer[varName]))
     )
   );
 
@@ -94,7 +94,7 @@ const WantMBTIResult = () => {
       <div className="back-box" onClick={handleClickBack}>
         <img src="/images/Arrow.png" alt="back arrow" />
       </div>
-      <h1 className="dogResult_title">
+      <h1 className="dogResultTitle">
         What’s
         <br />
         Your
@@ -120,7 +120,7 @@ const WantMBTIResult = () => {
           >
             {matchedDogs.map((dog, index) => (
               <div
-                key={dog.dog_id}
+                key={dog.id}
                 className={`dogCard ${
                   index === currentIndex
                     ? // 현재 보여지는 강아지 카드
@@ -135,10 +135,10 @@ const WantMBTIResult = () => {
                 }`}
                 onClick={() => handleCardClick(dog)}
               >
-                <img src={dog.information_image_url} alt={dog.information_dog_name} className="dogImage" />
-                <h2>{dog.information_dog_name}</h2>
-                <p className="dogCharacter">{dog.information_dog_character}</p>
-                <p className="dogText">{dog.information_dog_text}</p>
+                <img src={dog.informationImageUrl} alt={dog.informationDogName} className="dogImage" />
+                <h2>{dog.informationDogName}</h2>
+                <p className="dogCharacter">{dog.informationDogCharacter}</p>
+                <p className="dogText">{dog.informationDogText}</p>
               </div>
             ))}
           </div>
