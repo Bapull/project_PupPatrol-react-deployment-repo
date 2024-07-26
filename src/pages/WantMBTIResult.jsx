@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/wantMBTIResult.css';
+import BackButton from '../components/backButton';
 
 const WantMBTIResult = () => {
   // dogInformation: 강아지 정보를 담는 상태
@@ -83,17 +84,10 @@ const WantMBTIResult = () => {
     navigate('/wantDogDescription', { state: { dog } });
   };
 
-  // 뒤로가기 클릭 시, wantMBTI 페이지로 이동
-  const handleClickBack = () => {
-    navigate('/wantMBTI');
-  };
-
   return (
     <div className="wantMBTIResult">
       {/* 뒤로가기 */}
-      <div className="back-box" onClick={handleClickBack}>
-        <img src="/images/Arrow.png" alt="back arrow" />
-      </div>
+      <BackButton />
       <h1 className="dogResultTitle">
         What’s
         <br />

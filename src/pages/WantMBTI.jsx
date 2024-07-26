@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import WantMBTIQCard from '../components/WantMBTIQCard';
 import '../styles/WantMBTI.css';
 import { useNavigate } from 'react-router-dom';
+import BackButton from '../components/backButton';
 
 const WantMBTI = () => {
   // questions: 질문 목록
@@ -37,11 +38,6 @@ const WantMBTI = () => {
     // 지정된 값이 변경될 때마다 실행되므로 currentQuestionId가 변경될 때마다 포함하여 실행됨
   }, [currentQuestionId, answer, navigate, questions]);
 
-  // 뒤로가기 클릭 시, wantSelect 페이지로 이동
-  const handleClickBack = () => {
-    navigate('/wantSelect');
-  };
-
   return (
     <div
       className="wantMBTI"
@@ -51,9 +47,7 @@ const WantMBTI = () => {
       }}
     >
       {/* 뒤로가기 */}
-      <div className="back-box" onClick={handleClickBack}>
-        <img src="/images/Arrow.png" alt="back arrow" />
-      </div>
+      <BackButton />
       <div id="X">X</div>
       <div id="O">O</div>
       {questions.map((item, index) => {

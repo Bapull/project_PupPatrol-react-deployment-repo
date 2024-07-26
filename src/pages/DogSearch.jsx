@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/DogSearch.css';
 import DogSearchCard from '../components/DogSearchCard';
+import BackButton from '../components/backButton';
 
 function DogSearch() {
   // dogs: 전체 강아지 정보, search: 검색어, filteredDogs: 검색된 강아지 정보
@@ -37,14 +38,9 @@ function DogSearch() {
     setCurrentPage(1); // 검색어가 변경될 때 페이지를 초기화
   }, [search, dogs]);
 
-  // 뒤로가기 버튼 클릭 시, wantSelect 페이지로 이동
-  const handleClickBack = () => {
-    navigate('/wantSelect');
-  };
-
   // 강아지 카드 클릭 시, wantDogDescription 페이지로 이동
   const handleClickDog = (dog) => {
-    navigate('/wantDogDescription', { state: { dogDescription: dog } });
+    navigate('/wantDogDescription', { state: { dog } });
   };
 
   // 다음 페이지로 이동
@@ -70,9 +66,7 @@ function DogSearch() {
   return (
     <div className="dogSearch">
       {/* 뒤로가기 버튼 */}
-      <div className="back-box" onClick={handleClickBack}>
-        <img src="/images/Arrow.png" alt="back arrow" />
-      </div>
+      <BackButton />
       <h1>Dog Search</h1>
       {/* 검색어 입력창 */}
       <div className="dogSearch_search-box">
