@@ -3,63 +3,34 @@ import React, { useEffect, useState } from 'react';
 import WantMBTIQCard from '../components/WantMBTIQCard';
 import '../styles/WantMBTI.css';
 import { useNavigate } from 'react-router-dom';
+import BackButton from '../components/backButton';
 
 const WantMBTI = () => {
+  // questions: 질문 목록
+  // answer: 사용자의 답변
   const [questions, setQuestions] = useState([]);
   const [answer, setAnswer] = useState({});
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setQuestions([
-      {
-        question_id: 1,
-        question_text: '근력이 강한 편이신가요?',
-        question_variable: 'answer_is_big',
-      },
-      {
-        question_id: 2,
-        question_text: '방이 지저분하면 스트레스를 많이 받는 편인가요?',
-        question_variable: 'answer_is_fluff',
-      },
-      {
-        question_id: 3,
-        question_text: '평소 달리기나 산책을 좋아하시나요?',
-        question_variable: 'answer_like_walking',
-      },
-      {
-        question_id: 4,
-        question_text: '훈련에 많은 시간을 쓰실 수 있나요?',
-        question_variable: 'answer_is_smart',
-      },
-      {
-        question_id: 5,
-        question_text: '집에 다양한 사람들이 찾아오나요?',
-        question_variable: 'answer_is_shyness',
-      },
-      {
-        question_id: 6,
-        question_text: '가구는 비싼 걸 써야한다고 생각하나요?',
-        question_variable: 'answer_is_biting',
-      },
-      {
-        question_id: 7,
-        question_text: '지인이 아프면 걱정돼서 아무것도 못 하나요?',
-        question_variable: 'answer_is_nuisance',
-      },
-      {
-        question_id: 8,
-        question_text: '집에 자주 못 들어 올 수도 있나요?',
-        question_variable: 'answer_is_independent',
-      },
-    ]);
-  }, []);
-
   // 의존성 배열에 필요한 변수를 추가,
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
 
   useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/questions');
+        const data = await response.json();
+        setQuestions(data.data);
+      } catch (error) {
+        console.error('Error fetching questions: ', error);
+      }
+    };
+
+    fetchQuestions();
+  }, []);
+
+  useEffect(() => {
     if (currentQuestionId !== 1 && currentQuestionId > questions.length) {
-      const variables = questions.map((item) => item.question_variable);
+      const variables = questions.map((item) => item.questionVariable);
       navigate('/wantMBTIResult', {
         state: [answer, variables],
       });
@@ -67,10 +38,12 @@ const WantMBTI = () => {
     // 지정된 값이 변경될 때마다 실행되므로 currentQuestionId가 변경될 때마다 포함하여 실행됨
   }, [currentQuestionId, answer, navigate, questions]);
 
-  // 뒤로가기 클릭 시, wantSelect 페이지로 이동
-  const handleClickBack = () => {
-    navigate('/wantSelect');
-  };
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'; // 스크롤 숨김
+    return () => {
+      document.body.style.overflow = ''; // 컴포넌트 언마운트 시 원상 복구
+    };
+  }, []);
 
   return (
     <div
@@ -81,9 +54,7 @@ const WantMBTI = () => {
       }}
     >
       {/* 뒤로가기 */}
-      <div className="back-box" onClick={handleClickBack}>
-        <img src="/images/Arrow.png" alt="back arrow" />
-      </div>
+      <BackButton />
       <div id="X">X</div>
       <div id="O">O</div>
       {questions.map((item, index) => {
@@ -91,9 +62,9 @@ const WantMBTI = () => {
           return (
             <WantMBTIQCard
               key={index}
-              question={item.question_text}
+              question={item.questionText}
               setAnswer={setAnswer}
-              questionVariable={item.question_variable}
+              questionVariable={item.questionVariable}
               setCurrentQuestionId={setCurrentQuestionId}
               leftover={questions.length - index - 1}
             />

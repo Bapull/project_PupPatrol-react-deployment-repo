@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/wantMBTIResult.css';
+import BackButton from '../components/backButton';
 
 const WantMBTIResult = () => {
   // dogInformation: 강아지 정보를 담는 상태
@@ -28,8 +29,8 @@ const WantMBTIResult = () => {
         ]);
         const informationData = await informationResponse.json();
         const answersData = await answersResponse.json();
-        setDogInformation(informationData);
-        setAnswers(answersData);
+        setDogInformation(informationData.data);
+        setAnswers(answersData.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -38,11 +39,18 @@ const WantMBTIResult = () => {
     fetchDogInformation();
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'; // 스크롤 숨김
+    return () => {
+      document.body.style.overflow = ''; // 컴포넌트 언마운트 시 원상 복구
+    };
+  }, []);
+
   // 사용자가 선택한 답변과 일치하는 강아지 정보를 가져오는 함수
   // 배열의 모든 요소가 조건을 만족한다면 조건에 맞는 요소들로 배열을 생성
   const matchedDogs = dogInformation.filter((dog) =>
     answers.some(
-      (match) => match.dog_id === dog.dog_id && variable.every((varName) => match[varName] === answer[varName])
+      (match) => match.id === dog.id && variable.every((varName) => match[varName] === Number(answer[varName]))
     )
   );
 
@@ -83,18 +91,11 @@ const WantMBTIResult = () => {
     navigate('/wantDogDescription', { state: { dog } });
   };
 
-  // 뒤로가기 클릭 시, wantMBTI 페이지로 이동
-  const handleClickBack = () => {
-    navigate('/wantMBTI');
-  };
-
   return (
     <div className="wantMBTIResult">
       {/* 뒤로가기 */}
-      <div className="back-box" onClick={handleClickBack}>
-        <img src="/images/Arrow.png" alt="back arrow" />
-      </div>
-      <h1 className="dogResult_title">
+      <BackButton />
+      <h1 className="dogResultTitle">
         What’s
         <br />
         Your
@@ -120,7 +121,7 @@ const WantMBTIResult = () => {
           >
             {matchedDogs.map((dog, index) => (
               <div
-                key={dog.dog_id}
+                key={dog.id}
                 className={`dogCard ${
                   index === currentIndex
                     ? // 현재 보여지는 강아지 카드
@@ -135,10 +136,10 @@ const WantMBTIResult = () => {
                 }`}
                 onClick={() => handleCardClick(dog)}
               >
-                <img src={dog.information_image_url} alt={dog.information_dog_name} className="dogImage" />
-                <h2>{dog.information_dog_name}</h2>
-                <p className="dogCharacter">{dog.information_dog_character}</p>
-                <p className="dogText">{dog.information_dog_text}</p>
+                <img src={dog.informationImageUrl} alt={dog.informationDogName} className="dogImage" />
+                <h2>{dog.informationDogName}</h2>
+                <p className="dogCharacter">{dog.informationDogCharacter}</p>
+                <p className="dogText">{dog.informationDogText}</p>
               </div>
             ))}
           </div>
