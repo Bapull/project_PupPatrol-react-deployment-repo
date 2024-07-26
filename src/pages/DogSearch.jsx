@@ -38,6 +38,13 @@ function DogSearch() {
     setCurrentPage(1); // 검색어가 변경될 때 페이지를 초기화
   }, [search, dogs]);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'; // 스크롤 숨김
+    return () => {
+      document.body.style.overflow = ''; // 컴포넌트 언마운트 시 원상 복구
+    };
+  }, []);
+
   // 강아지 카드 클릭 시, wantDogDescription 페이지로 이동
   const handleClickDog = (dog) => {
     navigate('/wantDogDescription', { state: { dog } });

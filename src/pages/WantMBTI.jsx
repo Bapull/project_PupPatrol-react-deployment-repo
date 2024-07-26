@@ -38,6 +38,13 @@ const WantMBTI = () => {
     // 지정된 값이 변경될 때마다 실행되므로 currentQuestionId가 변경될 때마다 포함하여 실행됨
   }, [currentQuestionId, answer, navigate, questions]);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'; // 스크롤 숨김
+    return () => {
+      document.body.style.overflow = ''; // 컴포넌트 언마운트 시 원상 복구
+    };
+  }, []);
+
   return (
     <div
       className="wantMBTI"

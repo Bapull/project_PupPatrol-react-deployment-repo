@@ -39,6 +39,13 @@ const WantMBTIResult = () => {
     fetchDogInformation();
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'; // 스크롤 숨김
+    return () => {
+      document.body.style.overflow = ''; // 컴포넌트 언마운트 시 원상 복구
+    };
+  }, []);
+
   // 사용자가 선택한 답변과 일치하는 강아지 정보를 가져오는 함수
   // 배열의 모든 요소가 조건을 만족한다면 조건에 맞는 요소들로 배열을 생성
   const matchedDogs = dogInformation.filter((dog) =>
