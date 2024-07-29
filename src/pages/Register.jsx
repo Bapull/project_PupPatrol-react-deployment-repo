@@ -33,12 +33,16 @@ const Register = () => {
         "Content-Type":"application/json"
       },
       body:JSON.stringify(inputs)
-    }).then((response)=>response.json())
+    }).then((response)=>{
+      if(!response.ok){
+        throw new Error()
+      }
+      return response.json()})
     .then((data)=>localStorage.setItem('token',data.token))
     .then(()=>{
       navigate("/personal")
     }).catch(()=>{
-      setMessage("회원가입중 문제가 발생했습니다. 다시 시도해주세요")
+      setMessage("이미 있는 아이디입니다. 다시 시도해주세요")
     })
   }
   return (
