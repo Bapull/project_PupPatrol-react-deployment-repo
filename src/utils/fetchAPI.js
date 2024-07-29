@@ -4,8 +4,8 @@ const refreshToken = async () => {
   const response = await fetch(refreshURL, {
     method:"GET",
     headers: {
-      "Content-Type": "application/json",
-      "Authorization": `bearer ${token}`
+        "Content-Type": "application/json",
+        "Authorization": `bearer ${token}`
     }
   });
   if(!response.ok){
