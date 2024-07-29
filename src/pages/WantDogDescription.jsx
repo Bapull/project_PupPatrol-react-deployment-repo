@@ -1,8 +1,8 @@
 // 강아지 상세 설명 페이지
-import React from 'react';
-import '../styles/WantDogDescription.css';
-import { useNavigate, useLocation } from 'react-router-dom';
-import BackButton from '../components/backButton';
+import React from "react";
+import "../styles/WantDogDescription.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import BackButton from "../components/backButton";
 
 function WantDogDescription() {
   const location = useLocation();
@@ -11,9 +11,13 @@ function WantDogDescription() {
 
   return (
     <div className="wantDogDescription">
+      <BackButton />
       <div className="container">
-        <BackButton />
-        <img src={dog.informationImageUrl} alt="dogImage" className="background-image" />
+        <img
+          src={dog.informationImageUrl}
+          alt="Dog_Image"
+          className="background-image"
+        />
         <div className="text-overlay">
           <h1>{dog.informationDogName}</h1>
         </div>
