@@ -1,18 +1,30 @@
 /* 'Category_Select.jsx'의 CSS 파일 */
-body {
+.categorySelect body {
   margin: 0;
-  background-color: black;
-}
-
-.CategorySelect {
   overflow: hidden;
 }
 
-h5 {
-  color: white;
+.categorySelect {
+  overflow: hidden;
+}
+
+.categorySelect h5 {
   margin-bottom: 0;
   margin-top: 0;
   margin-bottom: 0;
+  font-size: 30px;
+  color: #dcb893;
+  text-shadow: 2px 2px 2px white;
+}
+
+.loginPath {
+  text-align: center;
+}
+
+.loginPath p {
+  text-align: center;
+  color: rgb(21, 142, 255);
+  font-size: 14px;
 }
 
 .choice {
@@ -23,21 +35,13 @@ h5 {
 
 .choiceHave {
   float: right;
-  margin-right: 1%;
+  margin-right: 4%;
   display: flex;
   margin-bottom: 0;
 }
 
-p {
-  color: rgb(21, 142, 255);
-  font-size: small;
-  text-align: right;
-  margin-top: 13%;
-}
-
 .content {
   overflow: hidden;
-  background: black;
   padding: 1%;
   font-size: 2.5rem;
   margin-left: auto;
@@ -60,18 +64,26 @@ p {
 }
 
 .buttonOn {
+  border: 0;
+  background-color: transparent;
   background-color: white;
   padding: 3px;
   transform: scale(1.5);
   border-radius: 50%;
+  outline: 1px solid;
+  outline-color: #dcb893;
   margin: 5px;
   transition: all ease 0.5s;
 }
 
 .buttonOff {
-  background-color: rgb(50, 50, 50);
+  border: 0;
+  background-color: transparent;
+  background-color: #eeeae8;
   padding: 3px;
   border-radius: 50%;
+  outline: 1px solid;
+  outline-color: #e0cbb6;
   margin: 5px;
   transition: all ease 0.5s;
 }
@@ -79,18 +91,20 @@ p {
 .buttonBox {
   text-align: center;
   margin-top: 10dvh;
+  margin-bottom: 10px;
 }
 
 .buttonYes {
+  border: 0;
+  background-color: transparent;
   text-align: center;
   width: 100px;
   height: 50px;
   border-radius: 30px;
-  color: white;
+  color: #dcb893;
   font-weight: 700;
   font-size: large;
-  outline: auto;
-  outline-width: 5px;
-  outline-color: white;
-  background-color: black;
+  outline: 3px solid;
+  outline-color: #dcb893;
+  background-color: #eeeae8;
 }
