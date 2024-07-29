@@ -2,7 +2,7 @@
 name: "\U0001F914 ETC Template"
 about: 프로젝트와 관련된 기타 논의를 위한 이슈입니다.
 title: "[DISCUSSION]"
-labels: question
+labels: ":question: Question"
 assignees: ''
 
 ---
