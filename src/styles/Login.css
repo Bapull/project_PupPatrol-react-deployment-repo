@@ -1,25 +1,23 @@
-.container{
-  display:flex;
-  height:100vh;
+.container {
+  display: flex;
+  height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.loginInput{
-  margin-top:2%;
+.loginInput {
+  margin-top: 2%;
   flex-basis: 5%;
   width: 90%;
-  background: #EFEFEF;
+  background: #efefef;
   border-radius: 10px;
 }
 
-.loginButton{
+.loginButton {
   margin-top: 5%;
-  flex-basis:5%;
+  flex-basis: 5%;
   width: 30%;
   background: #424242;
   border-radius: 20px;
 }
-
-

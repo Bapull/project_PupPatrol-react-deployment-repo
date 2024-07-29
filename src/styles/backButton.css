@@ -1,9 +1,9 @@
 .backButton {
   width: 20px;
   height: 20px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  position: fixed;
+  top: 2vh;
+  left: 4vw;
   display: flex;
   align-items: center;
   justify-content: center;
