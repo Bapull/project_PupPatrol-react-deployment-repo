@@ -5,6 +5,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import WantSelect from "./WantSelect";
 import DogSearch from "./DogSearch";
 import Login from "./Login";
+import BackButton from "../components/backButton";
 
 function CategorySelect() {
   const navigate = useNavigate();
@@ -81,6 +82,7 @@ function CategorySelect() {
   */
   return (
     <div className="categorySelect">
+      <BackButton />
       <div className="buttonGroup">
         <button
           className={leftRight === "right" ? "buttonOff" : "buttonOn"}

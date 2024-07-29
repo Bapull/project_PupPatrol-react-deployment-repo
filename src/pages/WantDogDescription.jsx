@@ -2,27 +2,17 @@
 import React from "react";
 import "../styles/WantDogDescription.css";
 import { useNavigate, useLocation } from "react-router-dom";
+import BackButton from "../components/backButton";
 
 function WantDogDescription() {
   const location = useLocation();
   const { dog } = location.state;
   const navigate = useNavigate();
 
-  // 뒤로가기 버튼 클릭 시, 뒤로 이동
-  const handleClickBack = () => {
-    navigate(-1);
-  };
-
   return (
     <div className="wantDogDescription">
+      <BackButton />
       <div className="container">
-        <div className="backButtonBox" onClick={handleClickBack}>
-          <img
-            src="/images/Arrow.png"
-            alt="backButton"
-            className="backButton"
-          />
-        </div>
         <img
           src={dog.informationImageUrl}
           alt="Dog_Image"
@@ -40,7 +30,7 @@ function WantDogDescription() {
         <h4>이 병에 대해선 조심해야해요!</h4> <br />
         <h5>{dog.informationDogGeneticillness}</h5>
         <h4>주의점!</h4> <br />
-        <h5>{dog.information_caution}</h5>
+        <h5>{dog.informationCaution}</h5>
       </div>
     </div>
   );

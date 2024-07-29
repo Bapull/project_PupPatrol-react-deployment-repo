@@ -1,7 +1,8 @@
 /* WantDogDescription.css */
-/* 이름! */
+
+/* 성격과 스타일! */
 .wantDogDescription h3 {
-  color: white;
+  color: black;
   font-size: 28px;
   text-align: justify;
   margin-bottom: 0;
@@ -24,29 +25,11 @@
 /* 설명글 */
 .wantDogDescription h5 {
   font-size: 14px;
-  -webkit-text-stroke: 1px white;
+  -webkit-text-stroke: 1px black;
   font-weight: 500;
   font-style: normal;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 1px 1px 1px white;
 }
-
-.backButtonBox {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.backButton {
-  width: 20px;
-  height: 20px;
-}
-
 .container {
   position: relative;
   width: 100%;
@@ -68,6 +51,7 @@
   z-index: -1;
 }
 
+/* 개 이름! */
 .text-overlay {
   width: 80%;
   margin-left: 5vw;
