@@ -1,6 +1,7 @@
 import React, { useState }  from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/Register.css'
+import {loginApi, putApi, getApi, postApi, patchApi, deleteApi} from '../utils/fetchAPI'
 const Register = () => {
   const navigate = useNavigate()
   const [inputs, setInputs] = useState({
@@ -27,18 +28,7 @@ const Register = () => {
       return
     }
 
-    fetch("http://localhost:8000/api/register",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify(inputs)
-    }).then((response)=>{
-      if(!response.ok){
-        throw new Error()
-      }
-      return response.json()})
-    .then((data)=>localStorage.setItem('token',data.token))
+    loginApi("http://localhost:8000/api/register",inputs)
     .then(()=>{
       navigate("/personal")
     }).catch(()=>{
