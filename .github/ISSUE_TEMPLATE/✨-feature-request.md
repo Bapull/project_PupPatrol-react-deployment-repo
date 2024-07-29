@@ -1,6 +1,6 @@
 ---
 name: "✨ Feature request"
-about: 새로운 기능이나 개선 사항에 대한 작업을 정리합니다.
+about: 새로운 기능이나 개선 사항에 대한 작업 내용을 정리합니다.
 title: "[FEATURE]"
 labels: ":star: Feature"
 assignees: ''
