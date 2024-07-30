@@ -1,9 +1,10 @@
 // WantMBTI.jsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import WantMBTIQCard from "../components/WantMBTIQCard";
 import "../styles/WantMBTI.css";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/backButton";
+import ApiContext from "../contexts/ApiContext";
 
 const WantMBTI = () => {
   // questions: 질문 목록
@@ -13,11 +14,12 @@ const WantMBTI = () => {
   const navigate = useNavigate();
   // 의존성 배열에 필요한 변수를 추가,
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
+  const { apiUrl } = useContext(ApiContext);
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch("http://localhost:3001/questions");
+        const response = await fetch(`${apiUrl}/questions`);
         const data = await response.json();
         setQuestions(data.data);
       } catch (error) {
@@ -26,7 +28,7 @@ const WantMBTI = () => {
     };
 
     fetchQuestions();
-  }, []);
+  }, [apiUrl]);
 
   useEffect(() => {
     if (currentQuestionId !== 1 && currentQuestionId > questions.length) {
