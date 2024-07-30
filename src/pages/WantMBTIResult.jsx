@@ -117,10 +117,8 @@ const WantMBTIResult = () => {
         >
           <div
             className="slider-wrapper"
-            // 현재 인덱스에 따라 슬라이더 이동, 'translateX'로 슬라이더를 이동시키고,
-            // 슬라이드의 중앙을 화면에 맞추기 위해 계산
             style={{
-              transform: `translateX(calc(-${currentIndex * 100}% + 50vw - 50%))`,
+              transform: `translateX(-${currentIndex * 100}%)`,
             }}
           >
             {matchedDogs.map((dog, index) => (
