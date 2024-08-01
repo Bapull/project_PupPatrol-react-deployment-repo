@@ -14,6 +14,7 @@ import WantDogDescription from "./pages/WantDogDescription";
 import WantMBTI from "./pages/WantMBTI";
 import WantMBTIResult from "./pages/WantMBTIResult";
 import WantSelect from "./pages/WantSelect";
+import ImageTest from './pages/ImageTest'
 import { ApiProvider } from "./contexts/ApiContext";
 import "./App.css";
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/wantMBTI" element={<WantMBTI />} />
           <Route path="/wantMBTIResult" element={<WantMBTIResult />} />
           <Route path="/wantSelect" element={<WantSelect />} />
+          <Route path="/image" element={<ImageTest/>}/>
         </Routes>
       </Router>
     </ApiProvider>
