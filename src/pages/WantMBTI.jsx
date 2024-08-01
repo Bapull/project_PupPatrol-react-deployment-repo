@@ -1,10 +1,10 @@
 // WantMBTI.jsx
-import React, { useEffect, useState, useContext } from "react";
-import WantMBTIQCard from "../components/WantMBTIQCard";
-import "../styles/WantMBTI.css";
-import { useNavigate } from "react-router-dom";
-import BackButton from "../components/backButton";
-import ApiContext from "../contexts/ApiContext";
+import React, { useEffect, useState, useContext } from 'react';
+import WantMBTIQCard from '../components/WantMBTIQCard';
+import '../styles/WantMBTI.css';
+import { useNavigate } from 'react-router-dom';
+import BackButton from '../components/backButton';
+import ApiContext from '../contexts/ApiContext';
 
 const WantMBTI = () => {
   // questions: 질문 목록
@@ -23,7 +23,7 @@ const WantMBTI = () => {
         const data = await response.json();
         setQuestions(data.data);
       } catch (error) {
-        console.error("Error fetching questions: ", error);
+        console.error('Error fetching questions: ', error);
       }
     };
 
@@ -33,7 +33,7 @@ const WantMBTI = () => {
   useEffect(() => {
     if (currentQuestionId !== 1 && currentQuestionId > questions.length) {
       const variables = questions.map((item) => item.questionVariable);
-      navigate("/wantMBTIResult", {
+      navigate('/wantMBTIResult', {
         state: [answer, variables],
       });
     }
@@ -41,9 +41,9 @@ const WantMBTI = () => {
   }, [currentQuestionId, answer, navigate, questions]);
 
   useEffect(() => {
-    document.body.style.overflow = "hidden"; // 스크롤 숨김
+    document.body.style.overflow = 'hidden'; // 스크롤 숨김
     return () => {
-      document.body.style.overflow = ""; // 컴포넌트 언마운트 시 원상 복구
+      document.body.style.overflow = ''; // 컴포넌트 언마운트 시 원상 복구
     };
   }, []);
 

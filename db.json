@@ -3,42 +3,42 @@
     "data": [
       {
         "id": 1,
-        "questionText": "근력이 강한 편이신가요?",
+        "questionText": "힘이 센 편이신가요?",
         "questionVariable": "answerIsBig"
       },
       {
         "id": 2,
-        "questionText": "방이 지저분하면 스트레스를 많이 받는 편인가요?",
+        "questionText": "주변 환경이 지저분할 때<br>많이 신경 쓰이나요?",
         "questionVariable": "answerIsFluff"
       },
       {
         "id": 3,
-        "questionText": "평소 달리기나 산책을 좋아하시나요?",
+        "questionText": "달리기나 산책 같은<br>활동을 즐기시나요?",
         "questionVariable": "answerIsWalking"
       },
       {
         "id": 4,
-        "questionText": "훈련에 많은 시간을 쓰실 수 있나요?",
+        "questionText": "훈련에 충분한 시간을<br>투자할 수 있으신가요?",
         "questionVariable": "answerIsSmart"
       },
       {
         "id": 5,
-        "questionText": "집에 다양한 사람들이 찾아오나요?",
+        "questionText": "집에 사람이<br>자주 방문하시나요?",
         "questionVariable": "answerIsShyness"
       },
       {
         "id": 6,
-        "questionText": "가구는 비싼 걸 써야한다고 생각하나요?",
+        "questionText": "가구에 대해 많은 비용을<br>지출하는 편이신가요?",
         "questionVariable": "answerIsBiting"
       },
       {
         "id": 7,
-        "questionText": "지인이 아프면 걱정돼서 아무것도 못 하나요?",
+        "questionText": "주변 사람이 아프면<br>많이 걱정하는 편인가요?",
         "questionVariable": "answerIsNuisance"
       },
       {
         "id": 8,
-        "questionText": "집에 자주 못 들어 올 수도 있나요?",
+        "questionText": "집을 자주 비우시나요?",
         "questionVariable": "answerIsIndependent"
       }
     ]
