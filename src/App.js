@@ -16,6 +16,7 @@ import WantMBTIResult from "./pages/WantMBTIResult";
 import WantSelect from "./pages/WantSelect";
 import { ApiProvider } from "./contexts/ApiContext";
 import "./App.css";
+import GooglePersonal from "./pages/GooglePersonal";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/dogSearch" element={<DogSearch />} />
           <Route path="/login" element={<Login />} />
           <Route path="/personal" element={<Personal />} />
+          <Route path="/personal/google" element={<GooglePersonal />}></Route>
           <Route path="/register" element={<Register />} />
           <Route path="/wantDogDescription" element={<WantDogDescription />} />
           <Route path="/wantMBTI" element={<WantMBTI />} />

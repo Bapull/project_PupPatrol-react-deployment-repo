@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Login.css";
 import { useNavigate } from "react-router-dom";
 import { loginApi } from "../utils/fetchAPI";
 import BackButton from "../components/backButton";
+import GoogleLogin from "../components/GoogleLogin";
 const Login = () => {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
@@ -28,6 +29,7 @@ const Login = () => {
       .catch((e) => setError("아이디나 비밀번호가 잘못되었습니다."));
   };
   return (
+    <div>
     <form onSubmit={onSubmit} className="container">
       <BackButton />
       <input
@@ -54,6 +56,8 @@ const Login = () => {
       <p>계정이 없으신가요?</p>
       <a href="/register">Sign in</a>
     </form>
+    <GoogleLogin />
+    </div>
   );
 };
 
