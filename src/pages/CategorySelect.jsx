@@ -1,11 +1,11 @@
 // '키우고싶어요' '키우고있어요' 선택 페이지
-import { useState } from "react";
-import "../styles/Category_Select.css";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import WantSelect from "./WantSelect";
-import DogSearch from "./DogSearch";
-import Login from "./Login";
-import BackButton from "../components/backButton";
+import { useState } from 'react';
+import '../styles/Category_Select.css';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import WantSelect from './WantSelect';
+import DogSearch from './DogSearch';
+import Login from './Login';
+import BackButton from '../components/backButton';
 
 function CategorySelect() {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function CategorySelect() {
 
   const [position, setPosition] = useState(0);
   const [start, setStart] = useState(0);
-  const [leftRight, setLeftRight] = useState("left");
+  const [leftRight, setLeftRight] = useState('left');
 
   /*
 
@@ -30,12 +30,12 @@ function CategorySelect() {
   */
 
   const oneTouch = () => {
-    setLeftRight("left");
-    document.querySelector(".content").style.transform = "translate(0vw)";
+    setLeftRight('left');
+    document.querySelector('.content').style.transform = 'translate(0vw)';
   };
   const twoTouch = () => {
-    setLeftRight("right");
-    document.querySelector(".content").style.transform = "translate(-100vw)";
+    setLeftRight('right');
+    document.querySelector('.content').style.transform = 'translate(-100vw)';
   };
 
   /*
@@ -61,11 +61,11 @@ function CategorySelect() {
 
   // YES 버튼을 눌렀을 때 페이지 이동을 위해 삼항 조건문을 이용
   const onClickYes = () => {
-    leftRight === "right" ? navigate("/dogSearch") : navigate("/wantSelect");
+    leftRight === 'right' ? navigate('/dogSearch') : navigate('/wantSelect');
   };
 
   const onClickLogin = () => {
-    navigate("/login");
+    navigate('/login');
   };
 
   /*
@@ -85,29 +85,23 @@ function CategorySelect() {
       <BackButton />
       <div className="buttonGroup">
         <button
-          className={leftRight === "right" ? "buttonOff" : "buttonOn"}
+          className={leftRight === 'right' ? 'buttonOff' : 'buttonOn'}
           onTouchEnd={oneTouch}
           onClick={oneTouch}
         ></button>
         <button
-          className={leftRight === "left" ? "buttonOff" : "buttonOn"}
+          className={leftRight === 'left' ? 'buttonOff' : 'buttonOn'}
           onTouchEnd={twoTouch}
           onClick={twoTouch}
         ></button>
       </div>
-      <div
-        className="content"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-      >
+      <div className="content" onTouchStart={onTouchStart} onTouchMove={onTouchMove}>
         <div className="choice">
           <div className="textBox">
             <h5>
               당신은 현재 강아지를
               <span className="choiceHave">당신은 현재 강아지를</span>
             </h5>
-          </div>
-          <div>
             <h5>
               키우고 있지 않습니까?
               <span className="choiceHave">키우고 있습니까?</span>
