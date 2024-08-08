@@ -8,7 +8,7 @@ import {
 import CategorySelect from "./pages/CategorySelect";
 import DogSearch from "./pages/DogSearch";
 import Login from "./pages/Login";
-import Personal from "./pages/Personal";
+import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import WantDogDescription from "./pages/WantDogDescription";
 import WantMBTI from "./pages/WantMBTI";
@@ -29,7 +29,7 @@ function App() {
           <Route path="/categorySelect/*" element={<CategorySelect />} />
           <Route path="/dogSearch" element={<DogSearch />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/personal" element={<Personal />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/wantDogDescription" element={<WantDogDescription />} />
           <Route path="/wantMBTI" element={<WantMBTI />} />
