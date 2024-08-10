@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../styles/Register.css";
 
 import BackButton from "../components/backButton";
 import { useAuth } from "../hooks/auth";
 const Register = () => {
-  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -74,7 +72,12 @@ const Register = () => {
         className="loginInput"
         minLength={8}
       />
-      
+      {errors.email?.length > 0 && errors.email.map((item,index)=>{
+        return <p className="error" key={index}>
+          {item}
+        </p>
+      })}
+      {passwordConfirmation !== inputs.password ? <p className="error">비밀번호가 일치하지 않습니다.</p> : null}
       <button type="submit" className="loginButton">
       Register
       </button>

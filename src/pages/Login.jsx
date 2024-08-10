@@ -3,7 +3,6 @@ import "../styles/Login.css";
 import BackButton from "../components/backButton";
 import { useAuth } from "../hooks/auth";
 const Login = () => {
-
   const { login } = useAuth({
     middleware: 'guest',
     redirectIfAuthenticated: '/dashboard'
@@ -48,11 +47,7 @@ const Login = () => {
         placeholder=" Email"
         className="loginInput"
       />
-      {errors.email?.length > 0 && errors.email.map((item,index)=>{
-        return <p key={index}>
-          {item}
-        </p>
-      })}
+      
       <input
         type="password"
         name="password"
@@ -62,11 +57,13 @@ const Login = () => {
         className="loginInput"
         minLength={8}
       />
-      {errors.password?.length > 0 && errors.password.map((item,index)=>{
-        return <p key={index}>
+      
+      {errors.email?.length > 0 && errors.email.map((item,index)=>{
+        return <p className="error" key={index}>
           {item}
         </p>
       })}
+      
       <button type="submit" className="loginButton">
         Login
       </button>
@@ -84,7 +81,7 @@ const Login = () => {
                 Remember me
         </label>
       </div>
-
+      
       <a href="/register">Sign in</a>
     </form>
     

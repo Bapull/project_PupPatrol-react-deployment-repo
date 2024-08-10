@@ -17,6 +17,7 @@ import WantSelect from "./pages/WantSelect";
 import ImageTest from './pages/ImageTest'
 import { ApiProvider } from "./contexts/ApiContext";
 import "./App.css";
+import CrudTest from "./test/CrudTest";
 
 function App() {
   return (
@@ -35,7 +36,8 @@ function App() {
           <Route path="/wantMBTI" element={<WantMBTI />} />
           <Route path="/wantMBTIResult" element={<WantMBTIResult />} />
           <Route path="/wantSelect" element={<WantSelect />} />
-          <Route path="/image" element={<ImageTest/>}/>
+          <Route path="/image-test" element={<ImageTest/>}/>
+          <Route path="/answer-test" element={<CrudTest/>}/>
         </Routes>
       </Router>
     </ApiProvider>
