@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../styles/Login.css";
-import { useNavigate } from "react-router-dom";
-import { loginApi } from "../utils/fetchAPI";
 import BackButton from "../components/backButton";
 import { useAuth } from "../hooks/auth";
 const Login = () => {
-  const navigate = useNavigate();
 
   const { login } = useAuth({
     middleware: 'guest',
@@ -39,6 +36,8 @@ const Login = () => {
     })
   };
   return (
+    <>
+    {status}
     <form onSubmit={onSubmit} className="container">
       <BackButton />
       <input
@@ -49,6 +48,11 @@ const Login = () => {
         placeholder=" Email"
         className="loginInput"
       />
+      {errors.email?.length > 0 && errors.email.map((item,index)=>{
+        return <p key={index}>
+          {item}
+        </p>
+      })}
       <input
         type="password"
         name="password"
@@ -58,6 +62,11 @@ const Login = () => {
         className="loginInput"
         minLength={8}
       />
+      {errors.password?.length > 0 && errors.password.map((item,index)=>{
+        return <p key={index}>
+          {item}
+        </p>
+      })}
       <button type="submit" className="loginButton">
         Login
       </button>
@@ -78,6 +87,9 @@ const Login = () => {
 
       <a href="/register">Sign in</a>
     </form>
+    
+    </>
+    
   );
 };
 
