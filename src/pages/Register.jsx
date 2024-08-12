@@ -1,24 +1,20 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../styles/Register.css";
-import {
-  loginApi,
-  putApi,
-  getApi,
-  postApi,
-  patchApi,
-  deleteApi,
-} from "../utils/fetchAPI";
+
 import BackButton from "../components/backButton";
+import { useAuth } from "../hooks/auth";
 const Register = () => {
-  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
     password: "",
   });
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState('')
+  const [errors, setErrors] = useState([])
+  const {register}= useAuth({
+    middleware:'guest',
+    redirectIfAuthenticated:'/dashboard'
+  });
   const onChange = (e) => {
     let { name, value } = e.target;
     setInputs((prev) => {
@@ -31,18 +27,11 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (inputs.password !== confirmPassword) {
-      setMessage("비밀번호가 맞지 않습니다.");
-      return;
-    }
-
-    loginApi("http://localhost:8000/api/register", inputs)
-      .then(() => {
-        navigate("/personal");
-      })
-      .catch(() => {
-        setMessage("이미 있는 아이디입니다. 다시 시도해주세요");
-      });
+    register({
+      ...inputs,
+      password_confirmation: passwordConfirmation,
+      setErrors,
+  })
   };
   return (
     <form onSubmit={onSubmit} className="container">
@@ -75,17 +64,22 @@ const Register = () => {
       <input
         type="password"
         name="confirmPassword"
-        value={confirmPassword}
+        value={passwordConfirmation}
         onChange={(e) => {
-          setConfirmPassword(e.target.value);
+          setPasswordConfirmation(e.target.value);
         }}
         placeholder=" Confirm Password"
         className="loginInput"
         minLength={8}
       />
-      <p>{message}</p>
+      {errors.email?.length > 0 && errors.email.map((item,index)=>{
+        return <p className="error" key={index}>
+          {item}
+        </p>
+      })}
+      {passwordConfirmation !== inputs.password ? <p className="error">비밀번호가 일치하지 않습니다.</p> : null}
       <button type="submit" className="loginButton">
-        Create Account
+      Register
       </button>
     </form>
   );

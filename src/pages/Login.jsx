@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import "../styles/Login.css";
-import { useNavigate } from "react-router-dom";
-import { loginApi } from "../utils/fetchAPI";
 import BackButton from "../components/backButton";
+import { useAuth } from "../hooks/auth";
 const Login = () => {
-  const navigate = useNavigate();
+  const { login } = useAuth({
+    middleware: 'guest',
+    redirectIfAuthenticated: '/dashboard'
+  })
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
+  const [shouldRemember, setShouldRemember] = useState(false)
+  const [errors, setErrors] = useState([]);
+  const [status, setStatus] = useState(null)
+
   const onChange = (e) => {
     let { name, value } = e.target;
     setInputs((prev) => {
@@ -21,13 +26,17 @@ const Login = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    loginApi("http://localhost:8000/api/login", inputs)
-      .then(() => {
-        navigate("/personal");
-      })
-      .catch((e) => setError("아이디나 비밀번호가 잘못되었습니다."));
+    
+    login({
+      ...inputs,
+      remember: shouldRemember,
+      setErrors,
+      setStatus,
+    })
   };
   return (
+    <>
+    {status}
     <form onSubmit={onSubmit} className="container">
       <BackButton />
       <input
@@ -38,6 +47,7 @@ const Login = () => {
         placeholder=" Email"
         className="loginInput"
       />
+      
       <input
         type="password"
         name="password"
@@ -47,13 +57,36 @@ const Login = () => {
         className="loginInput"
         minLength={8}
       />
+      
+      {errors.email?.length > 0 && errors.email.map((item,index)=>{
+        return <p className="error" key={index}>
+          {item}
+        </p>
+      })}
+      
       <button type="submit" className="loginButton">
         Login
       </button>
-      <p>{error}</p>
-      <p>계정이 없으신가요?</p>
+      <div className="block mt-4">
+        <label
+            htmlFor="remember_me">
+            <input
+                id="remember_me"
+                type="checkbox"
+                name="remember"
+                onChange={event =>
+                    setShouldRemember(event.target.checked)
+                }
+            />
+                Remember me
+        </label>
+      </div>
+      
       <a href="/register">Sign in</a>
     </form>
+    
+    </>
+    
   );
 };
 

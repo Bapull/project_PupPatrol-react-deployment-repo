@@ -8,15 +8,16 @@ import {
 import CategorySelect from "./pages/CategorySelect";
 import DogSearch from "./pages/DogSearch";
 import Login from "./pages/Login";
-import Personal from "./pages/Personal";
+import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import WantDogDescription from "./pages/WantDogDescription";
 import WantMBTI from "./pages/WantMBTI";
 import WantMBTIResult from "./pages/WantMBTIResult";
 import WantSelect from "./pages/WantSelect";
-import ImageTest from './pages/ImageTest'
+import ImageTest from './test/ImageTest'
 import { ApiProvider } from "./contexts/ApiContext";
 import "./App.css";
+import CrudTest from "./test/CrudTest";
 
 function App() {
   return (
@@ -29,13 +30,14 @@ function App() {
           <Route path="/categorySelect/*" element={<CategorySelect />} />
           <Route path="/dogSearch" element={<DogSearch />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/personal" element={<Personal />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/wantDogDescription" element={<WantDogDescription />} />
           <Route path="/wantMBTI" element={<WantMBTI />} />
           <Route path="/wantMBTIResult" element={<WantMBTIResult />} />
           <Route path="/wantSelect" element={<WantSelect />} />
-          <Route path="/image" element={<ImageTest/>}/>
+          <Route path="/image-test" element={<ImageTest/>}/>
+          <Route path="/answer-test" element={<CrudTest/>}/>
         </Routes>
       </Router>
     </ApiProvider>

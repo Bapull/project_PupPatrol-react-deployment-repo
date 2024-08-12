@@ -22,4 +22,6 @@
   border-radius: 20px;
 }
 
-
+.error {
+  color:red;
+}
