@@ -16,7 +16,7 @@ const CrudTest = () => {
     async function fetchData() {
       const response = await Axios.get('http://localhost:8000/api/answers')
       
-      setAnswers(response.data.answers)
+      setAnswers(response.data.data)
     }
     fetchData()
   },[render])
@@ -43,31 +43,11 @@ const CrudTest = () => {
   
   const onClick = () => {
     const formData = new FormData();
-    if(inputs.answerIsBig !== ""){
-      formData.append("answerIsBig", inputs.answerIsBig)
-    }
-    if(inputs.answerIsFluff !== ""){
-      formData.append("answerIsFluff", inputs.answerIsFluff)
-    }
-    if(inputs.answerIsWalking !== ""){
-      formData.append("answerIsWalking", inputs.answerIsWalking)
-    }
-    if(inputs.answerIsSmart !== ""){
-      formData.append("answerIsSmart", inputs.answerIsSmart)
-    }
-    if(inputs.answerIsShyness !== ""){
-      formData.append("answerIsShyness", inputs.answerIsShyness)
-    }
-    if(inputs.answerIsBiting !== ""){
-      formData.append("answerIsBiting", inputs.answerIsBiting)
-    }
-    if(inputs.answerIsNuisance !== ""){
-      formData.append("answerIsNuisance", inputs.answerIsNuisance)
-    }
-    if(inputs.answerIsIndependent !== ""){
-      formData.append("answerIsIndependent", inputs.answerIsIndependent)
-    }
-    
+    Object.keys(inputs).forEach(key=> {
+      if(inputs[key] !== ""){
+        formData.append(key,inputs[key])
+      }
+    })
     axios.post('http://localhost:8000/api/answers',formData)
     .then((res)=>console.log(res))
     .then(()=>{setRender(prev=>!prev)})
@@ -75,31 +55,12 @@ const CrudTest = () => {
 
   const onPut = () => {
     const formData = new FormData();
-    if(inputs.answerIsBig !== ""){
-      formData.append("answerIsBig", inputs.answerIsBig)
-    }
-    if(inputs.answerIsFluff !== ""){
-      formData.append("answerIsFluff", inputs.answerIsFluff)
-    }
-    if(inputs.answerIsWalking !== ""){
-      formData.append("answerIsWalking", inputs.answerIsWalking)
-    }
-    if(inputs.answerIsSmart !== ""){
-      formData.append("answerIsSmart", inputs.answerIsSmart)
-    }
-    if(inputs.answerIsShyness !== ""){
-      formData.append("answerIsShyness", inputs.answerIsShyness)
-    }
-    if(inputs.answerIsBiting !== ""){
-      formData.append("answerIsBiting", inputs.answerIsBiting)
-    }
-    if(inputs.answerIsNuisance !== ""){
-      formData.append("answerIsNuisance", inputs.answerIsNuisance)
-    }
-    if(inputs.answerIsIndependent !== ""){
-      formData.append("answerIsIndependent", inputs.answerIsIndependent)
-    }
-    formData.append("id",inputs.id)
+    
+    Object.keys(inputs).forEach(key=> {
+      if(inputs[key] !== ""){
+        formData.append(key,inputs[key])
+      }
+    })
     formData.append("_method", "PUT")
     axios.post(`http://localhost:8000/api/answers/${inputs.id}`,formData)
     .then((res)=>console.log(res))
@@ -108,30 +69,11 @@ const CrudTest = () => {
   
   const onPatch = () => {
     const formData = new FormData();
-    if(inputs.answerIsBig !== ""){
-      formData.append("answerIsBig", inputs.answerIsBig)
-    }
-    if(inputs.answerIsFluff !== ""){
-      formData.append("answerIsFluff", inputs.answerIsFluff)
-    }
-    if(inputs.answerIsWalking !== ""){
-      formData.append("answerIsWalking", inputs.answerIsWalking)
-    }
-    if(inputs.answerIsSmart !== ""){
-      formData.append("answerIsSmart", inputs.answerIsSmart)
-    }
-    if(inputs.answerIsShyness !== ""){
-      formData.append("answerIsShyness", inputs.answerIsShyness)
-    }
-    if(inputs.answerIsBiting !== ""){
-      formData.append("answerIsBiting", inputs.answerIsBiting)
-    }
-    if(inputs.answerIsNuisance !== ""){
-      formData.append("answerIsNuisance", inputs.answerIsNuisance)
-    }
-    if(inputs.answerIsIndependent !== ""){
-      formData.append("answerIsIndependent", inputs.answerIsIndependent)
-    }
+    Object.keys(inputs).forEach(key=> {
+      if(inputs[key] !== ""){
+        formData.append(key,inputs[key])
+      }
+    })
     formData.append("_method", "PATCH")
     axios.post(`http://localhost:8000/api/answers/${inputs.id}`,formData)
     .then(()=>{setRender(prev=>!prev)})

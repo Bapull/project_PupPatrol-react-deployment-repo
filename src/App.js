@@ -14,7 +14,7 @@ import WantDogDescription from "./pages/WantDogDescription";
 import WantMBTI from "./pages/WantMBTI";
 import WantMBTIResult from "./pages/WantMBTIResult";
 import WantSelect from "./pages/WantSelect";
-import ImageTest from './pages/ImageTest'
+import ImageTest from './test/ImageTest'
 import { ApiProvider } from "./contexts/ApiContext";
 import "./App.css";
 import CrudTest from "./test/CrudTest";

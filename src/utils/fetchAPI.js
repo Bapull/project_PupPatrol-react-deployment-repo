@@ -1,3 +1,4 @@
+import axios from "../lib/axios";
 export const imageUploadApi = async (url,folder, image) => {
   const formData = new FormData();
   formData.append('image',image)
@@ -7,17 +8,16 @@ export const imageUploadApi = async (url,folder, image) => {
   }else{
     folderName = 'pup-patrol-information-image'
   }
-  const response = await fetch(url, {
-    method:"POST",
+  const response = await axios.post(url, formData, {
     headers: {
       'folder': folderName,
-    },
-    body:formData
+    }
   });
-  if(!response.ok){
+  
+  if((response.status/100) >= 3){
     throw new Error('Failed to fetch')
   }
-  const data = await response.json();
+  const data = await response.data;
   return data;
 }
 
@@ -28,17 +28,15 @@ export const imageDownloadApi = async ( url, folder, fileName) => {
   }else{
     folderName = 'pup-patrol-information-image'
   }
-  const response = await fetch(`${url}?fileName=${fileName}`, {
-    method:"GET",
+  const response = await axios.get(`${url}?fileName=${fileName}`, {
     headers: {
-      "Accept":"application/json",
       'folder': folderName,
     },
   });
-  if(!response.ok){
+  if((response.status/100) >= 3){
     throw new Error('Failed to fetch')
   }
-  const data = await response.json();
+  const data = await response.data;
   return data.data;
 } 
 export const imageDeleteApi = async ( url, folder, fileName )=>{
@@ -48,16 +46,14 @@ export const imageDeleteApi = async ( url, folder, fileName )=>{
   }else{
     folderName = 'pup-patrol-information-image'
   }
-  const response = await fetch(`${url}?fileName=${fileName}`, {
-    method:"DELETE",
+  const response = await axios.delete(`${url}?fileName=${fileName}`, {
     headers: {
-      "Accept":"application/json",
       'folder': folderName,
-    },
+    }
   });
-  if(!response.ok){
+  if((response.status/100) >= 3){
     throw new Error('Failed to fetch')
   }
-  const data = await response.json();
+  const data = await response.data;
   return data;
 }
