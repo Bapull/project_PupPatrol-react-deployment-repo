@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Axios from 'axios'
 
-const CrudTest = () => {
+const AnswerCrudTest = () => {
   const axios = Axios.create({
     headers: {
         'X-Requested-With': 'XMLHttpRequest'
@@ -125,4 +125,4 @@ const CrudTest = () => {
   )
 }
 
-export default CrudTest
+export default AnswerCrudTest

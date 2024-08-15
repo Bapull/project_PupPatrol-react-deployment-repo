@@ -5,8 +5,10 @@ export const imageUploadApi = async (url,folder, image) => {
   let folderName = ''
   if(folder === 'board'){
     folderName = 'pup-patrol-board-image'
-  }else{
+  }else if(folder === 'information'){
     folderName = 'pup-patrol-information-image'
+  }else if(folder === 'dogs'){
+    folderName = 'pup-patrol-dogs-image'
   }
   const response = await axios.post(url, formData, {
     headers: {
@@ -25,8 +27,10 @@ export const imageDownloadApi = async ( url, folder, fileName) => {
   let folderName = ''
   if(folder === 'board'){
     folderName = 'pup-patrol-board-image'
-  }else{
+  }else if(folder === 'information'){
     folderName = 'pup-patrol-information-image'
+  }else if(folder === 'dogs'){
+    folderName = 'pup-patrol-dogs-image'
   }
   const response = await axios.get(`${url}?fileName=${fileName}`, {
     headers: {
@@ -37,14 +41,20 @@ export const imageDownloadApi = async ( url, folder, fileName) => {
     throw new Error('Failed to fetch')
   }
   const data = await response.data;
+  
   return data.data;
 } 
+
+
+
 export const imageDeleteApi = async ( url, folder, fileName )=>{
   let folderName = ''
   if(folder === 'board'){
     folderName = 'pup-patrol-board-image'
-  }else{
+  }else if(folder === 'information'){
     folderName = 'pup-patrol-information-image'
+  }else if(folder === 'dogs'){
+    folderName = 'pup-patrol-dogs-image'
   }
   const response = await axios.delete(`${url}?fileName=${fileName}`, {
     headers: {

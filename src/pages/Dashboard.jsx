@@ -22,7 +22,9 @@ const Dashboard = () => {
     <div>{user?.name}</div>
     <button onClick={logout}>logout</button>
     <button onClick={()=>{router('/answer-test')}}>answer 작성</button>
+    <button onClick={()=>{router('/dog-test')}}>dog 작성</button>
     <button onClick={()=>{router('/image-test')}}>이미지 테스트</button>
+
     </>
   )
 };
