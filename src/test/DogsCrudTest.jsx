@@ -1,31 +1,36 @@
 import React, {useEffect, useState} from 'react'
-import Axios from 'axios'
+import axios from '../lib/axios'
 import { imageUploadApi, imageDownloadApi, imageDeleteApi } from '../utils/fetchAPI'
 
 const DogsCrudTest = () => {
-  const axios = Axios.create({
-    headers: {
-        'X-Requested-With': 'XMLHttpRequest'
-    },
-    withCredentials: true,
-    withXSRFToken: true
-})
-
+  // 이미 데이터베이스에 저장된 반려견 목록
   const [dogs, setDogs] = useState([])
+  // dogs 테이블에서 저장된 파일이름으로 찾아온 이미지 주소들을 넣을 배열
+  const [loadedImage, setLoadedImage] = useState([])
+  // 화면 렌더링
   const [render, setRender]=useState(false)
   
   useEffect(()=>{
-    async function fetchData() {
-      const response = await Axios.get('http://localhost:8000/api/dogs')
-      setDogs(response.data.data)
-
-    }
-    fetchData()
+    
+    // 반려견 정보를 받아와서 dogs에 저장
+      axios.get('http://localhost:8000/api/dogs')
+      .then((response)=>{
+        setDogs(response.data.data)
+        return response.data.data
+      }).then((data)=>{
+        setLoadedImage([])
+        // dogs의 열 중 하나인 dogPhotoUrl을 실제 s3에 저장된 데이터에 접근할 수 있는 url로 변경해서 loadedImage 배열에 저장
+        data.map((item)=>{
+          console.log(item.id);
+          imageDownloadApi('http://localhost:8000/api/imageDownload','dogs',item.dogPhotoUrl)
+          .then((response)=>setLoadedImage(prev=>[...prev,{id: item.id, url:response}]))
+        })
+      })
   },[render])
   
 
 
-
+  // 입력 받기
   const [inputs, setInputs] = useState({
     id:'',
     dogName: "",
@@ -33,7 +38,6 @@ const DogsCrudTest = () => {
     dogBirthDate: "",
   })
   const [image, setImage] = useState(null)
-  
   const onChange = (e) => {
     setInputs((prev)=>{
       return {
@@ -43,50 +47,105 @@ const DogsCrudTest = () => {
     })
   }
   
+  // post 누르면
   const onClick = async () => {
-    const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image);
+    // S3에 사진 올리고 그 사진 이름을 받아온다.
     const formData = new FormData();
+    if(!image){
+      return
+    }else{
+      const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image);
+      formData.append('dogPhotoUrl',imageResponse.data);
+    }
+  
     Object.keys(inputs).forEach(key=> {
       if(inputs[key] !== ""){
         formData.append(key,inputs[key])
       }
     })
-    formData.append('dogPhotoUrl',imageResponse.data);
+    
     axios.post('http://localhost:8000/api/dogs',formData)
     .then((res)=>console.log(res))
     .then(()=>{setRender(prev=>!prev)})
   }
 
-  const onPut = () => {
+  const onPut = async () => {
     
     const formData = new FormData();
-    
     Object.keys(inputs).forEach(key=> {
       if(inputs[key] !== ""){
         formData.append(key,inputs[key])
       }
     })
+    if(!image){
+      return
+    }else{
+      // 기존 이미지 삭제
+      for(let i = 0; i< dogs.length; i++){
+        if(dogs[i].id == inputs.id){
+          imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',dogs[i].dogPhotoUrl)
+          break
+        }
+      }
+      // 새로운 이미지 추가
+      const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image);
+      formData.append('dogPhotoUrl',imageResponse.data);
+    }
     formData.append("_method", "PUT")
     axios.post(`http://localhost:8000/api/dogs/${inputs.id}`,formData)
     .then((res)=>console.log(res))
     .then(()=>{setRender(prev=>!prev)})
   }
   
-  const onPatch = () => {
+  const onPatch = async () => {
     const formData = new FormData();
     Object.keys(inputs).forEach(key=> {
       if(inputs[key] !== ""){
         formData.append(key,inputs[key])
       }
     })
+    if(!image){
+      // 선택된 이미지가 없다면 기존 파일이름을 찾아서 넣는다
+      for(let i = 0; i< dogs.length; i++){
+      
+        if(dogs[i].id == inputs.id){
+          formData.append("dogPhotoUrl", dogs[i].dogPhotoUrl)
+          break
+        }
+      }
+    }else{
+      // 선택된 이미지가 있다면 기존 사진을 삭제하고 새로운 이미지를 올린다
+      for(let i = 0; i< dogs.length; i++){
+        if(dogs[i].id == inputs.id){
+          imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',dogs[i].dogPhotoUrl)
+          break
+        }
+      }
+
+      const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image);
+      formData.append('dogPhotoUrl',imageResponse.data);
+    }
     formData.append("_method", "PATCH")
     axios.post(`http://localhost:8000/api/dogs/${inputs.id}`,formData)
     .then(()=>{setRender(prev=>!prev)})
   }
 
   const onDelete = () => {
-    axios.delete(`http://localhost:8000/api/dogs/${inputs.id}`)
-    .then(()=>{setRender(prev=>!prev)})
+    
+    for(let i = 0; i< dogs.length; i++){
+      
+      if(dogs[i].id == inputs.id){
+        imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',dogs[i].dogPhotoUrl)
+        .then(
+          axios.delete(`http://localhost:8000/api/dogs/${inputs.id}`)
+          .then(()=>{setRender(prev=>!prev)})
+        )
+        break
+      }
+    }
+    
+    
+    
   }
   
   return (
@@ -95,7 +154,7 @@ const DogsCrudTest = () => {
       <div><label htmlFor="id">id<input type="text" name='id' value={inputs.id} onChange={onChange} /></label></div>
       <div><label htmlFor="dogName">dogName<input type="text" name="dogName" value={inputs.dogName} onChange={onChange}/></label></div>
       <div><label htmlFor="dogBreed">dogBreed<input type="text" name="dogBreed" value={inputs.dogBreed} onChange={onChange}/></label></div>
-      <div><label htmlFor="dogBirthDate">dogBirthDate<input type="text" name="dogBirthDate" value={inputs.dogBirthDate} onChange={onChange}/></label></div>
+      <div><label htmlFor="dogBirthDate">dogBirthDate<input type="date" name="dogBirthDate" value={inputs.dogBirthDate} onChange={onChange}/></label></div>
       <div><label htmlFor="dogPhoto">dogPhoto<input type="file" name="dogPhoto" onChange={(e)=>setImage(e.target.files[0])}/></label></div>
     
       <button onClick={onClick}>post</button>
@@ -113,7 +172,10 @@ const DogsCrudTest = () => {
               <div>dogBreed : {item.dogBreed}</div>
               <div>dogOwnerEmail : {item.dogOwnerEmail}</div>
               <div>dogBirthDate : {item.dogBirthDate}</div>
-              <div>dogPhoto : <img  src={item.dogPhotoUrl} alt="dog" /></div>
+              
+              <div>dogPhoto : <img style={{
+                width:"200px"
+              }} src={loadedImage[index]?.url} alt="dog" /></div>
               
               <br />
             </div>
