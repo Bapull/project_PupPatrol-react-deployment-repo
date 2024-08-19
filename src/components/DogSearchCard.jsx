@@ -7,7 +7,7 @@ function DogSearchCard({ dog, handleClickDog }) {
     <div className="dogSearchCard" onClick={() => handleClickDog(dog)}>
       {/* 강아지 이미지와 이름 출력 */}
       <div className="dogSearchCardImgContainer">
-        <img src={dog.informationImageUrl} alt={dog.informationDogName} className="dogSearchCardImg" />
+        <img src={dog.informationImageName} alt={dog.informationDogName} className="dogSearchCardImg" />
       </div>
       <p className="dogSearchCardName">{dog.informationDogName}</p>
     </div>

@@ -45,7 +45,7 @@ const AnswerCrudTest = () => {
     const formData = new FormData();
     Object.keys(inputs).forEach(key=> {
       if(inputs[key] !== ""){
-        formData.append(key,inputs[key])
+        formData.append(key,Number(inputs[key]))
       }
     })
     axios.post('http://localhost:8000/api/answers',formData)
@@ -58,7 +58,7 @@ const AnswerCrudTest = () => {
     
     Object.keys(inputs).forEach(key=> {
       if(inputs[key] !== ""){
-        formData.append(key,inputs[key])
+        formData.append(key,Number(inputs[key]))
       }
     })
     formData.append("_method", "PUT")
@@ -71,7 +71,7 @@ const AnswerCrudTest = () => {
     const formData = new FormData();
     Object.keys(inputs).forEach(key=> {
       if(inputs[key] !== ""){
-        formData.append(key,inputs[key])
+        formData.append(key,Number(inputs[key]))
       }
     })
     formData.append("_method", "PATCH")

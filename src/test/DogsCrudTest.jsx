@@ -19,10 +19,10 @@ const DogsCrudTest = () => {
         return response.data.data
       }).then((data)=>{
         setLoadedImage([])
-        // dogs의 열 중 하나인 dogPhotoUrl을 실제 s3에 저장된 데이터에 접근할 수 있는 url로 변경해서 loadedImage 배열에 저장
+        // dogs의 열 중 하나인 dogPhotoName을 실제 s3에 저장된 데이터에 접근할 수 있는 url로 변경해서 loadedImage 배열에 저장
         data.map((item)=>{
           console.log(item.id);
-          imageDownloadApi('http://localhost:8000/api/imageDownload','dogs',item.dogPhotoUrl)
+          imageDownloadApi('http://localhost:8000/api/imageDownload','dogs',item.dogPhotoName)
           .then((response)=>setLoadedImage(prev=>[...prev,{id: item.id, url:response}]))
         })
       })
@@ -55,7 +55,7 @@ const DogsCrudTest = () => {
       return
     }else{
       const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image);
-      formData.append('dogPhotoUrl',imageResponse.data);
+      formData.append('dogPhotoName',imageResponse.data);
     }
   
     Object.keys(inputs).forEach(key=> {
@@ -83,13 +83,13 @@ const DogsCrudTest = () => {
       // 기존 이미지 삭제
       for(let i = 0; i< dogs.length; i++){
         if(dogs[i].id == inputs.id){
-          imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',dogs[i].dogPhotoUrl)
+          imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',dogs[i].dogPhotoName)
           break
         }
       }
       // 새로운 이미지 추가
       const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image);
-      formData.append('dogPhotoUrl',imageResponse.data);
+      formData.append('dogPhotoName',imageResponse.data);
     }
     formData.append("_method", "PUT")
     axios.post(`http://localhost:8000/api/dogs/${inputs.id}`,formData)
@@ -109,7 +109,7 @@ const DogsCrudTest = () => {
       for(let i = 0; i< dogs.length; i++){
       
         if(dogs[i].id == inputs.id){
-          formData.append("dogPhotoUrl", dogs[i].dogPhotoUrl)
+          formData.append("dogPhotoName", dogs[i].dogPhotoName)
           break
         }
       }
@@ -117,13 +117,13 @@ const DogsCrudTest = () => {
       // 선택된 이미지가 있다면 기존 사진을 삭제하고 새로운 이미지를 올린다
       for(let i = 0; i< dogs.length; i++){
         if(dogs[i].id == inputs.id){
-          imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',dogs[i].dogPhotoUrl)
+          imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',dogs[i].dogPhotoName)
           break
         }
       }
 
       const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image);
-      formData.append('dogPhotoUrl',imageResponse.data);
+      formData.append('dogPhotoName',imageResponse.data);
     }
     formData.append("_method", "PATCH")
     axios.post(`http://localhost:8000/api/dogs/${inputs.id}`,formData)
@@ -135,7 +135,7 @@ const DogsCrudTest = () => {
     for(let i = 0; i< dogs.length; i++){
       
       if(dogs[i].id == inputs.id){
-        imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',dogs[i].dogPhotoUrl)
+        imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',dogs[i].dogPhotoName)
         .then(
           axios.delete(`http://localhost:8000/api/dogs/${inputs.id}`)
           .then(()=>{setRender(prev=>!prev)})

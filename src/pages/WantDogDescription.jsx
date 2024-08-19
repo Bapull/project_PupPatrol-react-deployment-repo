@@ -14,7 +14,7 @@ function WantDogDescription() {
       <BackButton />
       <div className="container">
         <img
-          src={dog.informationImageUrl}
+          src={dog.informationImageName}
           alt="Dog_Image"
           className="background-image"
         />
