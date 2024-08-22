@@ -1,0 +1,10 @@
+#container {
+ background-color:white;
+ width:500px;
+}
+.inputField {
+  border-width :0;
+  outline : none;
+  width:500px;
+  resize:none;
+}

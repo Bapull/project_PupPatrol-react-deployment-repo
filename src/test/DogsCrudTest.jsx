@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from '../lib/axios'
 import { imageUploadApi , imageDeleteApi } from '../utils/fetchAPI'
 import Image from '../components/Image'
+import './DogsCrudTest.css'
 const DogsCrudTest = () => {
   // 이미 데이터베이스에 저장된 반려견 목록
   const [dogs, setDogs] = useState([])
@@ -94,6 +95,8 @@ const DogsCrudTest = () => {
       const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image);
       formData.append('dogPhotoName',imageResponse.data);
     }
+     
+    
     formData.append("_method", "PATCH")
     axios.post(`http://localhost:8000/api/dogs/${id}`,formData)
     .then(()=>{setRender(prev=>!prev)})
@@ -137,7 +140,7 @@ const DogsCrudTest = () => {
               <div>dogOwnerEmail : {item.dogOwnerEmail}</div>
               <div>dogBirthDate : {item.dogBirthDate}</div>
               
-              <div>dogPhoto : <Image folder={'dogs'} fileName={item.dogPhotoName} style={{width:"200px"}}/></div>
+              <div>dogPhoto : <Image className={'image'} folder={'dogs'} fileName={item.dogPhotoName} style={{width:"200px"}}/></div>
               
               <br />
             </div>
