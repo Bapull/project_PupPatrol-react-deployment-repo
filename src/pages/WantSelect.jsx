@@ -6,12 +6,12 @@ import BackButton from "../components/backButton";
 function WantSelect() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden"; // 스크롤 숨김
-    return () => {
-      document.body.style.overflow = ""; // 컴포넌트 언마운트 시 원상 복구
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.overflow = "hidden"; // 스크롤 숨김
+  //   return () => {
+  //     document.body.style.overflow = ""; // 컴포넌트 언마운트 시 원상 복구
+  //   };
+  // }, []);
 
   // wantMBTI 페이지로 이동
   const handleClickMBTI = () => {

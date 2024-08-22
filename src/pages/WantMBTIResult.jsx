@@ -138,7 +138,7 @@ const WantMBTIResult = () => {
                 }`}
                 onClick={() => handleCardClick(dog)}
               >
-                <img src={dog.informationImageUrl} alt={dog.informationDogName} className="dogImage" />
+                <img src={dog.informationImageName} alt={dog.informationDogName} className="dogImage" />
                 <h2>{dog.informationDogName}</h2>
                 <p className="dogCharacter">{dog.informationDogCharacter}</p>
                 <p className="dogText">{dog.informationDogText}</p>
