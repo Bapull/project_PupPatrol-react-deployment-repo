@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from '../lib/axios'
 import { imageUploadApi , imageDeleteApi } from '../utils/fetchAPI'
 import Image from '../components/Image'
+import './DogsCrudTest.css'
 const DogsCrudTest = () => {
   // 이미 데이터베이스에 저장된 반려견 목록
   const [dogs, setDogs] = useState([])
@@ -14,6 +15,7 @@ const DogsCrudTest = () => {
     // 반려견 정보를 받아와서 dogs에 저장
       axios.get('http://localhost:8000/api/dogs')
       .then(response=>setDogs(response.data.data))
+      
   },[render])
   
 
@@ -56,48 +58,41 @@ const DogsCrudTest = () => {
     .then(()=>{setRender(prev=>!prev)})
   }
 
-  const onPut = async (id, photoName) => {
+  const onUpdate = async (id, photoName) => {
     
     const formData = new FormData();
+    formData.append("_method", "PATCH")
     Object.keys(inputs).forEach(key=> {
       if(inputs[key] !== ""){
         formData.append(key,inputs[key])
       }
     })
+    
 
     if(!image){
-      formData.append('dogPhotoName',photoName);
+      formData.append('dogPhotoName',photoName)
+      axios.post(`http://localhost:8000/api/dogs/${id}`,formData)
+      .then(()=>setRender(prev=>!prev))
     }else{
+      // 일단 글 먼저 업로드
+      axios.post(`http://localhost:8000/api/dogs/${id}`,formData)
       // 기존 이미지 삭제
       imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',photoName)
-      // 새로운 이미지 추가
-      const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image);
-      formData.append('dogPhotoName',imageResponse.data);
+      // 선택된 이미지 업로드
+      const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image)
+      
+      axios.post(`http://localhost:8000/api/dogs/${id}`,{
+        _method:"PATCH",
+        dogPhotoName:imageResponse.data
+      })
+      .then(()=>setRender(prev=>!prev))
     }
-    formData.append("_method", "PUT")
-    axios.post(`http://localhost:8000/api/dogs/${id}`,formData)
-    .then(()=>{setRender(prev=>!prev)})
+    
+    
+    
   }
   
-  const onPatch = async (id, photoName) => {
-    const formData = new FormData();
-    Object.keys(inputs).forEach(key=> {
-      if(inputs[key] !== ""){
-        formData.append(key,inputs[key])
-      }
-    })
-
-    if(image){
-      // 기존 이미지 삭제
-      imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',photoName)
-      // 새로운 이미지 추가
-      const imageResponse = await imageUploadApi("http://localhost:8000/api/imageUpload", "dogs", image);
-      formData.append('dogPhotoName',imageResponse.data);
-    }
-    formData.append("_method", "PATCH")
-    axios.post(`http://localhost:8000/api/dogs/${id}`,formData)
-    .then(()=>{setRender(prev=>!prev)})
-  }
+  
 
   const onDelete = (id, photoName) => {
     imageDeleteApi('http://localhost:8000/api/imageDelete','dogs',photoName)
@@ -125,11 +120,12 @@ const DogsCrudTest = () => {
       <div>
         {dogs.map((item,index)=>{
           return (
-            <div key={index}>
+            
+            <div key={item.dogPhotoName}>
               <div>
                 <button onClick={()=>{onDelete(item.id, item.dogPhotoName)}}>삭제</button>
-                <button onClick={()=>{onPut(item.id, item.dogPhotoName)}}>put</button>
-                <button onClick={()=>{onPatch(item.id, item.dogPhotoName)}}>patch</button>
+                <button onClick={()=>{onUpdate(item.id, item.dogPhotoName)}}>수정</button>
+              
               </div>
               <div>id : {item.id}</div>
               <div>dogName : {item.dogName}</div>
@@ -137,7 +133,7 @@ const DogsCrudTest = () => {
               <div>dogOwnerEmail : {item.dogOwnerEmail}</div>
               <div>dogBirthDate : {item.dogBirthDate}</div>
               
-              <div>dogPhoto : <Image folder={'dogs'} fileName={item.dogPhotoName} style={{width:"200px"}}/></div>
+              <div>dogPhoto : <Image className={'image'} folder={'dogs'} fileName={item.dogPhotoName} style={{width:"200px"}}/></div>
               
               <br />
             </div>

@@ -19,6 +19,7 @@ import { ApiProvider } from "./contexts/ApiContext";
 import "./App.css";
 import AnswerCrudTest from "./test/AnswerCrudTest";
 import DogsCrudTest  from "./test/DogsCrudTest";
+import BoardTest from "./test/BoardTest";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/image-test" element={<ImageTest/>}/>
           <Route path="/answer-test" element={<AnswerCrudTest/>}/>
           <Route path="/dog-test" element={<DogsCrudTest />} />
+          <Route path="/board-test" element={<BoardTest/>} />
         </Routes>
       </Router>
     </ApiProvider>
