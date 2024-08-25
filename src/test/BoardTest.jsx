@@ -1,36 +1,28 @@
-import React, {createElement, useState} from 'react'
+import React, {createElement, useEffect, useRef, useState} from 'react'
 import './BoardTest.css'
-import Post from './Post'
-import {imageUploadApi} from '../utils/fetchAPI'
+import {imageDeleteApi, imageUploadApi} from '../utils/fetchAPI'
+import { useNavigate } from 'react-router-dom'
+import BoardInputForm from './BoardInputForm'
+import axios from '../lib/axios'
 const BoardTest = () => {
-  const [input, setInput] = useState('')
-  const [description, setDescription] = useState("");
-  const [text, setText] = useState('')
-  const imgUpload = async (e) => {
-    const container = document.querySelector("#container")
-    const p = document.createElement('p')
-    p.textContent = input
-    container.appendChild(p)
-    const image = e.target.files[0]
-    const imageSrc = URL.createObjectURL(image)
-    const preview = document.createElement('img')
-    preview.src = imageSrc
-    preview.style.width = "100px"
-    container.appendChild(preview)
-    setInput('')
-    const response = await imageUploadApi('http://localhost:8000/api/imageUpload',"board",image)
-    setDescription(prev=>`${prev}\n${input}\n;@${response.data};\n`)
-  }
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
+  const navigator = useNavigate();
+  
+  useEffect(()=>{
+    const formData = new FormData();
+    formData.append('postTitle',title)
+    formData.append('postContent',JSON.stringify(content))
+    if(content){
+      axios.post('http://localhost:8000/api/posts',formData)
+    }
+  },[content])
+
   return (
     <>
-    <input type='file' onChange={imgUpload}/>
-    <div id='container'></div>
-    <textarea className='inputField' value={input} onChange={(e)=>setInput(e.target.value)}/>
-    <div>---------------서버에 보내질 텍스트---------------</div>
-    <div>{description}</div>
-    <div>-------------텍스트로 게시글 불러와 지는지 체크------------------------</div>
-    <input type="text" value={text} onChange={(e)=>setText(e.target.value)}/>
-    <Post text={text}/>
+    <div>제목<input type="text" onChange={(e)=>setTitle(e.target.value)} value={title}/></div>
+    <BoardInputForm setContent={setContent}/>
+    {content&&<button onClick={()=>{navigator('/list-test')}}>업로드한 글 테스트</button>}
     </>
     
   )

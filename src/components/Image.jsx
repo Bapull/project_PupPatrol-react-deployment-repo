@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { imageDownloadApi } from '../utils/fetchAPI'
 
-const Image = ({folder, fileName, style, className}) => {
+const Image = ({id, folder, fileName, style, className, onClick}) => {
   const url = 'http://localhost:8000/api/imageDownload'
   const [src, setSrc] = useState('')
   useEffect( () => {
@@ -13,7 +13,7 @@ const Image = ({folder, fileName, style, className}) => {
   }
   ,[])
   return (
-    <img className={className} style={{...style}} src={src} alt="not found" />
+   <img id={id} onClick={onClick} className={className} style={{...style}} src={src} alt="not found" />
   )
 }
 

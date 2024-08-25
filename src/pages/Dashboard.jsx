@@ -24,7 +24,7 @@ const Dashboard = () => {
     <button onClick={()=>{router('/answer-test')}}>answer 작성</button>
     <button onClick={()=>{router('/dog-test')}}>dog 작성</button>
     <button onClick={()=>{router('/image-test')}}>이미지 테스트</button>
-
+    <button onClick={()=>{router('/board-test')}}>게시판 테스트</button>
     </>
   )
 };
