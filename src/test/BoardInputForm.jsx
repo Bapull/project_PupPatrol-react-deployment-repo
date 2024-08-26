@@ -1,9 +1,21 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useRef, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { imageDeleteApi, imageDownloadApi, imageUploadApi } from '../utils/fetchAPI'
 import Image from '../components/Image'
+import './BoardInputForm.css'
 
 const BoardInputForm = ({setContent, content}) => {
+  
+  const autoResizeTextarea = () => {
+    const textareas = document.querySelectorAll('.autoTextarea')
+
+    textareas.forEach((element)=>{
+      element.style.height = 'auto'
+      let height = element.scrollHeight
+      element.style.height = `${height + 8}px`
+    })
+  }
+
   const imgClick = (e) =>{
     
     imageDeleteApi('http://localhost:8000/api/imageDelete', 'board', e.target.id)
@@ -19,7 +31,11 @@ const BoardInputForm = ({setContent, content}) => {
         substance.removeChild(element)
       }
     });
-    substance.appendChild(document.createElement('textarea'))
+    const textarea = document.createElement('textarea')
+    textarea.className = 'autoTextarea'
+    textarea.onkeyup = autoResizeTextarea
+    textarea.onkeydown = autoResizeTextarea
+    substance.appendChild(textarea)
   }
   const imgUpload = async (e) => {
     // 모든 인풋을 감싸는 div 찾기
@@ -50,6 +66,9 @@ const BoardInputForm = ({setContent, content}) => {
       preview.onclick = imgClick
 
       const textarea = document.createElement('textarea')
+      textarea.className = 'autoTextarea'
+      textarea.onkeyup = autoResizeTextarea
+      textarea.onkeydown = autoResizeTextarea
 
       substance.appendChild(imageText)
       substance.appendChild(preview)
@@ -89,10 +108,10 @@ const BoardInputForm = ({setContent, content}) => {
             </>
           )
         }else{
-          return <textarea defaultValue={item}></textarea>
+          return <textarea className='autoTextarea' onKeyUp={autoResizeTextarea} onKeyDown={autoResizeTextarea} defaultValue={item}></textarea>
         }
       })}
-      <textarea></textarea>
+      <textarea className='autoTextarea' onKeyUp={autoResizeTextarea} onKeyDown={autoResizeTextarea}></textarea>
     </div>
     <button onClick={onPost}>게시글 업로드</button>
     </>

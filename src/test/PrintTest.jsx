@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Image from '../components/Image';
+import CommentTest from './CommentTest';
 
 const PrintTest = () => {
   const {state} = useLocation();
@@ -23,6 +24,7 @@ const PrintTest = () => {
       <button onClick={()=>{navigator('/board-update-test', {
         state : state
       })}}>수정</button>
+      <CommentTest postId={state.id}/>
     </div>
   )
 }

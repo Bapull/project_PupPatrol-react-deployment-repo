@@ -1,5 +1,4 @@
 import React, {createElement, useEffect, useRef, useState} from 'react'
-import './BoardTest.css'
 import {imageDeleteApi, imageUploadApi} from '../utils/fetchAPI'
 import { useNavigate } from 'react-router-dom'
 import BoardInputForm from './BoardInputForm'

@@ -7,7 +7,7 @@ import axios from '../lib/axios';
 const BoardUpdateTest = () => {
   const {state} = useLocation();
   const [content, setContent] = useState('')
-  const [title, setTitle] = useState('')
+  const [title, setTitle] = useState(state.postTitle)
   const navigator = useNavigate();
   
   useEffect(()=>{
