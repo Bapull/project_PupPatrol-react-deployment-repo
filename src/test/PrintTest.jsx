@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Image from '../components/Image';
 import CommentTest from './CommentTest';
+import axios from '../lib/axios';
 
 const PrintTest = () => {
   const {state} = useLocation();
@@ -24,6 +25,7 @@ const PrintTest = () => {
       <button onClick={()=>{navigator('/board-update-test', {
         state : state
       })}}>수정</button>
+      <button onClick={()=>{axios.delete(`http://localhost:8000/api/posts/${state.id}`).then(navigator('/list-test'))}}>삭제</button>
       <CommentTest postId={state.id}/>
     </div>
   )
