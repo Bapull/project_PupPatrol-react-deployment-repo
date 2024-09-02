@@ -5,6 +5,7 @@ import '../styles/WantMBTI.css';
 import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/backButton';
 import ApiContext from '../contexts/ApiContext';
+import axios from '../lib/axios';
 
 const WantMBTI = () => {
   // questions: 질문 목록
@@ -19,8 +20,8 @@ const WantMBTI = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch(`${apiUrl}/questions`);
-        const data = await response.json();
+        const response = await axios.get(`${apiUrl}/api/questions`);
+        const data = await response.data;
         setQuestions(data.data);
       } catch (error) {
         console.error('Error fetching questions: ', error);
@@ -57,7 +58,7 @@ const WantMBTI = () => {
         if (index === currentQuestionId - 1) {
           return (
             <WantMBTIQCard
-              key={index}
+              key={item.questionText}
               question={item.questionText}
               setAnswer={setAnswer}
               questionVariable={item.questionVariable}

@@ -4,6 +4,7 @@ import '../styles/DogSearch.css';
 import DogSearchCard from '../components/DogSearchCard';
 import BackButton from '../components/backButton';
 import ApiContext from '../contexts/ApiContext';
+import axios from '../lib/axios';
 
 function DogSearch() {
   // dogs: 전체 강아지 정보, search: 검색어, filteredDogs: 검색된 강아지 정보
@@ -20,8 +21,8 @@ function DogSearch() {
 
   // 컴포넌트가 렌더링된 후, 서버로부터 강아지 정보를 받아옴
   useEffect(() => {
-    fetch(`${apiUrl}/informations`)
-      .then((response) => response.json())
+    axios.get(`${apiUrl}/api/informations`)
+      .then((response) => response.data)
       .then((data) => {
         setDogs(data.data);
         setFilteredDogs(data.data);
@@ -96,8 +97,8 @@ function DogSearch() {
       {/* 강아지 카드 목록 */}
       <div className="dogSearch_results">
         {/* 강아지 정보를 담은 DogSearchCard 컴포넌트를 렌더링 */}
-        {currentDogs.map((dog, index) => (
-          <DogSearchCard key={index} dog={dog} handleClickDog={handleClickDog} />
+        {currentDogs.map((dog) => (
+          <DogSearchCard key={dog.informationDogName} dog={dog} handleClickDog={handleClickDog} />
         ))}
       </div>
       {/* 페이지네이션 */}
