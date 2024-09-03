@@ -18,7 +18,7 @@ const LeftMBTIQCard = ({ leftover, falling }) => {
       }, 500);
     }
   }, [falling]);
-
+  
   return (
     <div>
       {cards.map((item) => {

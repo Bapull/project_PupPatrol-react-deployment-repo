@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/WantDogDescription.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import BackButton from "../components/backButton";
-
+import Image from "../components/Image";
 function WantDogDescription() {
   const location = useLocation();
   const { dog } = location.state;
@@ -13,11 +13,8 @@ function WantDogDescription() {
     <div className="wantDogDescription">
       <BackButton />
       <div className="container">
-        <img
-          src={dog.informationImageName}
-          alt="Dog_Image"
-          className="background-image"
-        />
+        <Image className={"background-image"} fileName={dog.informationImageName} folder={'information'}/>
+        
         <div className="text-overlay">
           <h1>{dog.informationDogName}</h1>
         </div>
