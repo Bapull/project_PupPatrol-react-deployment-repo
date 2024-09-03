@@ -14,6 +14,8 @@ const Dashboard = () => {
       로딩중...
       </>
     )
+  }else{
+    console.log(user);
   }
   
   return (

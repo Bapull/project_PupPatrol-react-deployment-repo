@@ -23,6 +23,7 @@ import BoardTest from "./test/BoardTest";
 import PrintTest from "./test/PrintTest";
 import BoardUpdateTest from "./test/BoardUpdateTest";
 import BoardListTest from "./test/BoardListTest";
+import TipsTest from "./test/TipsTest";
 
 function App() {
   return (
@@ -49,6 +50,8 @@ function App() {
           <Route path="/list-test" element={<BoardListTest/>} />
           <Route path="/print-test" element={<PrintTest/>} />
           <Route path="/board-update-test" element={<BoardUpdateTest/>} />
+          <Route path="/tips-test" element={<TipsTest/>} />
+          
         </Routes>
       </Router>
     </ApiProvider>
