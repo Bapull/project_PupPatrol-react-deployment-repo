@@ -1,0 +1,9 @@
+#container{
+  display: flex;
+}
+.item{
+  border: solid;
+}
+.photo{
+  width:200px;
+}
