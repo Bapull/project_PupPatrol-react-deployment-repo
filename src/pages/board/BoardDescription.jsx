@@ -45,6 +45,16 @@ const PrintTest = () => {
       >
         <img className="pencil" src="/images/Pencil.png" alt="update" />
       </button>
+      <button
+        className="delete"
+        onClick={() => {
+          axios
+            .delete(`http://localhost:8000/api/posts/${state.id}`)
+            .then(navigator("/boardList"));
+        }}
+      >
+        <img className="gomi" src="/images/Gomi.png" alt="delete" />
+      </button>
 
       <CommentTest postId={state.id} />
     </div>

@@ -13,3 +13,13 @@
 .boardDescription .pencil {
   width: 20px;
 }
+
+.boardDescription .delete {
+  margin: 2px;
+  border: 0;
+  background-color: transparent;
+}
+
+.boardDescription .gomi {
+  width: 20px;
+}
