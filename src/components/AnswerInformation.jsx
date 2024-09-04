@@ -11,6 +11,7 @@ const AnswerInformation = () => {
   const [answersAndInformations, setAnswersAndInformations] = useState([])
   const [render, setRender]=useState(false)
   const [image, setImage] = useState(null)
+  const [preview, setPreview] = useState('')
   useEffect(()=>{
     async function fetchData() {
       const answerResponse = await axios.get(`${apiUrl}/api/answers`)
@@ -91,7 +92,10 @@ const AnswerInformation = () => {
     
   }
 
-   
+  const imageChange = (e) => {
+    setImage(e.target.files[0])
+    setPreview(URL.createObjectURL(e.target.files[0]))
+  }
    
    
    
@@ -104,7 +108,8 @@ const AnswerInformation = () => {
     <form onSubmit={onClick}>
       <div>이름 : <input type="text" name="informationDogName" onChange={onChange} value={inputs.informationDogName} required/></div>
       <div>성격 : <input type="text" name="informationDogCharacter" onChange={onChange} value={inputs.informationDogCharacter} required/></div>
-      <div>이미지 선택 <input type="file" onChange={(e)=>setImage(e.target.files[0])} required/></div>
+      {preview && <div><img style={{width:"150px"}} src={preview} alt="" /></div>}
+      <div>이미지 선택 <input type="file" accept=".jpg,.jpeg,.png" onChange={imageChange} required/></div>
       <div>최소 크기 : <input type="text" name="informationMinSize" onChange={onChange} value={inputs.informationMinSize} required/></div>
       <div>최대 크기 : <input type="text" name="informationMaxSize" onChange={onChange} value={inputs.informationMaxSize} required/></div>
       <div>최소 비용 : <input type="text" name="informationMinCost" onChange={onChange} value={inputs.informationMinCost} required/></div>

@@ -2,8 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import Image from '../components/Image'
 import axios from '../lib/axios'
 import {ApiContext} from '../contexts/ApiContext'
-import { imageDeleteApi } from '../utils/fetchAPI'
+import { imageDeleteApi, imageUploadApi } from '../utils/fetchAPI'
 const AnswerInformationItem = ({item : {id, answerItem, informationItem}}) => {
+
+  const [image, setImage] = useState(null)
+
   const { apiUrl } = useContext(ApiContext);
   
   const [inputs, setInputs] = useState({
@@ -24,6 +27,7 @@ const AnswerInformationItem = ({item : {id, answerItem, informationItem}}) => {
     informationDogText:"",
     informationDogGeneticillness:"",
     informationCaution:"",
+    informationImageName:'',
   })
   useEffect(()=>{
     Object.keys(answerItem).forEach(key=>{
@@ -65,11 +69,24 @@ const AnswerInformationItem = ({item : {id, answerItem, informationItem}}) => {
     imageDeleteApi(`${apiUrl}/api/imageDelete`,'information',informationItem.informationImageName)
     axios.delete(`${apiUrl}/api/informations/${id}`)
   }
+
+  const imageUpdate = (e) => {
+    setImage(URL.createObjectURL(e.target.files[0]))
+    const formData = new FormData()
+    formData.append('_method','PATCH')
+    imageDeleteApi(`${apiUrl}/api/imageDelete`,'information',informationItem.informationImageName)
+    imageUploadApi(`${apiUrl}/api/imageUpload`,'information',e.target.files[0])
+    .then(response=>formData.append('informationImageName',response.data))
+    .then(()=>{axios.post(`${apiUrl}/api/informations/${id}`,formData)})
+    
+  }
   return (
     <div className='item'>
-      <button onClick={()=>{console.log(inputs)}}>ghkrdls</button>
+      
       <div>id: {id} <button onClick={onUpdate}>수정</button><button onClick={onDelete}>삭제</button></div>
-      <Image fileName={informationItem.informationImageName} folder={'information'} className={'photo'}/>
+      {image ? <div><img src={image} className='photo' alt="" /></div> : <Image fileName={informationItem.informationImageName} folder={'information'} className={'photo'}/>}
+      
+      <input onChange={imageUpdate} name="fileInput" type="file" accept=".jpg,.jpeg,.png" />
       <div>이름 : <input type="text" name={"informationDogName"} onChange={onChange} value={inputs.informationDogName} /></div>
       <div>성격 : <input type="text" name={"informationDogCharacter"} onChange={onChange} value={inputs.informationDogCharacter} /></div>
       <div>최소 크기 : <input type="text" name={"informationMinSize"} onChange={onChange} value={inputs.informationMinSize} /></div>
