@@ -8,9 +8,10 @@ import {
   imageUploadApi,
 } from "../../utils/fetchAPI";
 import Image from "../../components/Image";
-import "../../styles/dashboardStyle/BoardInputForm";
+import "../../styles/board/BoardInputForm.css";
 
 const BoardInputForm = ({ setContent, content }) => {
+  const navigate = useNavigate();
   const autoResizeTextarea = () => {
     const textareas = document.querySelectorAll(".autoTextarea");
 
@@ -99,12 +100,13 @@ const BoardInputForm = ({ setContent, content }) => {
       }
     });
     setContent(body);
+    navigate("/boardList");
   };
 
   return (
     <>
       <button>
-        <input type="file" onChange={(e) => imgUpload(e)} />
+        <input type="file" onChange={(e) => imgUpload(e)} className="fileBox" />
       </button>
 
       <div id="substance">
@@ -145,7 +147,9 @@ const BoardInputForm = ({ setContent, content }) => {
           onKeyDown={autoResizeTextarea}
         ></textarea>
       </div>
-      <button onClick={onPost}>게시글 업로드</button>
+      <button onClick={onPost} className="uploadButton">
+        게시글 업로드
+      </button>
     </>
   );
 };

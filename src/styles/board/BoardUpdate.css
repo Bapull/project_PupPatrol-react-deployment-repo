@@ -1,0 +1,13 @@
+.container {
+  align-items: center;
+}
+
+.head1 {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  text-align: center;
+}
+
+.listButton {
+  font-size: 11px;
+}

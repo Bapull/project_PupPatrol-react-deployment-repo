@@ -1,10 +1,13 @@
 // 글 작성
 
 import React, { createElement, useEffect, useRef, useState } from "react";
-import { imageDeleteApi, imageUploadApi } from "../utils/fetchAPI";
+import { imageDeleteApi, imageUploadApi } from "../../utils/fetchAPI";
 import { useNavigate } from "react-router-dom";
 import BoardInputForm from "./BoardInputForm";
 import axios from "../../lib/axios";
+import "../../styles/board/BoardCreate.css";
+import BackButton from "../../components/backButton";
+
 const BoardTest = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -20,8 +23,9 @@ const BoardTest = () => {
   }, [content]);
 
   return (
-    <>
-      <div>
+    <div className="container">
+      <BackButton />
+      <div className="head1">
         제목
         <input
           type="text"
@@ -30,16 +34,7 @@ const BoardTest = () => {
         />
       </div>
       <BoardInputForm setContent={setContent} />
-      {content && (
-        <button
-          onClick={() => {
-            navigator("/boardList");
-          }}
-        >
-          업로드한 글 테스트
-        </button>
-      )}
-    </>
+    </div>
   );
 };
 

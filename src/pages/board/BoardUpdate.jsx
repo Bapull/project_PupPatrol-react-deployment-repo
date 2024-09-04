@@ -5,6 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { imageDownloadApi } from "../../utils/fetchAPI";
 import BoardInputForm from "./BoardInputForm";
 import axios from "../../lib/axios";
+import "../../styles/board/BoardUpdate.css";
+import BackButton from "../../components/backButton";
 
 const BoardUpdateTest = () => {
   const { state } = useLocation();
@@ -23,8 +25,9 @@ const BoardUpdateTest = () => {
   }, [content]);
 
   return (
-    <>
-      <div>
+    <div className="container">
+      <BackButton />
+      <div className="head1">
         제목
         <input
           type="text"
@@ -38,11 +41,12 @@ const BoardUpdateTest = () => {
           onClick={() => {
             navigator("/boardList");
           }}
+          className="listButton"
         >
           업로드한 글 테스트
         </button>
       )}
-    </>
+    </div>
   );
 };
 

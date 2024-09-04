@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../lib/axios";
 import { useNavigate } from "react-router-dom";
+import "../../styles/board/BoardList.css";
+import BackButton from "../../components/backButton";
 
 const BoardListTest = () => {
   const [posts, setPosts] = useState([]);
@@ -14,11 +16,23 @@ const BoardListTest = () => {
   }, []);
 
   return (
-    <div>
+    <div className="boardList">
+      <BackButton />
+      <div className="buttonGroup">
+        <button
+          className="createButton"
+          onClick={() => {
+            navigator("/boardCreate");
+          }}
+        >
+          글쓰기
+        </button>
+      </div>
       {posts?.map((item) => {
         return (
-          <>
+          <div className="descriptions">
             <p
+              className="text"
               onClick={() => {
                 navigator("/boardDescription", {
                   state: item,
@@ -27,7 +41,7 @@ const BoardListTest = () => {
             >
               <h2>{item.postTitle}</h2> 작성자{item.postAuthor}
             </p>
-          </>
+          </div>
         );
       })}
     </div>

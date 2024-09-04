@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Image from "../../components/Image";
 import CommentTest from "./BoardComment";
+import "../../styles/board/BoardDescription.css";
+import BackButton from "../../components/backButton";
 
 const PrintTest = () => {
   const { state } = useLocation();
@@ -14,7 +16,8 @@ const PrintTest = () => {
   }, []);
 
   return (
-    <div>
+    <div className="boardDescription">
+      <BackButton />
       <h1>{state.postTitle}</h1>
       {post.map((item) => {
         if (item.substr(0, 7) === "(IMAGE)") {

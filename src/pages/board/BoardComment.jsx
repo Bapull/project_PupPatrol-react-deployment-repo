@@ -2,11 +2,15 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "../../lib/axios";
+import "../../styles/board/BoardComment.css";
+import { useAuth } from "../../hooks/auth";
 
 const CommentTest = ({ postId }) => {
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
   const [render, setRender] = useState(false);
+  const { user } = useAuth({ middleware: "auth" });
+
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/comments/${postId}`)
@@ -39,37 +43,47 @@ const CommentTest = ({ postId }) => {
     });
   };
   return (
-    <div>
-      <input
-        type="text"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-      />
-      <button onClick={onClick}>작성</button>
-      <div>
-        {comments.map((item) => {
-          return (
-            <>
-              <div>{item.commentAuthor}</div>
-              <div>{item.commentContent}</div>
-              <div>{item.commentTime}</div>
-              <button
-                onClick={() => {
-                  onUpdate(item.id);
-                }}
-              >
-                수정
-              </button>
-              <button
-                onClick={() => {
-                  onDelete(item.id);
-                }}
-              >
-                삭제
-              </button>
-            </>
-          );
-        })}
+    <div className="boardComment">
+      <div className="content">
+        <hr className="underBar" />
+        <p className="comment"> 댓글 </p>
+        <hr />
+        <div className="writer">ID: {user.email}</div>
+        <input
+          type="text"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          placeholder="댓글 입력"
+        />
+        <button onClick={onClick}>작성</button>
+        <div className="commentGroup">
+          {comments.map((item) => {
+            return (
+              <div className="comments">
+                <div className="email">{item.commentAuthor}</div>
+                <div className="text">{item.commentContent}</div>
+                <div className="day">{item.commentTime.toLocaleString()}</div>
+                <button
+                  className="update"
+                  onClick={() => {
+                    onUpdate(item.id);
+                  }}
+                >
+                  수정
+                </button>
+                <button
+                  className="delete"
+                  onClick={() => {
+                    onDelete(item.id);
+                  }}
+                >
+                  삭제
+                </button>
+                <hr />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

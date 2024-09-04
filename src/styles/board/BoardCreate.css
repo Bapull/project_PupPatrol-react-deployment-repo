@@ -1,27 +1,14 @@
-#substance {
-  background-color: white;
-  width: 70vw;
-  height: 80vw;
+.container {
+  align-items: center;
 }
 
-#substance {
-  margin-top: 30px;
-  margin-bottom: 30px;
+.head1 {
+  margin-top: 10vh;
+  margin-bottom: 3vh;
+  text-align: center;
 }
 
-.fileBox {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-textarea {
-  width: 69vw;
-  border-width: 0;
-  outline: none;
-  resize: none;
-}
-
-.uploadButton {
+.listButton {
   border: 0;
   background-color: transparent;
   text-align: center;
