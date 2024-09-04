@@ -23,6 +23,8 @@ import BoardTest from "./test/BoardTest";
 import PrintTest from "./test/PrintTest";
 import BoardUpdateTest from "./test/BoardUpdateTest";
 import BoardListTest from "./test/BoardListTest";
+import AdminPage from "./pages/AdminPage";
+import AnswerInformation from "./components/AnswerInformation";
 
 function App() {
   return (
@@ -42,6 +44,9 @@ function App() {
           <Route path="/wantMBTIResult" element={<WantMBTIResult />} />
           <Route path="/wantSelect" element={<WantSelect />} />
 
+          <Route path="/admin-page" element={<AdminPage/>} />
+          <Route path="/answer-information-page" element={<AnswerInformation/>} />
+
           <Route path="/image-test" element={<ImageTest/>}/>
           <Route path="/answer-test" element={<AnswerCrudTest/>}/>
           <Route path="/dog-test" element={<DogsCrudTest />} />
@@ -49,6 +54,7 @@ function App() {
           <Route path="/list-test" element={<BoardListTest/>} />
           <Route path="/print-test" element={<PrintTest/>} />
           <Route path="/board-update-test" element={<BoardUpdateTest/>} />
+          
         </Routes>
       </Router>
     </ApiProvider>
