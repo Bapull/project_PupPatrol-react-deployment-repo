@@ -2,3 +2,14 @@
   padding: 5%;
   padding-left: 3%;
 }
+
+.boardDescription .updateButton {
+  margin: 10px;
+  margin-left: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.boardDescription .pencil {
+  width: 20px;
+}

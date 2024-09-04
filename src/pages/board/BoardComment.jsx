@@ -62,14 +62,22 @@ const CommentTest = ({ postId }) => {
               <div className="comments">
                 <div className="email">{item.commentAuthor}</div>
                 <div className="text">{item.commentContent}</div>
-                <div className="day">{item.commentTime.toLocaleString()}</div>
+                <div className="day">
+                  {item.commentTime.substring(0, 10)}
+                  <span> | </span>
+                  {item.commentTime.substring(11, 16)}
+                </div>
                 <button
                   className="update"
                   onClick={() => {
                     onUpdate(item.id);
                   }}
                 >
-                  수정
+                  <img
+                    className="pencil"
+                    src="/images/Pencil.png"
+                    alt="update"
+                  />
                 </button>
                 <button
                   className="delete"
@@ -77,7 +85,7 @@ const CommentTest = ({ postId }) => {
                     onDelete(item.id);
                   }}
                 >
-                  삭제
+                  <img className="gomi" src="/images/Gomi.png" alt="delete" />
                 </button>
                 <hr />
               </div>

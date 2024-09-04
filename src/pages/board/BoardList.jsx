@@ -5,6 +5,7 @@ import axios from "../../lib/axios";
 import { useNavigate } from "react-router-dom";
 import "../../styles/board/BoardList.css";
 import BackButton from "../../components/backButton";
+import Profile from "../../components/Profile";
 
 const BoardListTest = () => {
   const [posts, setPosts] = useState([]);
@@ -18,6 +19,7 @@ const BoardListTest = () => {
   return (
     <div className="boardList">
       <BackButton />
+      <Profile />
       <div className="buttonGroup">
         <button
           className="createButton"
@@ -41,6 +43,15 @@ const BoardListTest = () => {
             >
               <h2>{item.postTitle}</h2> 작성자{item.postAuthor}
             </p>
+            <div className="day">
+              <p>
+                작성일
+                <span>: </span>
+                {item.time.substring(0, 10)}
+                <span> | </span>
+                {item.time.substring(11, 16)}
+              </p>
+            </div>
           </div>
         );
       })}
