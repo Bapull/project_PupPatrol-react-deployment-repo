@@ -9,16 +9,24 @@
   margin-bottom: 30px;
 }
 
-.fileBox {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
 textarea {
   width: 69vw;
   border-width: 0;
   outline: none;
   resize: none;
+}
+
+.fileUpload {
+  margin: 5px 0 5px 0;
+  font-weight: bold;
+  font-size: 13px;
+  color: #0095f6;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.fileBox {
+  display: none;
 }
 
 .uploadButton {

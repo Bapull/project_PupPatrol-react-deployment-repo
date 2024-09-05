@@ -11,7 +11,6 @@ import BackButton from "../../components/backButton";
 const BoardTest = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const navigator = useNavigate();
 
   useEffect(() => {
     const formData = new FormData();

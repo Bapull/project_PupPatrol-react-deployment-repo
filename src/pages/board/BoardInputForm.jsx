@@ -105,9 +105,18 @@ const BoardInputForm = ({ setContent, content }) => {
 
   return (
     <>
-      <button>
-        <input type="file" onChange={(e) => imgUpload(e)} className="fileBox" />
-      </button>
+      <div>
+        <label className="fileUpload" htmlFor="fileUpload">
+          사진 추가...
+        </label>
+        <input
+          type="file"
+          onChange={(e) => imgUpload(e)}
+          className="fileBox"
+          accept="image/*"
+          id="fileUpload"
+        />
+      </div>
 
       <div id="substance">
         {content &&
