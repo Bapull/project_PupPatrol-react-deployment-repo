@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/auth';
 const Login = () => {
   const { login } = useAuth({
     middleware: 'guest',
-    redirectIfAuthenticated: '/userInformation',
+    redirectIfAuthenticated: '/user',
   });
   const [inputs, setInputs] = useState({
     email: '',

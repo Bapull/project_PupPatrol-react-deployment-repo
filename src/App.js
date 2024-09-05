@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import CategorySelect from './pages/CategorySelect';
 import DogSearch from './pages/DogSearch';
 import Login from './pages/Login';
-import UserInformation from './pages/UserInformation';
+import User from './pages/User';
 import Dashboard from './pages/Dashboard';
 import Register from './pages/Register';
 import WantDogDescription from './pages/WantDogDescription';
@@ -31,7 +31,7 @@ function App() {
           <Route path="/categorySelect/*" element={<CategorySelect />} />
           <Route path="/dogSearch" element={<DogSearch />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/userInformation" element={<UserInformation />} />
+          <Route path="/user" element={<User />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/wantDogDescription" element={<WantDogDescription />} />
