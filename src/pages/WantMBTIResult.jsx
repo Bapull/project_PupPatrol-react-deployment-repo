@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/wantMBTIResult.css';
 import BackButton from '../components/backButton';
 import ApiContext from '../contexts/ApiContext';
-
+import axios from '../lib/axios';
+import Image from '../components/Image';
 const WantMBTIResult = () => {
   // dogInformation: 강아지 정보를 담는 상태
   // answers: 사용자가 선택한 답변을 담는 상태
@@ -26,11 +27,11 @@ const WantMBTIResult = () => {
     const fetchDogInformation = async () => {
       try {
         const [informationResponse, answersResponse] = await Promise.all([
-          fetch(`${apiUrl}/informations`),
-          fetch(`${apiUrl}/answers`),
+          axios.get(`${apiUrl}/api/informations`),
+          axios.get(`${apiUrl}/api/answers`),
         ]);
-        const informationData = await informationResponse.json();
-        const answersData = await answersResponse.json();
+        const informationData = await informationResponse.data;
+        const answersData = await answersResponse.data;
         setDogInformation(informationData.data);
         setAnswers(answersData.data);
       } catch (error) {
@@ -55,7 +56,7 @@ const WantMBTIResult = () => {
       (match) => match.id === dog.id && variable.every((varName) => answer[varName] === true || match[varName] !== 0)
     )
   );
-
+  
   // 다음 강아지 정보를 보여주는 함수
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % matchedDogs.length);
@@ -123,7 +124,7 @@ const WantMBTIResult = () => {
           >
             {matchedDogs.map((dog, index) => (
               <div
-                key={dog.id}
+                key={dog.informationDogName}
                 className={`dogCard ${
                   index === currentIndex
                     ? // 현재 보여지는 강아지 카드
@@ -138,7 +139,8 @@ const WantMBTIResult = () => {
                 }`}
                 onClick={() => handleCardClick(dog)}
               >
-                <img src={dog.informationImageName} alt={dog.informationDogName} className="dogImage" />
+                <Image folder={'information'} fileName={dog.informationImageName} className={'dogImage'}/>
+                
                 <h2>{dog.informationDogName}</h2>
                 <p className="dogCharacter">{dog.informationDogCharacter}</p>
                 <p className="dogText">{dog.informationDogText}</p>

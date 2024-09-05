@@ -13,6 +13,7 @@ const Dashboard = () => {
   }
 
   return (
+
     <div className="dashboard">
       <BackButton />
       <div className="container">
@@ -46,9 +47,11 @@ const Dashboard = () => {
         >
           게시판 리스트
         </button>
+        {user?.role === 'admin' && <button onClick={()=>{router('/admin-page')}}>관리자 페이지</button>}
       </div>
     </div>
   );
+
 };
 
 export default Dashboard;
