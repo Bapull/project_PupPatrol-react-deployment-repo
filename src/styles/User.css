@@ -1,0 +1,85 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoutButton {
+  align-self: flex-end;
+  margin: 20px 30px 0 0;
+  width: 15%;
+  height: auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #dcb893;
+  cursor: pointer;
+}
+
+.userTitle {
+  margin: 20% 0 5% 15%;
+  color: #dcb893;
+  font-size: 2.3rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.userContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px auto 20px auto;
+  width: 75%;
+  height: 20vh;
+  background-color: #f7f2ed;
+  border-radius: 15px;
+}
+
+.userInformation {
+  flex: 1;
+}
+
+.userName {
+  align-items: flex-start;
+  margin: 0 0 0 10%;
+  font-style: normal;
+}
+
+.userName h2 {
+  margin: 5% 0 0 0;
+  color: #dcb893;
+  font-size: 1.3rem;
+  line-height: normal;
+}
+
+.userName p {
+  margin: 5px 0 0 1px;
+  font-size: 1rem;
+  line-height: normal;
+}
+
+.userBirth {
+  align-items: flex-start;
+  margin: 0 0 0 10%;
+  font-style: normal;
+}
+
+.userBirth h2 {
+  color: #dcb893;
+  font-size: 1.3rem;
+  line-height: normal;
+}
+
+.userBirth p {
+  margin: 5px 0 0 1px;
+  font-size: 1rem;
+  line-height: normal;
+}
+
+.userImage {
+  width: 30%;
+  height: auto;
+  margin: 20px;
+  background-color: #dcb893;
+  object-fit: cover;
+}

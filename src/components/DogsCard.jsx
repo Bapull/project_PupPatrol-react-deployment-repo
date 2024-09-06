@@ -1,32 +1,27 @@
 import react from 'react';
-import '../styles/UserCard.css';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/auth';
+import axios from '../lib/axios';
+import '../styles/DogsCard.css';
 
-const UserCard = () => {
+const DogsCard = () => {
   const navigate = useNavigate();
-  const { user, dogs, addDog, updateDog, deleteDog } = useAuth({ middleware: 'auth' });
+  const { user } = useAuth({ middleware: 'auth' });
+  const [dogs, setDogs] = useState([]);
+  const [render, setRender] = useState(false); // 화면 렌더링
+
+  // 반려견 정보를 받아와서 dogs에 저장
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/dogs').then((response) => setDogs(response.data.data));
+  }, [render]);
 
   const handleClickAddDog = () => {
     navigate('/addDog');
   };
 
   return (
-    <div>
-      <div className="userContainer">
-        <div className="userInformation">
-          <div className="userName">
-            <h2>이름</h2>
-            <p>{user.name}</p>
-          </div>
-          <div className="userBirth">
-            <h2>생년월일</h2>
-            <p>{user.birthday}</p>
-          </div>
-        </div>
-        <img src={user.photoName} className="userPhoto" alt="userImage" />
-      </div>
-
+    <div className="userCard">
       <div className="dogContainer">
         <h2>강아지 목록</h2>
         <div className="dogList">
@@ -38,8 +33,8 @@ const UserCard = () => {
                   <h3>{dog.dogName}</h3>
                   <p>{dog.dogBreed}</p>
                   <p>{dog.dogBirthday}</p>
-                  <button onClick={() => updateDog(dog.id, dog)}>수정</button>
-                  <button onClick={() => deleteDog(dog.id)}>삭제</button>
+                  {/* <button onClick={() => updateDog(dog.id, dog)}>수정</button>
+                  <button onClick={() => deleteDog(dog.id)}>삭제</button> */}
                 </div>
               </div>
             ))
@@ -53,4 +48,6 @@ const UserCard = () => {
   );
 };
 
-export default UserCard;
+export default DogsCard;
+
+/* dogName, dogBreed, dogBirthDate, dogOwnerEmail, dogPhotoName */
