@@ -12,7 +12,9 @@ const Login = () => {
     password: '',
   });
   const [shouldRemember, setShouldRemember] = useState(false);
+  const [shouldRemember, setShouldRemember] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [status, setStatus] = useState(null);
   const [status, setStatus] = useState(null);
 
   const onChange = (e) => {
@@ -27,11 +29,13 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+
     login({
       ...inputs,
       remember: shouldRemember,
       setErrors,
       setStatus,
+    });
     });
   };
   return (
@@ -39,24 +43,26 @@ const Login = () => {
       {status}
       <form onSubmit={onSubmit} className="container">
         <BackButton />
-        <input
-          type="email"
-          name="email"
-          value={inputs.email}
-          onChange={onChange}
-          placeholder=" Email"
-          className="loginInput"
-        />
+        <div className="content">
+          <input
+            type="email"
+            name="email"
+            value={inputs.email}
+            onChange={onChange}
+            placeholder=" Email"
+            className="loginInput"
+          />
 
-        <input
-          type="password"
-          name="password"
-          value={inputs.password}
-          onChange={onChange}
-          placeholder=" Password"
-          className="loginInput"
-          minLength={8}
-        />
+          <input
+            type="password"
+            name="password"
+            value={inputs.password}
+            onChange={onChange}
+            placeholder=" Password"
+            className="loginInput"
+            minLength={8}
+          />
+        </div>
 
         {errors.email?.length > 0 &&
           errors.email.map((item, index) => {

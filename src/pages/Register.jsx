@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../styles/Register.css";
-
+import {ApiContext} from '../contexts/ApiContext'
 import BackButton from "../components/backButton";
 import { useAuth } from "../hooks/auth";
+import { imageUploadApi } from "../utils/fetchAPI";
 const Register = () => {
+  
+  const { apiUrl } = useContext(ApiContext);
+  
+  const [image, setImage] = useState(null)
+  const [preview, setPreview] = useState("")
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
     password: "",
+    birthday: "",
+    profilePicture: "",
   });
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [errors, setErrors] = useState([])
@@ -27,12 +35,24 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    register({
-      ...inputs,
-      password_confirmation: passwordConfirmation,
-      setErrors,
-  })
+    imageUploadApi(`${apiUrl}/api/imageUpload`,'users',image)
+    .then(response=>response.data)
+    .then(
+      data=>{
+        register({
+          ...inputs,
+          profilePicture:data,
+          password_confirmation: passwordConfirmation,
+          setErrors,
+      })
+      }
+    )
+    
   };
+  const imageChange = (e) => {
+    setImage(e.target.files[0])
+    setPreview(URL.createObjectURL(e.target.files[0]))
+  }
   return (
     <form onSubmit={onSubmit} className="container">
       <BackButton />
@@ -72,6 +92,20 @@ const Register = () => {
         className="loginInput"
         minLength={8}
       />
+      <input
+        type="date"
+        name="birthday"
+        onChange={onChange}
+        className="loginInput"
+      />
+      {preview && <img className="loginInput" style={{width:"100px"}} src={preview} alt="profile"/>}
+      <input 
+        type="file" 
+        name="profilePicture"
+        className="loginInput"
+        onChange={imageChange}  
+      />
+      
       {errors.email?.length > 0 && errors.email.map((item,index)=>{
         return <p className="error" key={index}>
           {item}

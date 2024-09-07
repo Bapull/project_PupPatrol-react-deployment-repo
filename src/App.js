@@ -40,7 +40,8 @@ function App() {
           <Route path="/wantMBTI" element={<WantMBTI />} />
           <Route path="/wantMBTIResult" element={<WantMBTIResult />} />
           <Route path="/wantSelect" element={<WantSelect />} />
-
+          <Route path="/admin-page" element={<AdminPage />} />
+          <Route path="/answer-information-page" element={<AnswerInformation />} />
           <Route path="/image-test" element={<ImageTest />} />
           <Route path="/answer-test" element={<AnswerCrudTest />} />
           <Route path="/dog-test" element={<DogsCrudTest />} />
@@ -48,6 +49,10 @@ function App() {
           <Route path="/list-test" element={<BoardListTest />} />
           <Route path="/print-test" element={<PrintTest />} />
           <Route path="/board-update-test" element={<BoardUpdateTest />} />
+          <Route path="/boardCreate" element={<BoardCreate />} />
+          <Route path="/boardList" element={<BoardList />} />
+          <Route path="/boardDescription" element={<BoardDescription />} />
+          <Route path="/boardUpdate" element={<BoardUpdate />} />
         </Routes>
       </Router>
     </ApiProvider>
