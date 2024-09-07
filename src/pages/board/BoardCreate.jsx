@@ -11,13 +11,16 @@ import BackButton from "../../components/backButton";
 const BoardTest = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const formData = new FormData();
     formData.append("postTitle", title);
     formData.append("postContent", JSON.stringify(content));
     if (content) {
-      axios.post("http://localhost:8000/api/posts", formData);
+      axios.post("http://localhost:8000/api/posts", formData).then(() => {
+        navigate("/boardList");
+      });
     }
   }, [content]);
 

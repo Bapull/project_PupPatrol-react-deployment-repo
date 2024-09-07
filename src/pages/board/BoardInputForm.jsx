@@ -100,7 +100,6 @@ const BoardInputForm = ({ setContent, content }) => {
       }
     });
     setContent(body);
-    navigate("/boardList");
   };
 
   return (
