@@ -4,6 +4,7 @@ import CategorySelect from './pages/CategorySelect';
 import DogSearch from './pages/DogSearch';
 import Login from './pages/Login';
 import User from './pages/User';
+import AddDog from './components/AddDog';
 import Dashboard from './pages/Dashboard';
 import Register from './pages/Register';
 import WantDogDescription from './pages/WantDogDescription';
@@ -32,6 +33,7 @@ function App() {
           <Route path="/dogSearch" element={<DogSearch />} />
           <Route path="/login" element={<Login />} />
           <Route path="/user" element={<User />} />
+          <Route path="/addDog" element={<AddDog />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/wantDogDescription" element={<WantDogDescription />} />
