@@ -132,3 +132,36 @@
   object-fit: fill;
   border-radius: 50%;
 }
+
+.dogNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.prevButton,
+.nextButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.prevButton img,
+.nextButton img {
+  width: 30px;
+  height: 30px;
+}
+
+.dogAddButton {
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+  width: 15%;
+  height: auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #efc9a3;
+  cursor: pointer;
+}

@@ -1,47 +1,25 @@
-import react from 'react';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/auth';
-import axios from '../lib/axios';
+import React from 'react';
+import Image from './Image';
 import '../styles/DogsCard.css';
 
-const DogsCard = () => {
-  const navigate = useNavigate();
-  const { user } = useAuth({ middleware: 'auth' });
-  const [dogs, setDogs] = useState([]);
-  const [render, setRender] = useState(false); // 화면 렌더링
-
-  // 반려견 정보를 받아와서 dogs에 저장
-  useEffect(() => {
-    axios.get('http://localhost:8000/api/dogs').then((response) => setDogs(response.data.data));
-  }, [render]);
-
-  const handleClickAddDog = () => {
-    navigate('/addDog');
-  };
+const DogsCard = ({ dog }) => {
+  if (!dog) {
+    return <p>강아지 정보가 없습니다.</p>;
+  }
 
   return (
-    <div className="userCard">
-      <div className="dogContainer">
-        <h2>강아지 목록</h2>
-        <div className="dogList">
-          {dogs && dogs.length > 0 ? (
-            dogs.map((dog) => (
-              <div key={dog.id} className="dog">
-                <img src={dog.dogPhotoName} className="dogPhoto" alt="dogImage" />
-                <div className="dogInfo">
-                  <h3>{dog.dogName}</h3>
-                  <p>{dog.dogBreed}</p>
-                  <p>{dog.dogBirthday}</p>
-                  {/* <button onClick={() => updateDog(dog.id, dog)}>수정</button>
-                  <button onClick={() => deleteDog(dog.id)}>삭제</button> */}
-                </div>
-              </div>
-            ))
-          ) : (
-            <p>강아지 정보가 없습니다.</p>
-          )}
-          <button onClick={handleClickAddDog}>추가</button>
+    <div className="dogContainer">
+      <div className="dog">
+        <Image
+          className="image"
+          folder="dogs"
+          fileName={dog.dogPhotoName}
+          style={{ width: '200px', height: '200px' }}
+        />
+        <div className="dogInfo">
+          <h3>{dog.dogName}</h3>
+          <p>{dog.dogBreed}</p>
+          <p>{dog.dogBirthDate}</p>
         </div>
       </div>
     </div>
@@ -49,5 +27,3 @@ const DogsCard = () => {
 };
 
 export default DogsCard;
-
-/* dogName, dogBreed, dogBirthDate, dogOwnerEmail, dogPhotoName */

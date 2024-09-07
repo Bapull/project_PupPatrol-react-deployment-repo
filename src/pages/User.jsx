@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/User.css';
 import BackButton from '../components/backButton';
 import DogsCard from '../components/DogsCard';
-import { useAuth } from '../hooks/auth';
 import Image from '../components/Image';
 import axios from '../lib/axios';
+import { useAuth } from '../hooks/auth';
 
 const User = () => {
+  const navigate = useNavigate();
   const { logout } = useAuth();
   const { user, setUser } = useAuth({ middleware: 'auth' });
 
@@ -16,6 +18,21 @@ const User = () => {
     birthday: user?.birthday || '',
     profile_picture: user?.profile_picture || '',
   });
+
+  const [dogs, setDogs] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/dogs').then((response) => setDogs(response.data.data));
+  }, []);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % dogs.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + dogs.length) % dogs.length);
+  };
 
   if (!user) {
     return <>로딩중...</>;
@@ -63,6 +80,10 @@ const User = () => {
       profile_picture: user.profile_picture,
     });
     setIsEditing(false);
+  };
+
+  const handleClickAddDog = () => {
+    navigate('/addDog');
   };
 
   return (
@@ -116,7 +137,18 @@ const User = () => {
           </div>
         </div>
       </div>
-      <DogsCard />
+      <div className="dogNavigation">
+        <button className="prevButton" onClick={handlePrev}>
+          <img src="/images/Angle Left.svg" alt="이전 강아지" />
+        </button>
+        <DogsCard dog={dogs[currentIndex]} />
+        <button className="nextButton" onClick={handleNext}>
+          <img src="/images/Angle Right.svg" alt="다음 강아지" />
+        </button>
+      </div>
+      <button className="dogAddButton" onClick={handleClickAddDog}>
+        추가
+      </button>
     </div>
   );
 };
