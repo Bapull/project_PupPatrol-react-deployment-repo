@@ -6,6 +6,7 @@ import { useAuth } from "../hooks/auth";
 
 const Dashboard = () => {
   const router = useNavigate();
+  // admin 조건부 렌더링 
   const {user}= useAuth({middleware:'auth'})
   const {logout} = useAuth()
   if (!user){
@@ -27,6 +28,7 @@ const Dashboard = () => {
     <button onClick={()=>{router('/dog-test')}}>dog 작성</button>
     <button onClick={()=>{router('/image-test')}}>이미지 테스트</button>
     <button onClick={()=>{router('/board-test')}}>게시판 테스트</button>
+    <button onClick={()=>{router('/tips-test')}}>팁 테스트</button>
     </>
   )
 };

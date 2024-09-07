@@ -4,11 +4,8 @@ import { imageDeleteApi, imageDownloadApi, imageUploadApi } from '../utils/fetch
 import Image from '../components/Image'
 import './BoardInputForm.css'
 
-// 이부분 한번 물어보기
-// 관리자계정 한정하는건 어떻게 하는지
-// post는 어떻게 주는지 
-// form data는 뭔지 
-const BoardInputForm = ({setContent, content}) => {
+// setContent, content -> setText, text 로 변경  
+const TipsInputForm = ({setText, text}) => {
   
   const autoResizeTextarea = () => {
     const textareas = document.querySelectorAll('.autoTextarea')
@@ -91,7 +88,8 @@ const BoardInputForm = ({setContent, content}) => {
         body.push(element.innerText)
       }
     })
-    setContent(body)
+    // setContent -> setText 변경
+    setText(body)
   }
 
   return (
@@ -100,7 +98,7 @@ const BoardInputForm = ({setContent, content}) => {
     <button><input type="file" onChange={(e)=>imgUpload(e)}/></button>
     
     <div id='substance'>
-      {content&&JSON.parse(content?.postContent).map((item)=>{
+      {text&&JSON.parse(text?.tipsText).map((item)=>{
         if(item.substr(0,7) === '(IMAGE)'){
           return (
             <>
@@ -114,9 +112,9 @@ const BoardInputForm = ({setContent, content}) => {
       })}
       <textarea className='autoTextarea' onKeyUp={autoResizeTextarea} onKeyDown={autoResizeTextarea}></textarea>
     </div>
-    <button onClick={onPost}>게시글 업로드</button>
+    <button onClick={onPost}>팁 게시글 업로드</button>
     </>
   )
 }
 
-export default BoardInputForm
+export default TipsInputForm

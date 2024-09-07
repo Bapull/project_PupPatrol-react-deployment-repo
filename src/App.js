@@ -21,9 +21,12 @@ import AnswerCrudTest from "./test/AnswerCrudTest";
 import DogsCrudTest  from "./test/DogsCrudTest";
 import BoardTest from "./test/BoardTest";
 import PrintTest from "./test/PrintTest";
-import BoardUpdateTest from "./test/BoardUpdateTest";
+import BoardUpdateTest from "./test/TipsUpdateTest";
 import BoardListTest from "./test/BoardListTest";
 import TipsTest from "./test/TipsTest";
+import TipsUpdateTest from "./test/TipsUpdateTest";
+import TipsListTest from "./test/TipsListTest";
+import TipsDetail from "./test/TipsDetail";
 
 function App() {
   return (
@@ -50,7 +53,12 @@ function App() {
           <Route path="/list-test" element={<BoardListTest/>} />
           <Route path="/print-test" element={<PrintTest/>} />
           <Route path="/board-update-test" element={<BoardUpdateTest/>} />
+          
+          {/* tips */}
           <Route path="/tips-test" element={<TipsTest/>} />
+          <Route path="/tips-update-test" element={<TipsUpdateTest/>} />
+          <Route path="/tipsList-test" element={<TipsListTest/>} />
+          <Route path="/tipsList-detail" element={<TipsDetail/>} />
           
         </Routes>
       </Router>
