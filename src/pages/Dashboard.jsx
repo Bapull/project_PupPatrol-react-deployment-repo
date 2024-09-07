@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getTokenApi } from "../utils/fetchAPI";
 import BackButton from "../components/backButton";
 import { useAuth } from "../hooks/auth";
+import Image from "../components/Image";
 
 const Dashboard = () => {
   const router = useNavigate();
@@ -10,6 +11,8 @@ const Dashboard = () => {
   const { logout } = useAuth();
   if (!user) {
     return <>로딩중...</>;
+  }else{
+    console.log(user);
   }
 
   return (
@@ -17,7 +20,9 @@ const Dashboard = () => {
     <div className="dashboard">
       <BackButton />
       <div className="container">
+        <div>생일: {user?.birthday}</div>
         <div>{user?.name}</div>
+        {user?.profile_picture && <Image style={{width:"100px"}} fileName={user.profile_picture} folder={'users'} />}
         <button onClick={logout}>logout</button>
         <button
           onClick={() => {
