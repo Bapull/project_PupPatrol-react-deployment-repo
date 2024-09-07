@@ -20,6 +20,12 @@ import BoardTest from './test/BoardTest';
 import PrintTest from './test/PrintTest';
 import BoardUpdateTest from './test/BoardUpdateTest';
 import BoardListTest from './test/BoardListTest';
+import AdminPage from './pages/AdminPage';
+import AnswerInformation from './components/AnswerInformation';
+import BoardCreate from './pages/board/BoardCreate';
+import BoardList from './pages/board/BoardList';
+import BoardDescription from './pages/board/BoardDescription';
+import BoardUpdate from './pages/board/BoardUpdate';
 
 function App() {
   return (

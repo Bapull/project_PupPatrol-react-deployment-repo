@@ -12,9 +12,7 @@ const Login = () => {
     password: '',
   });
   const [shouldRemember, setShouldRemember] = useState(false);
-  const [shouldRemember, setShouldRemember] = useState(false);
   const [errors, setErrors] = useState([]);
-  const [status, setStatus] = useState(null);
   const [status, setStatus] = useState(null);
 
   const onChange = (e) => {
@@ -29,13 +27,11 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-
     login({
       ...inputs,
       remember: shouldRemember,
       setErrors,
       setStatus,
-    });
     });
   };
   return (
