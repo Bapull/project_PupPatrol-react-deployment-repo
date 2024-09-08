@@ -6,11 +6,13 @@ import DogsCard from '../components/DogsCard';
 import Image from '../components/Image';
 import axios from '../lib/axios';
 import { useAuth } from '../hooks/auth';
+import { imageUploadApi, imageDeleteApi } from '../utils/fetchAPI';
 
 const User = () => {
   const navigate = useNavigate();
   const { logout } = useAuth();
   const { user, setUser } = useAuth({ middleware: 'auth' });
+  const [render, setRender] = useState(false);
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedUser, setEditedUser] = useState({
@@ -24,7 +26,7 @@ const User = () => {
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/dogs').then((response) => setDogs(response.data.data));
-  }, []);
+  }, [render]);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % dogs.length);
@@ -58,18 +60,41 @@ const User = () => {
     }
   };
 
-  const handleSave = async () => {
+  const handleSave = async (id, photoName) => {
     try {
       const formData = new FormData();
-      formData.append('name', editedUser.name);
-      formData.append('birthday', editedUser.birthday);
-      formData.append('profile_picture', editedUser.profile_picture);
+      formData.append('_method', 'PATCH');
 
-      const response = await axios.post('http://localhost:8000/api/user', formData);
-      setUser(response.data.data);
+      Object.keys(editedUser).forEach((key) => {
+        if (editedUser[key] !== '') {
+          formData.append(key, editedUser[key]);
+        }
+      });
+
+      if (!editedUser.profile_picture) {
+        formData.append('profile_picture', editedUser.profile_picture);
+        await axios.post(`http://localhost:8000/api/user/${user.email}`, formData);
+      } else {
+        await axios.post(`http://localhost:8000/api/user/${user.email}`, formData);
+
+        await imageDeleteApi('http://localhost:8000/api/imageDelete', 'user', photoName);
+
+        const imageResponse = await imageUploadApi(
+          'http://localhost:8000/api/imageUpload',
+          'user',
+          editedUser.profile_picture
+        );
+
+        await axios.post(`http://localhost:8000/api/user/${user.email}`, {
+          _method: 'PATCH',
+          profile_picture: imageResponse.data,
+        });
+      }
+
+      setUser(editedUser);
       setIsEditing(false);
     } catch (error) {
-      console.error(error);
+      console.error('Error updating user', error);
     }
   };
 
@@ -141,7 +166,7 @@ const User = () => {
         <button className="prevButton" onClick={handlePrev}>
           <img src="/images/Angle Left.svg" alt="이전 강아지" />
         </button>
-        <DogsCard dog={dogs[currentIndex]} />
+        <DogsCard dog={dogs[currentIndex]} setRender={setRender} />
         <button className="nextButton" onClick={handleNext}>
           <img src="/images/Angle Right.svg" alt="다음 강아지" />
         </button>
