@@ -11,7 +11,7 @@ import { imageUploadApi, imageDeleteApi } from '../utils/fetchAPI';
 const User = () => {
   const navigate = useNavigate();
   const { logout } = useAuth();
-  const { user, setUser } = useAuth({ middleware: 'auth' });
+  const { user } = useAuth({ middleware: 'auth' });
   const [render, setRender] = useState(false);
 
   const [isEditing, setIsEditing] = useState(false);
@@ -20,6 +20,8 @@ const User = () => {
     birthday: user?.birthday || '',
     profile_picture: user?.profile_picture || '',
   });
+  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
 
   const [dogs, setDogs] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,47 +53,29 @@ const User = () => {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setEditedUser({ ...editedUser, profile_picture: reader.result });
-      };
-      reader.readAsDataURL(file);
-    }
+    setImage(file);
+    setImageUrl(URL.createObjectURL(file));
   };
 
-  const handleSave = async (id, photoName) => {
+  const handleSave = async () => {
     try {
       const formData = new FormData();
       formData.append('_method', 'PATCH');
 
-      Object.keys(editedUser).forEach((key) => {
-        if (editedUser[key] !== '') {
-          formData.append(key, editedUser[key]);
+      if (editedUser.name) formData.append('name', editedUser.name);
+      if (editedUser.birthday) formData.append('birthday', editedUser.birthday);
+
+      if (image) {
+        const imageResponse = await imageUploadApi('http://localhost:8000/api/imageUpload', 'users', image);
+        formData.append('profile_picture', imageResponse.data);
+
+        if (user.profile_picture) {
+          await imageDeleteApi('http://localhost:8000/api/imageDelete', 'users', user.profile_picture);
         }
-      });
-
-      if (!editedUser.profile_picture) {
-        formData.append('profile_picture', editedUser.profile_picture);
-        await axios.post(`http://localhost:8000/api/user/${user.email}`, formData);
-      } else {
-        await axios.post(`http://localhost:8000/api/user/${user.email}`, formData);
-
-        await imageDeleteApi('http://localhost:8000/api/imageDelete', 'user', photoName);
-
-        const imageResponse = await imageUploadApi(
-          'http://localhost:8000/api/imageUpload',
-          'user',
-          editedUser.profile_picture
-        );
-
-        await axios.post(`http://localhost:8000/api/user/${user.email}`, {
-          _method: 'PATCH',
-          profile_picture: imageResponse.data,
-        });
       }
 
-      setUser(editedUser);
+      await axios.post(`http://localhost:8000/api/user-update`, formData);
+
       setIsEditing(false);
     } catch (error) {
       console.error('Error updating user', error);
@@ -154,10 +138,14 @@ const User = () => {
             {isEditing ? (
               <div className="photoInput">
                 <input type="file" accept="image/*" onChange={handleFileChange} />
-                <img src={editedUser.profile_picture} alt="Profile Preview" className="profilePreview" />
+                {image ? (
+                  <img src={imageUrl} alt="Profile Preview" className="profilePreview" />
+                ) : (
+                  <Image fileName={user?.profile_picture} folder="users" />
+                )}
               </div>
             ) : (
-              user?.profile_picture && <Image fileName={user.profile_picture} folder={'users'} />
+              <Image fileName={user?.profile_picture} folder="users" />
             )}
           </div>
         </div>

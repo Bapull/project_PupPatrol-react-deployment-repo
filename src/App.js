@@ -26,6 +26,7 @@ import BoardCreate from './pages/board/BoardCreate';
 import BoardList from './pages/board/BoardList';
 import BoardDescription from './pages/board/BoardDescription';
 import BoardUpdate from './pages/board/BoardUpdate';
+import UserUpdate from './test/UserUpdate';
 
 function App() {
   return (
