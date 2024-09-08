@@ -1,5 +1,7 @@
 #substance {
   background-color: white;
+  border: 3px black solid;
+  border-radius: 5%;
   width: 70vw;
   height: 80vw;
 }
@@ -14,6 +16,8 @@ textarea {
   border-width: 0;
   outline: none;
   resize: none;
+  border-top-left-radius: 15%;
+  border-top-right-radius: 15%;
 }
 
 .fileUpload {
