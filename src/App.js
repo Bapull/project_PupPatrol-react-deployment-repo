@@ -25,6 +25,7 @@ import BoardUpdate from "./pages/board/BoardUpdate";
 import BoardList from "./pages/board/BoardList";
 import AdminPage from "./pages/AdminPage";
 import AnswerInformation from "./components/AnswerInformation";
+import UserUpdate from "./test/UserUpdate";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route path="/boardList" element={<BoardList />} />
           <Route path="/boardDescription" element={<BoardDescription />} />
           <Route path="/boardUpdate" element={<BoardUpdate />} />
+          <Route path="/user-update" element={<UserUpdate/>}/>
         </Routes>
       </Router>
     </ApiProvider>

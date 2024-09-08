@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { imageDownloadApi } from '../utils/fetchAPI'
 
 const Image = ({id, folder, fileName, style, className, onClick}) => {
+  
   const url = 'http://localhost:8000/api/imageDownload'
   const [src, setSrc] = useState('')
   useEffect( () => {
