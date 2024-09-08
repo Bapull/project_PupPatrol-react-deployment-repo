@@ -12,7 +12,7 @@ const BoardUpdateTest = () => {
   const { state } = useLocation();
   const [content, setContent] = useState("");
   const [title, setTitle] = useState(state.postTitle);
-  const navigator = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const formData = new FormData();
@@ -20,7 +20,9 @@ const BoardUpdateTest = () => {
     formData.append("postContent", JSON.stringify(content));
     formData.append("_method", "PATCH");
     if (content) {
-      axios.post(`http://localhost:8000/api/posts/${state.id}`, formData);
+      axios
+        .post(`http://localhost:8000/api/posts/${state.id}`, formData)
+        .then(navigate("/boardList"));
     }
   }, [content]);
 
@@ -36,16 +38,6 @@ const BoardUpdateTest = () => {
         />
       </div>
       <BoardInputForm content={state} setContent={setContent} />
-      {content && (
-        <button
-          onClick={() => {
-            navigator("/boardList");
-          }}
-          className="listButton"
-        >
-          업로드한 글 테스트
-        </button>
-      )}
     </div>
   );
 };

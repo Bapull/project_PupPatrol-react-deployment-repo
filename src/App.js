@@ -59,6 +59,7 @@ function App() {
           <Route path="/boardList" element={<BoardList />} />
           <Route path="/boardDescription" element={<BoardDescription />} />
           <Route path="/boardUpdate" element={<BoardUpdate />} />
+          <Route path="/user-update" element={<UserUpdate />} />
         </Routes>
       </Router>
     </ApiProvider>
