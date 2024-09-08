@@ -5,10 +5,11 @@ import Image from './Image';
 import '../styles/DogsCard.css';
 
 const DogsCard = ({ dog, setRender }) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedDog, setEditedDog] = useState({ ...dog });
-  const [newImage, setNewImage] = useState(null);
+  const [isEditing, setIsEditing] = useState(false); // 수정 모드 상태
+  const [editedDog, setEditedDog] = useState({ ...dog }); // 수정할 강아지 정보 상태
+  const [newImage, setNewImage] = useState(null); // 새 이미지 파일 상태
 
+  // 강아지 정보가 없을 경우 메시지 표시
   if (!dog) {
     return <p>강아지 정보가 없습니다.</p>;
   }
@@ -16,17 +17,17 @@ const DogsCard = ({ dog, setRender }) => {
   // 입력 필드 변경 시 상태 업데이트
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setEditedDog({ ...editedDog, [name]: value });
+    setEditedDog({ ...editedDog, [name]: value }); // 수정 중인 필드 업데이트
   };
 
   // 파일 선택 시 상태 업데이트
   const handleFileChange = (event) => {
-    setNewImage(event.target.files[0]);
+    setNewImage(event.target.files[0]); // 새 이미지 파일 업데이트
   };
 
   // 수정 모드로 전환
   const onClickUpdate = () => {
-    setIsEditing(true);
+    setIsEditing(true); // 수정 모드 활성화
   };
 
   // 수정 취소
@@ -42,10 +43,12 @@ const DogsCard = ({ dog, setRender }) => {
       const formData = new FormData();
       formData.append('_method', 'PATCH');
 
+      // 수정된 정보를 FormData에 추가
       Object.keys(editedDog).forEach((key) => {
         formData.append(key, editedDog[key]);
       });
 
+      // 새 이미지가 있으면 기존 이미지 삭제 후 이미지 업로드
       if (newImage) {
         // 기존 이미지 삭제
         await imageDeleteApi('http://localhost:8000/api/imageDelete', 'dogs', dog.dogPhotoName);
@@ -80,9 +83,12 @@ const DogsCard = ({ dog, setRender }) => {
       {isEditing ? (
         <div className="editMode">
           <div className="editFields">
+            {/* 강아지 정보 입력 필드 */}
             <input type="text" name="dogName" value={editedDog.dogName} onChange={handleInputChange} />
             <input type="text" name="dogBreed" value={editedDog.dogBreed} onChange={handleInputChange} />
             <input type="date" name="dogBirthDate" value={editedDog.dogBirthDate} onChange={handleInputChange} />
+
+            {/* 이미지 미리보기 및 파일 업로드 */}
             <div className="imagePreview">
               <Image
                 className="image"
@@ -93,6 +99,7 @@ const DogsCard = ({ dog, setRender }) => {
               <input type="file" accept="image/*" onChange={handleFileChange} />
             </div>
           </div>
+          {/* 수정 버튼 및 취소 */}
           <div className="editButtons">
             <button onClick={handleSave}>Save</button>
             <button onClick={handleCancel}>Cancel</button>
@@ -108,6 +115,7 @@ const DogsCard = ({ dog, setRender }) => {
               <img src="/images/Gomi.png" alt="Delete" />
             </div>
           </div>
+          {/* 강아지 정보 */}
           <div className="dog">
             <Image
               key={dog.dogPhotoName}
