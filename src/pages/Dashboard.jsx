@@ -52,6 +52,13 @@ const Dashboard = () => {
         >
           게시판 리스트
         </button>
+        <button
+          onClick={() => {
+            router("/user-update");
+          }}
+        >
+          개인정보수정
+        </button>
         {user?.role === 'admin' && <button onClick={()=>{router('/admin-page')}}>관리자 페이지</button>}
       </div>
     </div>
