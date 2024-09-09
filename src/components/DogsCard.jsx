@@ -84,9 +84,18 @@ const DogsCard = ({ dog, setRender }) => {
         <div className="editMode">
           <div className="editFields">
             {/* 강아지 정보 입력 필드 */}
-            <input type="text" name="dogName" value={editedDog.dogName} onChange={handleInputChange} />
-            <input type="text" name="dogBreed" value={editedDog.dogBreed} onChange={handleInputChange} />
-            <input type="date" name="dogBirthDate" value={editedDog.dogBirthDate} onChange={handleInputChange} />
+            <div className="editName">
+              <p>Name</p>
+              <input type="text" name="dogName" value={editedDog.dogName} onChange={handleInputChange} />
+            </div>
+            <div className="editBreed">
+              <p>Breed</p>
+              <input type="text" name="dogBreed" value={editedDog.dogBreed} onChange={handleInputChange} />
+            </div>
+            <div className="editBirthDate">
+              <p>Birth</p>
+              <input type="date" name="dogBirthDate" value={editedDog.dogBirthDate} onChange={handleInputChange} />
+            </div>
 
             {/* 이미지 미리보기 및 파일 업로드 */}
             <div className="imagePreview">
@@ -124,7 +133,7 @@ const DogsCard = ({ dog, setRender }) => {
               fileName={dog.dogPhotoName}
               style={{ width: '200px', height: '200px' }}
             />
-            <div className="dogInfo">
+            <div className="dogInformation">
               <h3>{dog.dogName}</h3>
               <p>{dog.dogBreed}</p>
               <p>{dog.dogBirthDate}</p>
