@@ -1,0 +1,73 @@
+.addDogContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.addDogContainer label {
+  font-size: 1.5em;
+  margin: 35vh 0 8vh 0;
+  color: #dcb893;
+  font-weight: 650;
+  word-wrap: break-word;
+}
+
+.addDogContainer input {
+  width: 70%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #dcb893;
+}
+
+.dogImageInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35vh;
+}
+
+.dogImageInput label {
+  font-size: 1.5em;
+  top: 0;
+  margin: 30vh 0 8vh 0;
+  color: #dcb893;
+  font-weight: 650;
+  word-wrap: break-word;
+}
+
+.previewImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.dogImageInput input {
+  width: 100%;
+  border: none;
+  z-index: 10;
+}
+
+.inputNextButton {
+  background-color: #dcb893;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 40px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.submitButton {
+  background-color: #dcb893;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 40px;
+  margin-top: 10px;
+  cursor: pointer;
+  z-index: 20;
+}
