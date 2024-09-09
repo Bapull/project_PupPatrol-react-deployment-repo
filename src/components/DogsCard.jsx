@@ -11,7 +11,11 @@ const DogsCard = ({ dog, setRender }) => {
 
   // 강아지 정보가 없을 경우 메시지 표시
   if (!dog) {
-    return <p>강아지 정보가 없습니다.</p>;
+    return (
+      <div className="noneDog">
+        <p>No dog information</p>
+      </div>
+    );
   }
 
   // 입력 필드 변경 시 상태 업데이트
@@ -70,12 +74,20 @@ const DogsCard = ({ dog, setRender }) => {
     }
   };
 
-  const onClickDelete = (id, photoName) => {
-    imageDeleteApi('http://localhost:8000/api/imageDelete', 'dogs', photoName).then(
-      axios.delete(`http://localhost:8000/api/dogs/${id}`).then(() => {
-        setRender((prev) => !prev);
-      })
-    );
+  const onClickDelete = (id, photoName, currentIndex) => {
+    const confirmDelete = window.confirm('정말로 이 강아지 정보를 삭제하시겠습니까?');
+
+    if (confirmDelete) {
+      // 이미지 삭제 API 호출 후 강아지 정보 삭제
+      imageDeleteApi('http://localhost:8000/api/imageDelete', 'dogs', photoName)
+        .then(() => axios.delete(`http://localhost:8000/api/dogs/${id}`))
+        .then(() => {
+          setRender((prev) => !prev); // 렌더링 갱신
+        })
+        .catch((error) => {
+          console.error('Error deleting dog or image:', error);
+        });
+    }
   };
 
   return (
