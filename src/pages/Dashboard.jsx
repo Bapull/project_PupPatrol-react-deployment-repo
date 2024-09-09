@@ -7,6 +7,7 @@ import Image from "../components/Image";
 
 const Dashboard = () => {
   const router = useNavigate();
+
   const { user } = useAuth({ middleware: "auth" });
   const { logout } = useAuth();
   if (!user) {
@@ -16,7 +17,6 @@ const Dashboard = () => {
   }
 
   return (
-
     <div className="dashboard">
       <BackButton />
       <div className="container">
@@ -59,10 +59,12 @@ const Dashboard = () => {
         >
           개인정보수정
         </button>
+        <button onClick={()=>{router('/tips-test')}}>팁 테스트</button>
         {user?.role === 'admin' && <button onClick={()=>{router('/admin-page')}}>관리자 페이지</button>}
       </div>
     </div>
   );
+
 
 };
 

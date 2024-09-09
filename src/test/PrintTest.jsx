@@ -22,9 +22,7 @@ const PrintTest = () => {
           return <p>{item}</p>
         }
       })}
-      <button onClick={()=>{navigator('/board-update-test', {
-        state : state
-      })}}>수정</button>
+      <button onClick={()=>{navigator('/board-update-test', {state : state})}}>수정</button>
       <button onClick={()=>{axios.delete(`http://localhost:8000/api/posts/${state.id}`).then(navigator('/list-test'))}}>삭제</button>
       <CommentTest postId={state.id}/>
     </div>

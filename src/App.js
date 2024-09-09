@@ -13,7 +13,9 @@ import WantMBTIResult from './pages/WantMBTIResult';
 import WantSelect from './pages/WantSelect';
 import ImageTest from './test/ImageTest';
 import { ApiProvider } from './contexts/ApiContext';
+
 import './App.css';
+
 import AnswerCrudTest from './test/AnswerCrudTest';
 import DogsCrudTest from './test/DogsCrudTest';
 import BoardTest from './test/BoardTest';
@@ -49,6 +51,7 @@ function App() {
           <Route path="/wantSelect" element={<WantSelect />} />
           <Route path="/admin-page" element={<AdminPage />} />
           <Route path="/answer-information-page" element={<AnswerInformation />} />
+            
           <Route path="/image-test" element={<ImageTest />} />
           <Route path="/answer-test" element={<AnswerCrudTest />} />
           <Route path="/dog-test" element={<DogsCrudTest />} />

@@ -1,0 +1,79 @@
+#TipsSubstance {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  margin: 30px;
+}
+
+.TipsFormContainer{
+  padding: 5%;
+}
+
+/* .TipsTextarea {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  width: 100%;
+  height: 500px;
+  padding: 10px;
+  resize: none;
+} */
+
+.TipsAutoTextarea {
+  width: auto;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: 200px;
+  resize: none;
+}
+
+.TipsFormImage {
+  width: 50%;
+  height: 30%;
+  object-fit: contain;
+}
+
+.TipsFormButton{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg-color);
+  color: var(--button-color);
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  display: inline-block;
+  width: auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: 0.5s;
+  opacity: 0.7;
+  background-color: #008CBA
+}
+
+.TipsFormButton:hover{
+  opacity: 1;
+}
+
+
+/* button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+} */

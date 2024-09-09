@@ -1,0 +1,92 @@
+.ListStyle {
+  list-style-type: none;
+  margin-top: 5px;
+}
+
+.TipsListContainer {
+  padding: 5%;
+  text-align: center;
+}
+
+.TipsListPageTitle{
+  text-align: left;
+}
+
+.TipsListTitle{
+  font-size: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.dropbtn_icon {
+  font-family: 'Material Icons';
+}
+
+.TipsPageImage{
+  background-image: url('/public/images/Question.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top right; /* 배경 이미지 우측 상단 배치 */
+  opacity: 0.3; /* 배경 이미지 불투명도 설정 */
+  position: absolute;
+  bottom: 30vh;
+  left: 5vh;
+  width: 18vh; /* 배경 이미지 크기 조정 */
+  height: 70%;
+  z-index: 0;
+}
+
+.dropbtn {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  font-weight: 400;
+  color: rgb(37, 37, 37);
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 10px 10px 0px 0px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.dropdown-content {
+  display: none;
+  font-weight: 400;
+  background-color: #f5f5f5;
+  width: 100%;
+  border-radius: 0px 0px 10px 10px;
+  text-align: left;
+  
+}
+.dropdown-content-padding{
+  padding: 2%;
+  font-size: 20px;
+}
+
+.TipsListTestImage{
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* .dropdown-content a {
+  display: block;
+  text-decoration: none;
+  color: rgb(37, 37, 37);
+  font-size: 12px;
+  padding: 12px 20px;
+} */
+
+/* hover가 아니고 클릭으로 구현하고 싶음  */
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
