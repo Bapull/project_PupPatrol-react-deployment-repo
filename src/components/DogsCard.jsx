@@ -93,25 +93,24 @@ const DogsCard = ({ dog, setRender }) => {
               <input type="text" name="dogBreed" value={editedDog.dogBreed} onChange={handleInputChange} />
             </div>
             <div className="editBirthDate">
-              <p>Birth</p>
+              <p>Birth Date</p>
               <input type="date" name="dogBirthDate" value={editedDog.dogBirthDate} onChange={handleInputChange} />
             </div>
 
             {/* 이미지 미리보기 및 파일 업로드 */}
             <div className="imagePreview">
-              <Image
-                className="image"
-                folder="dogs"
-                fileName={dog.dogPhotoName}
-                style={{ width: '200px', height: '200px' }}
-              />
               <input type="file" accept="image/*" onChange={handleFileChange} />
+              <Image className="image" folder="dogs" fileName={dog.dogPhotoName} />
             </div>
           </div>
           {/* 수정 버튼 및 취소 */}
           <div className="editButtons">
-            <button onClick={handleSave}>Save</button>
-            <button onClick={handleCancel}>Cancel</button>
+            <button className="dogEditSaveButton" onClick={handleSave}>
+              Save
+            </button>
+            <button className="dogEditCancelButton" onClick={handleCancel}>
+              Cancel
+            </button>
           </div>
         </div>
       ) : (
@@ -126,13 +125,7 @@ const DogsCard = ({ dog, setRender }) => {
           </div>
           {/* 강아지 정보 */}
           <div className="dog">
-            <Image
-              key={dog.dogPhotoName}
-              className="image"
-              folder="dogs"
-              fileName={dog.dogPhotoName}
-              style={{ width: '200px', height: '200px' }}
-            />
+            <Image key={dog.dogPhotoName} className="image" folder="dogs" fileName={dog.dogPhotoName} />
             <div className="dogInformation">
               <h3>{dog.dogName}</h3>
               <p>{dog.dogBreed}</p>

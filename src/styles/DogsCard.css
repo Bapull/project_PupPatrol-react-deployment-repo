@@ -17,6 +17,10 @@
   right: 10px;
 }
 
+.dogEditSaveButton {
+  margin-right: 5px;
+}
+
 .updateButton {
   position: absolute;
   top: 10px;
@@ -65,8 +69,9 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
-  width: 85%;
-  height: auto;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
   z-index: 1;
 }
 
@@ -95,12 +100,16 @@
 }
 
 .imagePreview input {
+  margin-top: 5px;
   border: none;
 }
 
 .imagePreview .image {
   position: absolute;
-  width: 100%;
-  height: auto;
-  bottom: 0;
+  bottom: 10px;
+  right: 20px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  z-index: 1;
 }
