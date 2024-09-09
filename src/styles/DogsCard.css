@@ -64,7 +64,7 @@
 .dog .image {
   position: absolute;
   bottom: 10px;
-  right: 0;
+  right: 10px;
   width: 85%;
   height: auto;
   z-index: 1;
@@ -102,6 +102,5 @@
   position: absolute;
   width: 100%;
   height: auto;
-  right: 0;
   bottom: 0;
 }
