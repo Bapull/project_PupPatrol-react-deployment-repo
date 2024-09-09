@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { imageDownloadApi } from '../utils/fetchAPI';
-import BoardInputForm from './BoardInputForm';
 import axios from '../lib/axios';
-
+import TipsInputForm from './TipsInputForm';
+import './TipsUpdateTest.css'
 const TipsUpdateTest = () => {
-  const {state} = useLocation();
-  // content -> text 변경 
-  const [text, setText] = useState('')
+  const { state } = useLocation();
+  const [content, setContent] = useState('')
   const [title, setTitle] = useState(state.postTitle)
   const navigator = useNavigate();
-  
-  useEffect(()=>{
+
+
+  useEffect(() => {
     const formData = new FormData();
-    formData.append('postTitle',title)
-    formData.append('postContent',JSON.stringify(text))
+    formData.append('postTitle', title)
+    formData.append('postContent', JSON.stringify(content))
     formData.append('_method', 'PATCH')
-    if(text){
-      // posts -> tips 변경
-      axios.post(`http://localhost:8000/api/tips/${state.id}`,formData)
+    if (content) {
+      axios.post(`http://localhost:8000/api/posts/${state.id}`, formData)
     }
-  },[text])
+  }, [content])
 
   return (
     <>
-    <div>제목<input type="text" onChange={(e)=>setTitle(e.target.value)} value={title}/></div>
-    <BoardInputForm content={state} setContent={setText}/>
-    {text&&<button onClick={()=>{navigator('/tipsList-test')}}>업로드한 글 테스트</button>}
+      <div className='TipsUpdateFormContainer'>
+        <h1>TipsUpdate</h1>
+        <div><input className='TipsUpdateInput' placeholder='제목을 적어주세요' type="text" onChange={(e) => setTitle(e.target.value)} value={title} /></div>
+        <TipsInputForm content={state} setContent={setContent} />
+        {content && <button onClick={() => { navigator('/tipsList-test') }}>업로드한 글 테스트</button>}
+      </div>
     </>
+
   )
 }
 

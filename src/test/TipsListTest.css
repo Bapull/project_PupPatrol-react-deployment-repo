@@ -54,12 +54,13 @@
   font-size: 12px;
   border-radius: 10px 10px 0px 0px;
   border: none;
+  border-bottom: 1px solid black;
 }
 
 .dropdown-content {
   display: none;
   font-weight: 400;
-  background-color: greenyellow;
+  background-color: #f5f5f5;
   width: 100%;
   border-radius: 0px 0px 10px 10px;
   text-align: left;
@@ -68,6 +69,12 @@
 .dropdown-content-padding{
   padding: 2%;
   font-size: 20px;
+}
+
+.TipsListTestImage{
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* .dropdown-content a {

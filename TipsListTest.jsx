@@ -7,7 +7,9 @@ import Image from '../components/Image'; // Assuming you have an Image component
 import { useAuth } from "../hooks/auth";
 
 const BoardListTest = () => {
+  // posts -> tips 
   const [tips, setTips] = useState([]);
+  // 관리자 판단하는 state
   const [admin, setAdmin] = useState(false)
   const [view, setView] = useState(false);
   const navigator = useNavigate();
