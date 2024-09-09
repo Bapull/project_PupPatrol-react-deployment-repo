@@ -21,6 +21,11 @@
   background: #424242;
   border-radius: 20px;
 }
-.error{
+.error {
   color: red;
+}
+
+.content {
+  margin-top: 20%;
+  width: auto;
 }

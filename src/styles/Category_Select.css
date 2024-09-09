@@ -1,7 +1,6 @@
 /* 'Category_Select.jsx'의 CSS 파일 */
 .categorySelect body {
   margin: 0;
-  
 }
 
 .categorySelect {
@@ -17,30 +16,30 @@
   text-shadow: 2px 2px 2px white;
 }
 
-.loginPath {
+.categorySelect .loginPath {
   text-align: center;
 }
 
-.loginPath p {
+.categorySelect .loginPath p {
   text-align: center;
   color: rgb(21, 142, 255);
   font-size: 14px;
 }
 
-.choice {
+.categorySelect .choice {
   width: 200vw;
   float: left;
   margin-top: 5vh;
 }
 
-.choiceHave {
+.categorySelect .choiceHave {
   float: right;
   margin-right: 4%;
   display: flex;
   margin-bottom: 0;
 }
 
-.content {
+.categorySelect .content {
   overflow: hidden;
   padding: 1%;
   font-size: 2.5rem;
@@ -51,11 +50,11 @@
   transition: transform 0.5s;
 }
 
-.textBox {
+.categorySelect .textBox {
   margin: 6vh 0 0 25px;
 }
 
-.horizontal {
+.categorySelect .horizontal {
   width: 100%;
   text-align: center;
   border-bottom: 1px solid #aaa;
@@ -63,11 +62,11 @@
   margin: 10px 0 20px;
 }
 
-.buttonGroup {
+.categorySelect .buttonGroup {
   text-align: center;
 }
 
-.buttonOn {
+.categorySelect .buttonOn {
   border: 0;
   background-color: transparent;
   background-color: white;
@@ -80,7 +79,7 @@
   transition: all ease 0.5s;
 }
 
-.buttonOff {
+.categorySelect .buttonOff {
   border: 0;
   background-color: transparent;
   background-color: #eeeae8;
@@ -92,13 +91,13 @@
   transition: all ease 0.5s;
 }
 
-.buttonBox {
+.categorySelect .buttonBox {
   text-align: center;
   margin-top: 15dvh;
   margin-bottom: 10px;
 }
 
-.buttonYes {
+.categorySelect .buttonYes {
   border: 0;
   background-color: transparent;
   text-align: center;

@@ -4,16 +4,16 @@ import BackButton from "../components/backButton";
 import { useAuth } from "../hooks/auth";
 const Login = () => {
   const { login } = useAuth({
-    middleware: 'guest',
-    redirectIfAuthenticated: '/dashboard'
-  })
+    middleware: "guest",
+    redirectIfAuthenticated: "/dashboard",
+  });
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
-  const [shouldRemember, setShouldRemember] = useState(false)
+  const [shouldRemember, setShouldRemember] = useState(false);
   const [errors, setErrors] = useState([]);
-  const [status, setStatus] = useState(null)
+  const [status, setStatus] = useState(null);
 
   const onChange = (e) => {
     let { name, value } = e.target;
@@ -26,67 +26,67 @@ const Login = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    
+
     login({
       ...inputs,
       remember: shouldRemember,
       setErrors,
       setStatus,
-    })
+    });
   };
   return (
     <>
-    {status}
-    <form onSubmit={onSubmit} className="container">
-      <BackButton />
-      <input
-        type="email"
-        name="email"
-        value={inputs.email}
-        onChange={onChange}
-        placeholder=" Email"
-        className="loginInput"
-      />
-      
-      <input
-        type="password"
-        name="password"
-        value={inputs.password}
-        onChange={onChange}
-        placeholder=" Password"
-        className="loginInput"
-        minLength={8}
-      />
-      
-      {errors.email?.length > 0 && errors.email.map((item,index)=>{
-        return <p className="error" key={index}>
-          {item}
-        </p>
-      })}
-      
-      <button type="submit" className="loginButton">
-        Login
-      </button>
-      <div className="block mt-4">
-        <label
-            htmlFor="remember_me">
+      {status}
+      <form onSubmit={onSubmit} className="container">
+        <BackButton />
+        <div className="content">
+          <input
+            type="email"
+            name="email"
+            value={inputs.email}
+            onChange={onChange}
+            placeholder=" Email"
+            className="loginInput"
+          />
+
+          <input
+            type="password"
+            name="password"
+            value={inputs.password}
+            onChange={onChange}
+            placeholder=" Password"
+            className="loginInput"
+            minLength={8}
+          />
+        </div>
+
+        {errors.email?.length > 0 &&
+          errors.email.map((item, index) => {
+            return (
+              <p className="error" key={index}>
+                {item}
+              </p>
+            );
+          })}
+
+        <button type="submit" className="loginButton">
+          Login
+        </button>
+        <div className="block mt-4">
+          <label htmlFor="remember_me">
             <input
-                id="remember_me"
-                type="checkbox"
-                name="remember"
-                onChange={event =>
-                    setShouldRemember(event.target.checked)
-                }
+              id="remember_me"
+              type="checkbox"
+              name="remember"
+              onChange={(event) => setShouldRemember(event.target.checked)}
             />
-                Remember me
-        </label>
-      </div>
-      
-      <a href="/register">Sign in</a>
-    </form>
-    
+            Remember me
+          </label>
+        </div>
+
+        <a href="/register">Sign in</a>
+      </form>
     </>
-    
   );
 };
 

@@ -1,0 +1,25 @@
+.container {
+  align-items: center;
+}
+
+.head1 {
+  margin-top: 10vh;
+  margin-bottom: 3vh;
+  text-align: center;
+}
+
+.listButton {
+  border: 0;
+  background-color: transparent;
+  text-align: center;
+  width: 100px;
+  height: 25px;
+  border-radius: 30px;
+  color: #dcb893;
+  font-weight: 500;
+  font-size: small;
+  outline: 3px solid;
+  outline-color: #dcb893;
+  background-color: #eeeae8;
+  margin-bottom: 10px;
+}

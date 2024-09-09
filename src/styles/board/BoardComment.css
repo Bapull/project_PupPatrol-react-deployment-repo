@@ -1,0 +1,62 @@
+.boardComment .content {
+  margin-top: 50px;
+}
+
+.boardComment .comment {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.boardComment .comments {
+  margin-top: 5%;
+}
+
+.boardComment .commentGroup hr {
+  margin: 5px;
+}
+
+.boardComment .writer {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.underBar {
+  border: 0;
+  height: 2px;
+  background: black;
+}
+
+.comments .email {
+  font-weight: bolder;
+  color: rgb(202, 138, 82);
+}
+.comments .text {
+  color: rgb(0, 0, 0);
+}
+.comments .day {
+  font-size: small;
+  font-weight: 600;
+}
+
+.comments .update {
+  margin: 10px;
+  margin-left: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.comments .pencil {
+  width: 20px;
+}
+
+.comments .delete {
+  margin: 2px;
+  border: 0;
+  background-color: transparent;
+}
+
+.comments .gomi {
+  width: 20px;
+}
