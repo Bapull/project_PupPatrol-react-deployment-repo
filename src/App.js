@@ -13,6 +13,10 @@ import WantMBTIResult from './pages/WantMBTIResult';
 import WantSelect from './pages/WantSelect';
 import ImageTest from './test/ImageTest';
 import { ApiProvider } from './contexts/ApiContext';
+import TipsTest from './test/TipsTest'
+import TipsListTest from './test/TipsListTest'
+import TipsDetail from './test/TipsDetail'
+import TipsUpdateTest from './test/TipsUpdateTest'
 
 import './App.css';
 
@@ -29,34 +33,6 @@ import BoardList from './pages/board/BoardList';
 import BoardDescription from './pages/board/BoardDescription';
 import BoardUpdate from './pages/board/BoardUpdate';
 import UserUpdate from './test/UserUpdate';
-import { BrowserView, MobileView } from "react-device-detect";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
-import CategorySelect from "./pages/CategorySelect";
-import DogSearch from "./pages/DogSearch";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import Register from "./pages/Register";
-import WantDogDescription from "./pages/WantDogDescription";
-import WantMBTI from "./pages/WantMBTI";
-import WantMBTIResult from "./pages/WantMBTIResult";
-import WantSelect from "./pages/WantSelect";
-import ImageTest from "./test/ImageTest";
-import { ApiProvider } from "./contexts/ApiContext";
-import "./App.css";
-import AnswerCrudTest from "./test/AnswerCrudTest";
-import DogsCrudTest from "./test/DogsCrudTest";
-import BoardCreate from "./pages/board/BoardCreate";
-import BoardDescription from "./pages/board/BoardDescription";
-import BoardUpdate from "./pages/board/BoardUpdate";
-import BoardList from "./pages/board/BoardList";
-import AdminPage from "./pages/AdminPage";
-import AnswerInformation from "./components/AnswerInformation";
-import UserUpdate from "./test/UserUpdate";
 
 function App() {
   return (
@@ -92,6 +68,10 @@ function App() {
           <Route path="/boardDescription" element={<BoardDescription />} />
           <Route path="/boardUpdate" element={<BoardUpdate />} />
           <Route path="/user-update" element={<UserUpdate />} />
+          <Route path="/tips-test" element={<TipsTest />} />
+          <Route path="/tipsList-test" element={<TipsListTest />} />
+          <Route path="/tips-detail" element={<TipsDetail />} />
+          <Route path="/tips-update-test" element={<TipsUpdateTest />} />
         </Routes>
       </Router>
     </ApiProvider>
