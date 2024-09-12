@@ -23,3 +23,22 @@
 .boardDescription .gomi {
   width: 20px;
 }
+
+.boardDescription .title {
+  font-family: "Nanum Pen Script";
+  margin-bottom: 0;
+}
+
+.boardDescription .date {
+  margin-top: 0;
+  font-family: "Nanum Pen Script";
+  font-size: larger;
+}
+
+.boardDescription .text {
+  font-family: "Nanum Pen Script";
+}
+
+.boardDescription .comentText {
+  font-family: "Nanum Pen Script";
+}

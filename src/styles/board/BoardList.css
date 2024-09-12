@@ -5,8 +5,10 @@
 .boardList .descriptions {
   border-radius: 20px;
   margin: 3px;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: 10px;
-  padding: 5px;
+  padding: 3%;
   outline: 2px rgb(219, 179, 122) solid;
 }
 
