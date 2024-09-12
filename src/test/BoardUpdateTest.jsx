@@ -9,6 +9,8 @@ const BoardUpdateTest = () => {
   const [content, setContent] = useState('')
   const [title, setTitle] = useState(state.postTitle)
   const navigator = useNavigate();
+
+  console.log(state);
   
   useEffect(()=>{
     const formData = new FormData();
@@ -23,6 +25,7 @@ const BoardUpdateTest = () => {
   return (
     <>
     <div>제목<input type="text" onChange={(e)=>setTitle(e.target.value)} value={title}/></div>
+    {/* 수정기능 */}
     <BoardInputForm content={state} setContent={setContent}/>
     {content&&<button onClick={()=>{navigator('/list-test')}}>업로드한 글 테스트</button>}
     </>

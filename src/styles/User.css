@@ -1,0 +1,174 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logoutButton {
+  align-self: flex-end;
+  margin: 20px 30px 0 0;
+  width: 15%;
+  height: auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #dcb893;
+  cursor: pointer;
+}
+
+.userTitle {
+  margin: 20% 0 5% 15%;
+  color: #dcb893;
+  font-size: 2.3rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.userContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px auto;
+  width: 75%;
+  height: 20vh;
+  background-color: #f7f2ed;
+  border-radius: 15px;
+}
+
+.userInformation {
+  flex: 1;
+  margin-left: 15px;
+  width: 65%;
+}
+
+.userInformation input {
+  width: 75%;
+  margin-top: 5px;
+  border-color: #dcb893;
+  background-color: #f7f2ed;
+  border-radius: 5px;
+}
+
+.userName {
+  align-items: flex-start;
+  margin: 0 0 0 10%;
+  font-style: normal;
+}
+
+.userName h2 {
+  margin: 5% 0 0 0;
+  color: #dcb893;
+  font-size: 1.2rem;
+  line-height: normal;
+}
+
+.userName p {
+  margin: 5px 0 0 1px;
+  font-size: 1rem;
+  line-height: normal;
+}
+
+.userBirth {
+  align-items: flex-start;
+  margin: 0 0 0 10%;
+  font-style: normal;
+}
+
+.userBirth h2 {
+  margin: 20% 0 0 0;
+  color: #dcb893;
+  font-size: 1.2rem;
+  line-height: normal;
+}
+
+.userBirth p {
+  margin: 5px 0 0 1px;
+  font-size: 1rem;
+  line-height: normal;
+}
+
+.userImages {
+  flex: 2;
+  height: 90%;
+  position: relative;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.editButtons {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  z-index: 10;
+}
+
+.saveButton {
+  margin-right: 5px;
+}
+
+.editButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.userPhoto {
+  position: absolute;
+  width: 100%;
+  top: 53%;
+  left: 15%;
+  transform: translate(-25%, -50%);
+}
+
+.userPhoto img {
+  width: 100px;
+  height: 100px;
+  margin-left: 40%;
+  object-fit: fill;
+  border-radius: 50%;
+}
+
+.userPhoto input {
+  margin: 30px 0 0 20px;
+  cursor: pointer;
+}
+
+.dogNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.prevButton,
+.nextButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.prevButton img,
+.nextButton img {
+  width: 30px;
+  height: 30px;
+}
+
+.dogAddButton {
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto;
+  width: 20%;
+  height: 2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #efc9a3;
+  cursor: pointer;
+}

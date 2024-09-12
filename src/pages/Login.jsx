@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import "../styles/Login.css";
-import BackButton from "../components/backButton";
-import { useAuth } from "../hooks/auth";
+import React, { useState } from 'react';
+import '../styles/Login.css';
+import BackButton from '../components/backButton';
+import { useAuth } from '../hooks/auth';
 const Login = () => {
   const { login } = useAuth({
-    middleware: "guest",
-    redirectIfAuthenticated: "/dashboard",
+    middleware: 'guest',
+    redirectIfAuthenticated: '/user',
   });
   const [inputs, setInputs] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
   const [shouldRemember, setShouldRemember] = useState(false);
   const [errors, setErrors] = useState([]);
