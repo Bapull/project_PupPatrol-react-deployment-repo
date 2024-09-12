@@ -11,6 +11,8 @@ export const imageUploadApi = async (url,folder, image) => {
     folderName = 'pup-patrol-dogs-image'
   }else if(folder === 'users'){
     folderName = 'pup-patrol-users-image'
+  }else{
+    throw new Error('wrong folder name');
   }
   const response = await axios.post(url, formData, {
     headers: {
@@ -35,6 +37,8 @@ export const imageDownloadApi = async ( url, folder, fileName) => {
     folderName = 'pup-patrol-dogs-image'
   }else if(folder === 'users'){
     folderName = 'pup-patrol-users-image'
+  }else{
+    throw new Error('wrong folder name');
   }
   const response = await axios.get(`${url}?fileName=${fileName}`, {
     headers: {
@@ -59,6 +63,8 @@ export const imageDeleteApi = async ( url, folder, fileName )=>{
     folderName = 'pup-patrol-information-image'
   }else if(folder === 'dogs'){
     folderName = 'pup-patrol-dogs-image'
+  }else{
+    throw new Error('wrong folder name');
   }
   const response = await axios.delete(`${url}?fileName=${fileName}`, {
     headers: {
