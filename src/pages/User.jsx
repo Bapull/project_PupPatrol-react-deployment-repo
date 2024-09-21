@@ -10,7 +10,6 @@ import { imageUploadApi, imageDeleteApi } from '../utils/fetchAPI';
 
 const User = () => {
   const navigate = useNavigate();
-  const { logout } = useAuth(); // 로그아웃
   const { user } = useAuth({ middleware: 'auth' }); // 사용자 정보 상태(인증된 사용자 정보)
   const [render, setRender] = useState(false); // 렌더링 상태
 
@@ -113,10 +112,6 @@ const User = () => {
   return (
     <div className="user">
       <BackButton />
-      {/* 로그아웃 버튼 */}
-      <button className="logoutButton" onClick={logout}>
-        logout
-      </button>
       <h1 className="userTitle">Information</h1>
       <div className="userContainer">
         {/* 사용자 정보 */}
