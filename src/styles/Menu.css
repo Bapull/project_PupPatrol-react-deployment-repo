@@ -2,39 +2,42 @@
   position: fixed;
   top: 16px;
   right: 16px;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-}
-
-.Modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 7%;
+  height: auto;
   z-index: 1000;
 }
 
-.MenuModalContent {
-  background-color: white;
-  width: 80%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  border-radius: 10px;
+.Menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex; /* 중앙 정렬을 위해 flexbox 사용 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
 }
 
-.MenuModalContent a {
+.menuContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.menuContent a {
+  display: block;
+  width: 100%;
+  text-align: center;
   text-decoration: none;
-  color: black;
-  font-size: 18px;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.menuContent a:link,
+.menuContent a:visited {
+  color: white;
+  text-decoration: none;
 }

@@ -12,15 +12,13 @@ const Menu = () => {
 
   return (
     <>
-      <img src="/images/Menu.png" alt="Menu Icon" className="MenuIcon" onClick={toggleMenu} />
-
+      <img src="/images/Menu.png" alt="menuIcon" className="MenuIcon" onClick={toggleMenu} />
       {isOpen && (
         <div className="Menu" onClick={toggleMenu}>
-          <div className="MenuContent" onClick={(e) => e.stopPropagation()}>
+          <div className="menuContent" onClick={(e) => e.stopPropagation()}>
             <a href="/">Category</a>
             <a href="/dogSearch">Dog Search</a>
             <a href="/wantMBTI">D_MBTI</a>
-            <a href="/dashboard">Board</a>
             {/* 로그인 상태에 따라 다른 동작 수행 */}
             {user ? (
               <>
