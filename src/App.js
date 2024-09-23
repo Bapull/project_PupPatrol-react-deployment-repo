@@ -11,12 +11,15 @@ import WantDogDescription from './pages/WantDogDescription';
 import WantMBTI from './pages/WantMBTI';
 import WantMBTIResult from './pages/WantMBTIResult';
 import WantSelect from './pages/WantSelect';
-import ImageTest from './test/ImageTest';
+
+import Menu from './components/Menu';
 import { ApiProvider } from './contexts/ApiContext';
-import TipsTest from './test/TipsTest'
-import TipsListTest from './test/TipsListTest'
-import TipsDetail from './test/TipsDetail'
-import TipsUpdateTest from './test/TipsUpdateTest'
+
+import ImageTest from './test/ImageTest';
+import TipsTest from './test/TipsTest';
+import TipsListTest from './test/TipsListTest';
+import TipsDetail from './test/TipsDetail';
+import TipsUpdateTest from './test/TipsUpdateTest';
 
 import './App.css';
 
@@ -38,6 +41,7 @@ function App() {
   return (
     <ApiProvider>
       <Router>
+        <Menu />
         <BrowserView></BrowserView>
         <MobileView></MobileView>
         <Routes>
@@ -55,7 +59,7 @@ function App() {
           <Route path="/wantSelect" element={<WantSelect />} />
           <Route path="/admin-page" element={<AdminPage />} />
           <Route path="/answer-information-page" element={<AnswerInformation />} />
-            
+
           <Route path="/image-test" element={<ImageTest />} />
           <Route path="/answer-test" element={<AnswerCrudTest />} />
           <Route path="/dog-test" element={<DogsCrudTest />} />

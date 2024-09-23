@@ -1,0 +1,43 @@
+.MenuIcon {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 7%;
+  height: auto;
+  z-index: 1000;
+}
+
+.Menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex; /* 중앙 정렬을 위해 flexbox 사용 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+}
+
+.menuContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.menuContent a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.menuContent a:link,
+.menuContent a:visited {
+  color: white;
+  text-decoration: none;
+}
